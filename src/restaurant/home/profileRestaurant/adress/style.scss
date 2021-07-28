@@ -1,9 +1,10 @@
 .page-profile-restaurant {
   height: 100vh;
 
-  main {
-    background-image: url(../../../assets/image/36022.jpg);
+  .main-adress {
+    background-image: url(../../../../assets/image/36022.jpg);
     background-size: cover;
+    height: 100%;
     display: flex;
     align-items: center;
     justify-content: center;

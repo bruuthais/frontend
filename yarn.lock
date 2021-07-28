@@ -1659,6 +1659,13 @@
     "@svgr/plugin-svgo" "^5.5.0"
     loader-utils "^2.0.0"
 
+"@szhsin/react-menu@^1.11.0":
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/@szhsin/react-menu/-/react-menu-1.11.0.tgz#3b4929d5cf5bb676eac3dc962da3029080b82bc2"
+  integrity sha512-kaW/IpcokmyVwX7WGe6ijQI/xQDw5nQXUKyiioy40dm5gt45+Lo7cqGVUoy7Qj8275Q9tgN6hcazWX/DCcYUfQ==
+  dependencies:
+    prop-types "^15.7.2"
+
 "@testing-library/dom@^7.28.1":
   version "7.31.2"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-7.31.2.tgz#df361db38f5212b88555068ab8119f5d841a8c4a"
@@ -11016,6 +11023,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@^4.3.5:
+  version "4.3.5"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.3.5.tgz#4d1c37cc16e893973c45a06886b7113234f119f4"
+  integrity sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==
 
 unicode-canonical-property-names-ecmascript@^1.0.4:
   version "1.0.4"

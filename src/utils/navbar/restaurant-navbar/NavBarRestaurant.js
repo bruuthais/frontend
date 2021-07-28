@@ -1,11 +1,13 @@
 import "./style.scss";
 
 import ImgLogo from "../../../assets/image/logo.svg";
-import { useHistory } from "react-router-dom";
-import { FiHelpCircle, FiLogOut } from "react-icons/fi";
+import {useHistory} from "react-router-dom";
+import {FiHelpCircle, FiLogOut} from "react-icons/fi";
 
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 import Switches from "./OpenClose";
+import {MenuProfile} from "./MenuProfile";
+import {MenuCli} from "./MenuCli";
 export function NavBarRestaurant() {
   const history = useHistory();
 
@@ -33,18 +35,9 @@ export function NavBarRestaurant() {
           <p className="p-switch-close">fechado</p>
         </div>
         <div className="types">
-          <button
-            className="button-menu-restaurant button-home-restaurant"
-            onClick={handleProfile}
-          >
-            perfil
-          </button>
-          <button
-            className="button-menu-restaurant button-home-restaurant"
-            onClick={handleCreateAccount}
-          >
-            pedidos
-          </button>
+          <MenuProfile />
+
+          <MenuCli />
           <button
             className="button-menu-restaurant button-home-restaurant"
             onClick={handleCreateAccount}

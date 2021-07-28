@@ -1,19 +1,22 @@
-import { useState } from "react";
-
-import  api  from "../../../api/api";
-import { NavBarRestaurant } from "../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
+import {useState} from "react";
+import {Link, useHistory} from "react-router-dom";
+import api from "../../../../api/api";
+import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 import "./style.scss";
 
-export function ProfileRestaurant() {
+export function ProfileAdressRestaurant() {
   const [logo, setLogo] = useState("");
   const [banner, setBanner] = useState("");
+  const history = useHistory();
+
   async function uploadImage(e: any) {
     e.preventDefault();
 
-    await api.post(`/api/Restaurant/images`, {
-      logoUrl: logo,
-      bannerUrl: banner,
-    })
+    await api
+      .post(`/api/Restaurant/images`, {
+        logoUrl: logo,
+        bannerUrl: banner,
+      })
       .then(function (resposta) {
         console.log(resposta);
       })
@@ -44,29 +47,9 @@ export function ProfileRestaurant() {
   return (
     <div className="page-profile-restaurant">
       <NavBarRestaurant />
-      <main>
+      <main className="main-adress">
         <div className="profile-restaurant-content">
           <form className="form-profile-restaurant">
-            <h3 className="h3-profile-restaurant">Editar perfil</h3>
-            <div className="profile-restaurant">
-              <p className="p-form-profile">Logo:</p>
-              <input
-                type="text"
-                className="input-img-restaurant"
-                placeholder="insira a url da logo"
-                value={logo}
-                onChange={(e) => setLogo(e.target.value)}
-              />
-
-              <p className="p-form-profile">Banner:</p>
-              <input
-                type="text"
-                className="input-img-restaurant"
-                placeholder="insira a url do banner"
-                value={banner}
-                onChange={(e) => setBanner(e.target.value)}
-              />
-            </div>
             <div className="profile-adress-restaurant">
               <h3 className="h3-profile-restaurant">Endereço:</h3>
               <p className="p-form-adress">Cep:</p>
@@ -130,7 +113,11 @@ export function ProfileRestaurant() {
               />
             </div>
 
-            <button className="button-profile-restaurant" onClick={uploadImage}>
+            <button
+              className="button-profile-restaurant"
+              type="submit"
+              onClick={uploadImage}
+            >
               salvar perfil
             </button>
           </form>
