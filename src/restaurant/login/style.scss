@@ -1,0 +1,122 @@
+#page-auth {
+  background-image: url(../../assets/image/36022.jpg);
+  background-size: cover;
+  display: flex;
+
+  height: 100vh;
+
+  .main-login-account {
+    flex: 1;
+    display: flex;
+    grid-column: auto;
+    align-items: center;
+    justify-content: center;
+    background: #fefefec7;
+    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+
+    .login-content {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      max-width: 450px;
+      align-items: stretch;
+      text-align: center;
+
+      .img-logo-login {
+        align-self: center;
+        width: 300px;
+        height: 300px;
+      }
+      h2 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 200;
+        color: #3b375d;
+        font-size: 25px;
+        margin-top: 1em;
+      }
+
+      .form-login {
+        input {
+          height: 50px;
+          border-radius: 8px;
+          background: #fff;
+          text-align: center;
+          border: 1px solid #a8a8b3;
+          width: 100%;
+        }
+        input + input {
+          margin-top: 2em;
+        }
+        .p-form {
+          text-align: right;
+          a {
+            color: #5964f9;
+          }
+        }
+
+        .login-to-account {
+          color: #fefefe;
+          background-color: #4054b2;
+          border-radius: 10px;
+          margin-top: 1.3em;
+          margin-bottom: 1.3em;
+          font-weight: 600;
+          border: none;
+          width: 12em;
+          height: 3.5em;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #f3e836;
+            color: #4054b2;
+            font-weight: 600;
+            transition: 0.2s;
+          }
+        }
+      }
+      p {
+        font-size: 12px;
+        color: #737380;
+        margin-top: 16px;
+
+        .link {
+          color: #5964f9;
+        }
+      }
+    }
+  }
+}
+
+@media (man-width: 450px) {
+  #page-auth {
+    .main-login-account {
+      display: none;
+
+      .login-content {
+        max-width: 300px;
+
+        .form-login {
+          max-width: 400px;
+          padding: 30px;
+          .input-login {
+            height: 40px;
+            border-radius: 10px;
+            background: #fff;
+            text-align: left;
+            border: 1px solid #a8a8b3;
+            width: 100%;
+          }
+          input + input {
+            margin-top: 2em;
+          }
+          .p-form {
+            text-align: right;
+            a {
+              color: #5964f9;
+            }
+          }
+        }
+      }
+    }
+  }
+}

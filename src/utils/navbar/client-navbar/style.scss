@@ -1,0 +1,99 @@
+.navbar-home-login {
+  align-items: center;
+  height: 80px;
+  background-color: #fefefe;
+  border-bottom: 2.3px solid #ebebeb;
+  .api-name {
+    padding: 0 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    font-size: 1.2em;
+    .img-logo {
+      width: 80px;
+      height: 80px;
+    }
+
+    .header-search-restaurant {
+      input {
+        border: none;
+        width: 300px;
+        height: 40px;
+      }
+      :focus {
+        box-shadow: 0 0 0 0;
+        border: 0 none;
+        outline: 0;
+      }
+      display: float;
+      border: 1px solid #a8a8b3;
+      background-image: url(../../../assets/image/lupa.png);
+      background-size: 20px;
+      background-repeat: no-repeat;
+      color: #ffffff;
+      padding-left: 40px;
+      background-position: 15px center;
+      border-radius: 10px;
+      font-size: 20px;
+    }
+
+    .types {
+      display: flex;
+      gap: 5px;
+      align-items: center;
+      justify-content: space-around;
+
+      .username {
+        font-size: 15px;
+        margin-right: 2em;
+      }
+      .nav-react-icon {
+        cursor: pointer;
+        align-self: center;
+        color: #3b375d;
+      }
+
+      .nav-react-icon-cart {
+        margin-right: 15px;
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar-home-login {
+    .api-name {
+      padding: 0 15px;
+      .header-search-restaurant {
+        display: none;
+      }
+      .types {
+        justify-content: flex-start;
+        .username {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-home-login {
+    .api-name {
+      padding: 0 15px;
+      .header-search-restaurant {
+        input {
+          width: 150px;
+        }
+      }
+      .types {
+        justify-content: flex-start;
+        .username {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}

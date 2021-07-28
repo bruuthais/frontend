@@ -1,0 +1,41 @@
+.search-component {
+  max-width: 100%;
+  margin-top: 2em;
+  display: flex;
+  justify-content: center;
+  margin-bottom: -3em;
+  .search-restaurant {
+    display: flex;
+    border: 1px solid #a8a8b3;
+    background-image: url(../../assets/image/lupa.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+    color: #ffffff;
+    background-position: 15px center;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 300px;
+    height: 40px;
+    padding-left: 40px;
+    .search-restaurant-input {
+      border: none;
+      align-self: center;
+    }
+    :focus {
+      box-shadow: 0 0 0 0;
+      border: 0 none;
+      outline: 0;
+    }
+  }
+}
+
+@media (min-width: 700px) {
+  .search-component {
+    .search-restaurant {
+      display: none;
+      .search-restaurant-input {
+        display: none;
+      }
+    }
+  }
+}

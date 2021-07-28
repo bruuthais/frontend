@@ -1,0 +1,36 @@
+.types-of-food {
+  margin-top: 5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  h3 {
+    color: #3b375d;
+    font-size: 1em;
+    font-weight: 700;
+    margin-top: 2em;
+  }
+
+  .type-food {
+    display: flex;
+    gap: 8px;
+
+    justify-content: center;
+    .button-food {
+      text-transform: uppercase;
+      font-size: 1.5em;
+      border-radius: 20px;
+      text-align: center;
+      padding-bottom: 8.5em;
+      border: none;
+      width: 15em;
+      height: 11em;
+      cursor: pointer;
+      transition: 0.2s;
+      font-weight: 900;
+      color: #3b375d;
+
+      &:hover {
+        filter: brightness(0.5);
+      }
+    }
+  }
+}

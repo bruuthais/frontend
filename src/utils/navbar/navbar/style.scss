@@ -1,0 +1,157 @@
+.navbar-home {
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  background-color: #fefefe;
+  border-bottom: 2.3px solid #ebebeb;
+  .api-name {
+    padding: 0 300px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .img-logo {
+      width: 80px;
+      height: 80px;
+    }
+    .types {
+      display: flex;
+      gap: 3px;
+      align-items: center;
+
+      button {
+        color: #fefefe;
+        border-radius: 10px;
+        border: none;
+        width: 8em;
+        height: 3.5em;
+        cursor: pointer;
+        transition: 0.2s;
+        margin-left: 5px;
+      }
+      .create-account-button {
+        background: transparent;
+        color: rgb(5, 5, 88);
+        font-weight: 500;
+        padding: 0;
+        &:hover {
+          font-weight: 700;
+        }
+      }
+      .login-button {
+        background: #4054b2;
+        &:hover {
+          background-color: #f3e836;
+          color: #4054b2;
+          font-weight: 500;
+        }
+      }
+      .restaurant-button {
+        background-color: #4054b2;
+        &:hover {
+          background-color: #f3e836;
+          color: #4054b2;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 450px) {
+  .navbar-home {
+    .api-name {
+      padding: 0 15px;
+      .types {
+        display: flex;
+        gap: 3px;
+        align-items: center;
+
+        .button-home {
+          color: #fefefe;
+          border-radius: 10px;
+          border: none;
+          width: 6em;
+          height: 3.5em;
+          cursor: pointer;
+          transition: 0.2s;
+          margin-left: 5px;
+        }
+        .create-account-button {
+          background: transparent;
+          color: rgb(5, 5, 88);
+          font-weight: 500;
+          padding: 0;
+          &:hover {
+            font-weight: 700;
+          }
+        }
+        .login-button {
+          background: #4054b2;
+          &:hover {
+            background-color: #f3e836;
+            color: #4054b2;
+            font-weight: 500;
+          }
+        }
+        .restaurant-button {
+          background-color: #4054b2;
+          &:hover {
+            background-color: #f3e836;
+            color: #4054b2;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar-home {
+    .api-name {
+      padding: 0 15px;
+      .types {
+        display: flex;
+        gap: 3px;
+        align-items: center;
+
+        .button-home {
+          color: #fefefe;
+          border-radius: 10px;
+          border: none;
+          width: 6em;
+          height: 3.5em;
+          cursor: pointer;
+          transition: 0.2s;
+          margin-left: 5px;
+        }
+        .create-account-button {
+          background: transparent;
+          color: rgb(5, 5, 88);
+          font-weight: 500;
+          padding: 0;
+          &:hover {
+            font-weight: 700;
+          }
+        }
+        .login-button {
+          background: #4054b2;
+          &:hover {
+            background-color: #f3e836;
+            color: #4054b2;
+            font-weight: 500;
+          }
+        }
+        .restaurant-button {
+          background-color: #4054b2;
+          &:hover {
+            background-color: #f3e836;
+            color: #4054b2;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
