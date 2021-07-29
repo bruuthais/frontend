@@ -22,10 +22,11 @@ const LoginRestaurant = (props) => {
     event.preventDefault();
     doLogin({email, password})
       .then((response) => {
-        const {jwt} = response.data;
+        const {token} = response.data;
 
-        localStorage.setItem("jwtToken", jwt);
+        localStorage.setItem("jwtToken", token);
         props.history.push("/home-restaurant");
+        console.log(response.data);
       })
 
       .catch((err) => {

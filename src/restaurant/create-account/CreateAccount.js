@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { NavBarCreate } from "../../utils/navbar/navbar-create-account/NavBarCreate";
-import { ToastContainer, toast } from "react-toastify";
+import {useState} from "react";
+import {Link, useHistory} from "react-router-dom";
+import {NavBarCreate} from "../../utils/navbar/navbar-create-account/NavBarCreate";
+import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
-import  api  from "../../api/api";
+import api from "../../api/api";
 
 export function CreateAccountRestaurant() {
   //Verificar se os dados exigidos estão preenchidos e válidos.
@@ -19,13 +19,14 @@ export function CreateAccountRestaurant() {
       return toast.error("Preencha todos os campos corretamente.");
     }
 
-    await api.post(`/api/Home/restaurant`, {
-      name: nome,
-      user: {
-        email: email,
-        password: senha,
-      },
-    })
+    await api
+      .post(`/api/Home/restaurant`, {
+        name: nome,
+        user: {
+          email: email,
+          password: senha,
+        },
+      })
       .then(function (resposta) {
         history.push("/create-successful");
       })
@@ -62,7 +63,7 @@ export function CreateAccountRestaurant() {
             <p className="p-form">Senha:</p>
             <input
               className="input-create-account"
-              type="text"
+              type="password"
               placeholder="insira uma senha"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}

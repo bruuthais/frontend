@@ -16,12 +16,13 @@ export function MenuCli() {
     <Menu
       menuButton={
         <button className="button-menu-restaurant button-home-restaurant">
-          cliente
+          restaurante
         </button>
       }
     >
       <MenuItem onClick={handlePicture}>pagamentos</MenuItem>
       <MenuItem Onclick={handleAdress}>pedidos</MenuItem>
+
       <MenuItem>fechar</MenuItem>
     </Menu>
   );

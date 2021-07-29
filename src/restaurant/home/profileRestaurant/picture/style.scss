@@ -1,142 +1,141 @@
 .page-profile-restaurant {
   height: 100vh;
-
-  background-image: url(../../../../assets/image/36022.jpg);
-  background-size: cover;
   main {
-    background-size: cover;
+    //background-image: url(../../../../assets/image/36022.jpg);
+    //background-repeat: repeat;
+    //background-size: cover;
     display: flex;
     align-items: center;
     justify-content: center;
-  }
 
-  .profile-restaurant-content {
-    border-radius: 8px;
+    .profile-restaurant-content {
+      border-radius: 8px;
+      margin-top: 2em;
+      width: 100%;
+      max-width: 700px;
+      text-align: center;
+      background: #fefefec7;
+      box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+      margin-bottom: 2em;
 
-    width: 100%;
-    max-width: 700px;
-    text-align: center;
-    background: #fefefec7;
-    box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
-    margin-bottom: 2em;
-
-    .form-profile-restaurant {
-      max-width: 900px;
-      padding: 30px;
-      align-items: center;
-      .h3-profile-restaurant {
-        font-family: "Poppins", sans-serif;
-        font-weight: 500;
-        color: #3b375d;
-        font-size: 20px;
-        margin-bottom: 2em;
-        margin-top: 2em;
-      }
-      .profile-restaurant {
-        max-width: 500px;
-        padding: 0 60px;
-        padding-right: 30px;
-        .p-form-profile {
-          margin-bottom: 0.5em;
-          text-align: left;
+      .form-profile-restaurant {
+        max-width: 900px;
+        padding: 30px;
+        align-items: center;
+        .h3-profile-restaurant {
+          font-family: "Poppins", sans-serif;
+          font-weight: 500;
           color: #3b375d;
+          font-size: 20px;
+          margin-bottom: 2em;
+          margin-top: 2em;
         }
+        .profile-restaurant {
+          max-width: 500px;
+          padding: 0 60px;
+          padding-right: 30px;
+          .p-form-profile {
+            margin-bottom: 0.5em;
+            text-align: left;
+            color: #3b375d;
+          }
 
-        .input-img-restaurant {
-          height: 30px;
-          border-radius: 8px;
-          background: #fff;
-          padding-left: 10px;
-          border: 1px solid #a8a8b3;
-          width: 100%;
-          margin-bottom: 1.5em;
-        }
-        .button-img-restaurant {
-          color: #fefefe;
-          margin-left: 0.5em;
-          background-color: #4054b2;
-          border-radius: 10px;
-          font-size: 10px;
-          justify-content: center;
-          border: none;
-          font-size: 15px;
-          align-items: center;
-          width: 200px;
-          height: 45px;
-          cursor: pointer;
-        }
-        .button-img-restaurant:hover {
-          background-color: #f3e836;
-          color: #4054b2;
-          font-weight: 600;
-          transition: 0.2s;
-        }
-      }
-      .profile-adress-restaurant {
-        max-width: 500px;
-        padding: 0 60px;
-
-        .p-form-adress {
-          text-align: left;
-          margin-bottom: 0.5em;
-          color: #3b375d;
-        }
-        .input-adress {
-          justify-content: center;
-          height: 30px;
-          border-radius: 8px;
-          background: #fff;
-          padding-left: 10px;
-          border: 1px solid #a8a8b3;
-          width: 100%;
-
-          .input-adress + .input-adress {
-            margin-top: 2em;
-            max-width: 500px;
+          .input-img-restaurant {
+            height: 30px;
+            border-radius: 8px;
+            background: #fff;
+            padding-left: 10px;
+            border: 1px solid #a8a8b3;
+            width: 100%;
+            margin-bottom: 1.5em;
+          }
+          .button-img-restaurant {
+            color: #fefefe;
+            margin-left: 0.5em;
+            background-color: #4054b2;
+            border-radius: 10px;
+            font-size: 10px;
+            justify-content: center;
+            border: none;
+            font-size: 15px;
+            align-items: center;
+            width: 200px;
+            height: 45px;
+            cursor: pointer;
+          }
+          .button-img-restaurant:hover {
+            background-color: #f3e836;
+            color: #4054b2;
+            font-weight: 600;
+            transition: 0.2s;
           }
         }
-      }
+        .profile-adress-restaurant {
+          max-width: 500px;
+          padding: 0 60px;
 
-      button {
-        color: #fefefe;
-        background-color: #4054b2;
-        border-radius: 10px;
-        margin-top: 1.3em;
-        margin-bottom: 1.3em;
-        font-weight: 600;
-        border: none;
-        width: 12em;
-        height: 3.5em;
-        cursor: pointer;
+          .p-form-adress {
+            text-align: left;
+            margin-bottom: 0.5em;
+            color: #3b375d;
+          }
+          .input-adress {
+            justify-content: center;
+            height: 30px;
+            border-radius: 8px;
+            background: #fff;
+            padding-left: 10px;
+            border: 1px solid #a8a8b3;
+            width: 100%;
 
-        &:hover {
-          background-color: #f3e836;
-          color: #4054b2;
+            .input-adress + .input-adress {
+              margin-top: 2em;
+              max-width: 500px;
+            }
+          }
+        }
+
+        button {
+          color: #fefefe;
+          background-color: #4054b2;
+          border-radius: 10px;
+          margin-top: 1.3em;
+          margin-bottom: 1.3em;
           font-weight: 600;
-          transition: 0.2s;
+          border: none;
+          width: 12em;
+          height: 3.5em;
+          cursor: pointer;
+
+          &:hover {
+            background-color: #f3e836;
+            color: #4054b2;
+            font-weight: 600;
+            transition: 0.2s;
+          }
         }
       }
     }
   }
-}
 
-.button-profile-restaurant {
-  color: #fefefe;
-  background-color: #4054b2;
-  border-radius: 10px;
-  margin-top: 1.3em;
-  margin-bottom: 1.3em;
-  font-weight: 600;
-  border: none;
-  width: 15em;
-  height: 3.5em;
-  cursor: pointer;
-
-  &:hover {
-    background-color: #f3e836;
-    color: #4054b2;
+  .button-profile-restaurant {
+    color: #fefefe;
+    background-color: #4054b2;
+    border-radius: 10px;
+    margin-top: 1.3em;
+    margin-bottom: 1.3em;
     font-weight: 600;
-    transition: 0.2s;
+    border: none;
+    width: 15em;
+    height: 3.5em;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #f3e836;
+      color: #4054b2;
+      font-weight: 600;
+      transition: 0.2s;
+    }
   }
 }
 
