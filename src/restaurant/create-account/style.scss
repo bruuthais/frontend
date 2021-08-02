@@ -42,7 +42,7 @@
       ::placeholder {
         padding-left: 10px;
       }
-      input + input {
+      .input-create-account + .input-create-account {
         margin-top: 2em;
       }
 
@@ -155,7 +155,7 @@
           border: 1px solid #a8a8b3;
           width: 100%;
         }
-        input + input {
+        .input-create-account + .input-create-account {
           margin-top: 2em;
         }
 

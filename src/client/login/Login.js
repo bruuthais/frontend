@@ -1,9 +1,9 @@
 import "./style.scss";
-import  api  from "../../api/api";
-import { useState } from "react";
-import { ToastContainer, toast } from "react-toastify";
+import api from "../../api/api";
+import {useState} from "react";
+import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { Link, useHistory } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 import logoImgGrande from "../../assets/image/logo.svg";
 
 export function LoginClient() {
@@ -13,10 +13,11 @@ export function LoginClient() {
   async function handleLogin(e: any) {
     e.preventDefault();
 
-    await api.post(`/api/Auth`, {
-      email: email,
-      password: senha,
-    })
+    await api
+      .post(`/api/Auth`, {
+        email: email,
+        password: senha,
+      })
       .then(function (resposta) {
         history.push("/home-login");
       })

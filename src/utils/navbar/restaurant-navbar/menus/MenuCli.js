@@ -6,11 +6,11 @@ import "./style.scss";
 
 export function MenuCli() {
   const history = useHistory();
-  function handlePicture() {
-    history.push("/home-restaurant/profile/picture");
+  function handlePayments() {
+    history.push("/home-restaurant/manager/payments");
   }
-  function handleAdress() {
-    history.push("/home-restaurant/profile/adress");
+  function handleOrdered() {
+    history.push("/home-restaurant/manager/orders");
   }
   return (
     <Menu
@@ -20,8 +20,8 @@ export function MenuCli() {
         </button>
       }
     >
-      <MenuItem onClick={handlePicture}>pagamentos</MenuItem>
-      <MenuItem Onclick={handleAdress}>pedidos</MenuItem>
+      <MenuItem onClick={handlePayments}>pagamentos</MenuItem>
+      <MenuItem Onclick={handleOrdered}>pedidos</MenuItem>
 
       <MenuItem>fechar</MenuItem>
     </Menu>

@@ -1,11 +1,11 @@
 import React, {useState, Fragment} from "react";
 import {nanoid} from "nanoid";
 import "./table.scss";
-import data from "../../utils/table/mock-data.json";
-import ReadOnlyRow from "../../utils/table/ReadOnlyRow";
-import EditableRow from "../../utils/table/EditableRow";
+import data from "../../../../utils/table/mock-data.json";
+import ReadOnlyRow from "../../../../utils/table/ReadOnlyRow";
+import EditableRow from "../../../../utils/table/EditableRow";
 
-export function MenuTable() {
+export function OrderedTable() {
   const [items, setItems] = useState(data);
   const [addFormData, setAddFormData] = useState({
     name: "",
@@ -127,58 +127,7 @@ export function MenuTable() {
   return (
     <div className="table-container">
       <h2>Adicionar item</h2>
-      <form
-        className="form-table form-add-item-table"
-        onSubmit={handleAddFormSubmit}
-      >
-        <input
-          type="text"
-          name="name"
-          required="required"
-          placeholder="nome do produto"
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="discription"
-          required="required"
-          placeholder="adicionar descrição"
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="text"
-          name="photoUrl"
-          required="required"
-          placeholder="url da foto"
-          onChange={handleAddFormChange}
-        />
-        <input
-          type="number"
-          name="price"
-          required="required"
-          placeholder="preço do produto"
-          onChange={handleAddFormChange}
-        />
 
-        <input
-          type="number"
-          name="preparationTime"
-          required="required"
-          placeholder="tempo de preparo"
-          onChange={handleAddFormChange}
-        />
-
-        <input
-          type="text"
-          name="foodCategoryName"
-          required="required"
-          placeholder="categoria"
-          onChange={handleAddFormChange}
-        />
-        <button className="table-button" type="submit">
-          Adicionar
-        </button>
-      </form>
       <form className="form-table" onSubmit={handleEditFormSubmit}>
         <table className="menu-table">
           <thead>
@@ -195,19 +144,10 @@ export function MenuTable() {
           <tbody>
             {items.map((item) => (
               <Fragment>
-                {editItemId === item.id ? (
-                  <EditableRow
-                    editFormData={editFormData}
-                    handleEditFormChange={handleEditFormChange}
-                    handleCancelClick={handleCancelClick}
-                  />
-                ) : (
-                  <ReadOnlyRow
-                    item={item}
-                    handleEditClick={handleEditClick}
-                    handleDeleteClick={handleDeleteClick}
-                  />
-                )}
+                <ReadOnlyRow
+                  item={item}
+                  handleDeleteClick={handleDeleteClick}
+                />
               </Fragment>
             ))}
           </tbody>

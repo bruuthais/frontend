@@ -23,6 +23,7 @@ export function NavBarRestaurant() {
   function handleMenu() {
     history.push("/home-restaurant/menu");
   }
+
   return (
     <header className="navbar-restaurant">
       <div className="api-logo-restaurant">

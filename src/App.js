@@ -13,6 +13,7 @@ import {HomeRestaurant} from "./restaurant/home/Home";
 import {ProfilePictureRestaurant} from "./restaurant/home/profileRestaurant/picture/ProfilePictureRestaurant";
 import {ProfileAdressRestaurant} from "./restaurant/home/profileRestaurant/adress/ProfileAdressRestaurant";
 import {MenuRestaurant} from "./restaurant/Menu/MenuRestaurant";
+import {OrderedTable} from "./restaurant/home/manager/ordered/OrderedTable";
 
 const NotFound = () => <Redirect to="/" />;
 
@@ -43,6 +44,11 @@ function App() {
           component={ProfileAdressRestaurant}
         />
         <Route path="/home-restaurant/menu" exact component={MenuRestaurant} />
+
+        <Route
+          path="/home-restaurant/manager/orders"
+          component={OrderedTable}
+        />
         <Route component={NotFound} />
       </Switch>
     </BrowserRouter>

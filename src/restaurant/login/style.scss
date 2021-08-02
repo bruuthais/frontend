@@ -36,15 +36,16 @@
       }
 
       .form-login {
-        input {
+        .input-login {
           height: 50px;
           border-radius: 8px;
           background: #fff;
           text-align: center;
           border: 1px solid #a8a8b3;
           width: 100%;
+          align-items: center;
         }
-        input + input {
+        .input-login + .input-login {
           margin-top: 2em;
         }
         .p-form {
@@ -106,7 +107,7 @@
             border: 1px solid #a8a8b3;
             width: 100%;
           }
-          input + input {
+          .input-login + .input-login {
             margin-top: 2em;
           }
           .p-form {

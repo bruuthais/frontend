@@ -5,29 +5,28 @@ import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBa
 import {Cep} from "./Cep";
 
 export function ProfileAdressRestaurant() {
-  const [logo, setLogo] = useState("");
-  const [banner, setBanner] = useState("");
-  const history = useHistory();
+  const [adress, setAdress] = useState({
+    name: "",
+    zipCod: "",
+    streetAddress: "",
+    zone: "",
+    city: "",
+    state: "",
+    refference: "",
+  });
 
-  //async function handleSaveRestaurant(e: any) {
-  //  e.preventDefault();
-  //
-  //  await Api.post(`/api/Restaurant/addresses`, {
-  //    name: nome,
-  //    zipCode: cep,
-  //    streetAddress: rua,
-  //    zone: bairro,
-  //    city: cidade,
-  //    state: estado,
-  //    refference: complemento,
-  //  })
-  //    .then(function (resposta) {
-  //      console.log(resposta);
-  //    })
-  //    .catch(function (error) {
-  //      console.log(error);
-  //    });
-  //}
+  async function handleAdress(e: any) {
+    e.preventDefault();
+
+    await api
+      .post(`/api/Restaurant/addresses`, {})
+      .then(function (resposta) {
+        console.log(resposta);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   return (
     <div className="page-profile-restaurant">
       <NavBarRestaurant />
@@ -37,7 +36,7 @@ export function ProfileAdressRestaurant() {
             <div className="profile-adress-restaurant">
               <h3 className="h3-profile-restaurant">Endereço:</h3>
 
-              <Cep />
+              <Cep handleAdress={handleAdress} />
             </div>
           </form>
         </div>

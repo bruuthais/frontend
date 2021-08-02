@@ -1,0 +1,43 @@
+[
+  {
+    "id": 1,
+    "name": "Tapioca com morango",
+    "photoUrl": "url da fotinho",
+    "discription": "tapioca com morango e chocolate",
+    "foodCategoryName": "Lanche",
+    "price": 10,
+    "preparationTime": 1
+  },{
+    "id": 2,
+    "name": "Pão de queijo",
+    "photoUrl": "url da fotinho",
+    "discription": "Delicioso pão de queijo fresquinho e quentinho",
+    "foodCategoryName": "Padaria",
+    "price": 3,
+    "preparationTime": 1
+  },{
+    "id": 3,
+    "name": "Tapioca com morango",
+    "photoUrl": "url da fotinho",
+    "discription": "deliciosa torta de chocolate com marshmallow",
+    "foodCategoryName": "Doces",
+    "price": 10,
+    "preparationTime": 1
+  },{
+    "id": 4,
+    "name": "Cappuccino com cookie",
+    "photoUrl": "url da fotinho",
+    "discription": "Cappucino com cookie de chocolate",
+    "foodCategoryName": "Lanche",
+    "price": 18,
+    "preparationTime": 1
+  },{
+    "id": 5,
+    "name": "Sanduiche de frango",
+    "photoUrl": "url da fotinho",
+    "discription": "Sanduiche de peito de frango desfiado teste texto grande grande grande grande",
+    "foodCategoryName": "Lanche",
+    "price": 14,
+    "preparationTime": 1
+  }
+    ]
