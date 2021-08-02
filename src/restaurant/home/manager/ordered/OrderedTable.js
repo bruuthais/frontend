@@ -1,9 +1,10 @@
 import React, {useState, Fragment} from "react";
 import {nanoid} from "nanoid";
 import "./table.scss";
-import data from "../../../../utils/table/mock-data.json";
-import ReadOnlyRow from "../../../../utils/table/ReadOnlyRow";
+import data from "../../../../utils/table/mock-data-order.json";
+import ReadOnlyOrders from "../../../../utils/table/ReadOnlyOrders";
 import EditableRow from "../../../../utils/table/EditableRow";
+import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 
 export function OrderedTable() {
   const [items, setItems] = useState(data);
@@ -125,34 +126,37 @@ export function OrderedTable() {
   //foodCategoryName: addFormData.foodCategoryName,
 
   return (
-    <div className="table-container">
-      <h2>Adicionar item</h2>
+    <>
+      <NavBarRestaurant />
 
-      <form className="form-table" onSubmit={handleEditFormSubmit}>
-        <table className="menu-table">
-          <thead>
-            <tr>
-              <th>Item</th>
-              <th>Descrição</th>
-              <th>Foto</th>
-              <th>Preço</th>
-              <th>Tempo de preparo</th>
-              <th>Categoria</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {items.map((item) => (
-              <Fragment>
-                <ReadOnlyRow
-                  item={item}
-                  handleDeleteClick={handleDeleteClick}
-                />
-              </Fragment>
-            ))}
-          </tbody>
-        </table>
-      </form>
-    </div>
+      <div className="table-container">
+        <h2>Novos Pedidos</h2>
+
+        <form className="form-table" onSubmit={handleEditFormSubmit}>
+          <table className="menu-table">
+            <thead>
+              <tr>
+                <th className="td-Num-Order">Nº Pedido</th>
+                <th className="td-client-name">Cliente</th>
+                <th className="td-itens">Itens do pedido</th>
+                <th className="td-price">Valor Total</th>
+                <th className="td-payment">Pagamento</th>
+                <th className="td-status">Pedido Aceito</th>
+              </tr>
+            </thead>
+            <tbody>
+              {items.map((item) => (
+                <Fragment>
+                  <ReadOnlyOrders
+                    item={item}
+                    handleDeleteClick={handleDeleteClick}
+                  />
+                </Fragment>
+              ))}
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </>
   );
 }

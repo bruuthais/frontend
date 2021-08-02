@@ -47,6 +47,7 @@ function App() {
 
         <Route
           path="/home-restaurant/manager/orders"
+          exact
           component={OrderedTable}
         />
         <Route component={NotFound} />

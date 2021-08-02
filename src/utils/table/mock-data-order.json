@@ -1,0 +1,10 @@
+[
+  {
+    "id": 1,
+    "status": "",
+    "customerName": "Olivia",
+    "PaymentType": "Cartão de credito",
+    "foodCategoryName": "Lanche",
+    "price": 10,
+    "preparationTime": 1
+  } ]
