@@ -1,6 +1,7 @@
 import React from "react";
 import {Formik, Field, Form} from "formik";
 import "./form.scss";
+import api from "../../api/api";
 
 export function Cep() {
   function onSubmit(values, actions) {
@@ -10,19 +11,40 @@ export function Cep() {
   function onBlurCep(ev, setFieldValue) {
     const {value} = ev.target;
 
-    const cep = value?.replace(/[^0-9]/g, "");
+    const zipcode = value?.replace(/[^0-9]/g, "");
 
-    if (cep?.length !== 8) {
+    if (zipcode?.length !== 8) {
       return;
     }
 
-    fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    fetch(`https://viacep.com.br/ws/${zipcode}/json/`)
       .then((res) => res.json())
       .then((data) => {
-        setFieldValue("rua", data.logradouro);
-        setFieldValue("bairro", data.bairro);
-        setFieldValue("cidade", data.localidade);
-        setFieldValue("uf", data.uf);
+        setFieldValue("streetAdress", data.logradouro);
+        setFieldValue("zone", data.bairro);
+        setFieldValue("city", data.localidade);
+        setFieldValue("state", data.uf);
+      });
+  }
+
+  async function handleAdress(e) {
+    e.preventDefault();
+
+    await api
+      .post(`/api/Restaurant/addresses`, {
+        city: "",
+        name: "",
+        refference: "",
+        state: "",
+        streetAddress: "",
+        zipCode: "",
+        zone: "",
+      })
+      .then(function (resposta) {
+        console.log(resposta);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
   }
 
@@ -32,20 +54,24 @@ export function Cep() {
         onSubmit={onSubmit}
         validateOnMount
         initialValues={{
-          cep: "",
-          logradouro: "",
-          numero: "",
-          complemento: "",
-          bairro: "",
-          cidade: "",
-          uf: "",
+          city: "",
+          name: "",
+          refference: "",
+          state: "",
+          streetAddress: "",
+          zipCode: "",
+          zone: "",
         }}
         render={({isValid, setFieldValue}) => (
           <Form>
             <div className="form-control-group">
+              <p className="p-form">Nome para o endereço:</p>
+              <Field className="form-input" name="name" type="text" />
+            </div>
+            <div className="form-control-group">
               <p className="p-form-adress">Cep:</p>
               <Field
-                name="cep"
+                name="zipcode"
                 type="text"
                 onBlur={(ev) => onBlurCep(ev, setFieldValue)}
                 className="form-input"
@@ -53,29 +79,31 @@ export function Cep() {
             </div>
             <div className="form-control-group">
               <p className="p-form">Rua:</p>
-              <Field className="form-input" name="rua" type="text" />
+              <Field className="form-input" name="streetAdress" type="text" />
             </div>
             <div className="form-control-group">
               <p className="p-form">Número:</p>
-              <Field className="form-input" name="numero" type="text" />
+              <Field className="form-input" name="number" type="text" />
             </div>
             <div className="form-control-group">
-              <p className="p-form" l>
-                Complemento:
-              </p>
-              <Field className="form-input" name="complemento" type="text" />
+              <p className="p-form">Complemento:</p>
+              <Field className="form-input" name="refference" type="text" />
             </div>
             <div className="form-control-group">
               <p className="p-form">Bairro:</p>
-              <Field className="form-input" name="bairro" type="text" />
+              <Field className="form-input" name="zone" type="text" />
             </div>
             <div className="form-control-group">
               <p className="p-form">Cidade:</p>
-              <Field className="form-input" name="cidade" type="text" />
+              <Field className="form-input" name="city" type="text" />
             </div>
             <div className="form-control-group">
               <p className="p-form">Estado:</p>
-              <Field className="form-input-select" component="select" name="uf">
+              <Field
+                className="form-input-select"
+                component="select"
+                name="state"
+              >
                 <option value={null}>Selecione o Estado</option>
                 <option value="AC">Acre</option>
                 <option value="AL">Alagoas</option>
@@ -106,7 +134,7 @@ export function Cep() {
                 <option value="TO">Tocantins</option>
               </Field>
             </div>
-            <button type="submit" disabled={!isValid}>
+            <button type="submit" onClick={handleAdress} disabled={!isValid}>
               enviar
             </button>
           </Form>

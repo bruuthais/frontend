@@ -41,7 +41,7 @@
           }
 
           .input-img-restaurant {
-            height: 30px;
+            height: 40px;
             border-radius: 8px;
             background: #fff;
             padding-left: 10px;
@@ -70,16 +70,16 @@
             transition: 0.2s;
           }
         }
-        .profile-adress-restaurant {
+        .profile-address-restaurant {
           max-width: 500px;
           padding: 0 60px;
 
-          .p-form-adress {
+          .p-form-address {
             text-align: left;
             margin-bottom: 0.5em;
             color: #3b375d;
           }
-          .input-adress {
+          .input-address {
             justify-content: center;
             height: 30px;
             border-radius: 8px;
@@ -88,7 +88,7 @@
             border: 1px solid #a8a8b3;
             width: 100%;
 
-            .input-adress + .input-adress {
+            .input-address + .input-address {
               margin-top: 2em;
               max-width: 500px;
             }

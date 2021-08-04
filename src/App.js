@@ -32,22 +32,26 @@ function App() {
         <Route exact path="/create-successful" component={CadastroConcluido} />
         <Route exact path="/restaurant-login" component={LoginRestaurant} />
         <Route exact path="/home-login" component={HomeClient} />
-        <Route exact path="/home-restaurant" component={HomeRestaurant} />
-        <Route
-          path="/home-restaurant/profile/picture"
+        <AuthHOC exact path="/home-restaurant" component={HomeRestaurant} />
+        <AuthHOC
           exact
+          path="/home-restaurant/profile/picture"
           component={ProfilePictureRestaurant}
         />
-        <Route
-          path="/home-restaurant/profile/adress"
+        <AuthHOC
           exact
+          path="/home-restaurant/profile/adress"
           component={ProfileAdressRestaurant}
         />
-        <Route path="/home-restaurant/menu" exact component={MenuRestaurant} />
-
-        <Route
-          path="/home-restaurant/manager/orders"
+        <AuthHOC
           exact
+          path="/home-restaurant/menu"
+          component={MenuRestaurant}
+        />
+
+        <AuthHOC
+          exact
+          path="/home-restaurant/manager/orders"
           component={OrderedTable}
         />
         <Route component={NotFound} />

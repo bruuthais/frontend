@@ -30,7 +30,7 @@ export function ProfilePictureRestaurant() {
       <main>
         <div className="profile-restaurant-content">
           <form className="form-profile-restaurant">
-            <h3 className="h3-profile-restaurant">Editar perfil</h3>
+            <h3 className="h3-profile-restaurant">Adicionar Logo e Banner</h3>
             <div className="profile-restaurant">
               <p className="p-form-profile">Logo:</p>
               <input
