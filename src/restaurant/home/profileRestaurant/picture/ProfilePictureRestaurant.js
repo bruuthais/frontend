@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {Link, useHistory} from "react-router-dom";
+
 import api from "../../../../api/api";
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 import "./style.scss";
@@ -7,7 +7,6 @@ import "./style.scss";
 export function ProfilePictureRestaurant() {
   const [logo, setLogo] = useState("");
   const [banner, setBanner] = useState("");
-  const history = useHistory();
 
   async function uploadImage(e: any) {
     e.preventDefault();
@@ -25,25 +24,6 @@ export function ProfilePictureRestaurant() {
       });
   }
 
-  //async function handleSaveRestaurant(e: any) {
-  //  e.preventDefault();
-  //
-  //  await Api.post(`/api/Restaurant/addresses`, {
-  //    name: nome,
-  //    zipCode: cep,
-  //    streetAddress: rua,
-  //    zone: bairro,
-  //    city: cidade,
-  //    state: estado,
-  //    refference: complemento,
-  //  })
-  //    .then(function (resposta) {
-  //      console.log(resposta);
-  //    })
-  //    .catch(function (error) {
-  //      console.log(error);
-  //    });
-  //}
   return (
     <div className="page-profile-restaurant">
       <NavBarRestaurant />

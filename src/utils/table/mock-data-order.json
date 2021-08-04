@@ -3,8 +3,8 @@
     "id": 1,
     "status": "",
     "customerName": "Olivia",
-    "PaymentType": "Cartão de credito",
-    "foodCategoryName": "Lanche",
-    "price": 10,
+    "paymentType": "Cartão de credito",
+    "items": "1 bananinha, 1 chiclete, 1 pastel de carne",
+    "price": 25,
     "preparationTime": 1
   } ]

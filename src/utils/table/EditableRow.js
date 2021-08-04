@@ -1,5 +1,6 @@
-import React from "react";
-
+{
+  /*Row editavel com os inputs para editar dentro dos tds*/
+}
 const EditableRow = ({
   editFormData,
   handleEditFormChange,
@@ -21,8 +22,8 @@ const EditableRow = ({
         <input
           type="text"
           placeholder="descrição"
-          name="discription"
-          value={editFormData.discription}
+          name="description"
+          value={editFormData.description}
           onChange={handleEditFormChange}
         ></input>
       </td>
@@ -55,23 +56,22 @@ const EditableRow = ({
       </td>
       <td>
         <input
+          disabled={editFormData.foodCategoryName}
           type="text"
-          placeholder="categoria"
           name="foodCategoryName"
           value={editFormData.foodCategoryName}
-          onChange={handleEditFormChange}
         ></input>
       </td>
       <td>
         <button
-          className="table-button"
+          className="table-button-side"
           type="submit"
           onClick={handleEditClick}
         >
           Salvar
         </button>
         <button
-          className="table-button"
+          className="table-button-side"
           type="button"
           onClick={handleCancelClick}
         >

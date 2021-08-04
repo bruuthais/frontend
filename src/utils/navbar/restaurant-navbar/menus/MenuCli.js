@@ -1,5 +1,5 @@
 import React from "react";
-import {Menu, MenuItem, MenuButton} from "@szhsin/react-menu";
+import {Menu, MenuItem} from "@szhsin/react-menu";
 import "@szhsin/react-menu/dist/index.css";
 import {useHistory} from "react-router-dom";
 import "./style.scss";

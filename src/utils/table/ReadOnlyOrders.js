@@ -3,12 +3,12 @@ import React from "react";
 const ReadOnlyRow = ({item, handleEditClick, handleDeleteClick}) => {
   return (
     <tr>
-      <td>{item.name}</td>
-      <td>{item.discription}</td>
+      <td className="th-item">{item.id}</td>
+      <td>{item.customerName}</td>
 
+      <td className="tdNumber">{item.items}</td>
       <td className="tdNumber">{item.price}</td>
-      <td className="tdNumber">{item.price}</td>
-      <td className="tdNumber">{item.foodCategoryName}</td>
+      <td className="tdNumber">{item.paymentType}</td>
       <td>
         <button
           className="table-button-side"

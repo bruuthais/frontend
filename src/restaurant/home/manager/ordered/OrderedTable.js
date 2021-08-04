@@ -9,21 +9,21 @@ import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBa
 export function OrderedTable() {
   const [items, setItems] = useState(data);
   const [addFormData, setAddFormData] = useState({
-    name: "",
-    discription: "",
-    photoUrl: "",
+    id: "",
+    status: "",
+    customerName: " ",
+    paymentType: " ",
+    items: "",
     price: "",
-    preparationTime: "",
-    foodCategoryName: "",
   });
 
   const [editFormData, setEditFormData] = useState({
-    name: "",
-    discription: "",
-    photoUrl: "",
+    id: "",
+    status: "",
+    customerName: "",
+    paymentType: "",
+    items: "",
     price: "",
-    preparationTime: "",
-    foodCategoryName: "",
   });
 
   const [editItemId, setEditItemId] = useState(null);

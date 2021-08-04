@@ -1,15 +1,16 @@
 import React, {useState, useEffect} from "react";
-import {Link, useHistory} from "react-router-dom";
-import api from "../../api/api";
+import {Link} from "react-router-dom";
 import logoImgGrande from "../../assets/image/logo.svg";
 import "./style.scss";
 import {toast, ToastContainer} from "react-toastify";
 import {doLogin} from "../../authentication";
 
+// verifica o que volta do objeto resposta
+// se tiver erro, informar erro no toast
+
 const LoginRestaurant = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
   useEffect(() => {
     const jwtToken = localStorage.getItem("jwtToken");
 
@@ -30,15 +31,11 @@ const LoginRestaurant = (props) => {
       })
 
       .catch((err) => {
-        alert(err.response.data.error);
+        toast.error("email ou senha inválidos");
         localStorage.removeItem("jwtToken");
       });
     console.log(doLogin);
   };
-
-  // verificar o que volta do objeto resposta e ver se tem erro
-  // se não ter erro, redirecionar para a outra pagina (usar o useHistory)
-  // se tiver erro, informar erro no toast
 
   return (
     <div id="page-auth">
@@ -71,7 +68,7 @@ const LoginRestaurant = (props) => {
             </button>
           </form>
           <>
-            <p>
+            <p className="p-form">
               Não possui conta?{" "}
               <Link to="/restaurant-create-account" className="link">
                 Crie a sua conta aqui

@@ -15,7 +15,7 @@ export function Restaurant(props: RestaurantProps) {
       <Link to={`/restaurants/${props.id}`}>
         <button className={props.isOpen ? "restaurant" : "restaurant-closed"}>
           <div className="restaurant-img">
-            <img src={props.logoUrl}></img>
+            <img src={props.logoUrl} alt="imagem do restaurante"></img>
           </div>
           <div className="restaurant-box">
             <div className="restaurant-name">

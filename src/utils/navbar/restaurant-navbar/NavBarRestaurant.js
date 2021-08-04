@@ -5,21 +5,16 @@ import {useHistory} from "react-router-dom";
 import {FiHelpCircle, FiLogOut} from "react-icons/fi";
 
 import {Link} from "react-router-dom";
-import Switches from "./OpenClose";
 import {MenuProfile} from "./menus/MenuProfile";
 import {MenuCli} from "./menus/MenuCli";
 export function NavBarRestaurant() {
   const history = useHistory();
 
-  //Redireciona a configuração do perfil
-  function handleProfile() {
-    history.push("/home-restaurant/profile");
-  }
-  //Redireciona...
+  //Redireciona ao home
   function handleHomeRestaurant() {
     history.push("/home-restaurant");
   }
-
+  //Redireciona ao cardápio
   function handleMenu() {
     history.push("/home-restaurant/menu");
   }
@@ -37,8 +32,9 @@ export function NavBarRestaurant() {
         </div>
 
         <div className="types">
+          {/*Menu do perfil*/}
           <MenuProfile />
-
+          {/*Menu de pagamentos/pedidos*/}
           <MenuCli />
           <button
             className="button-menu-restaurant button-home-restaurant"

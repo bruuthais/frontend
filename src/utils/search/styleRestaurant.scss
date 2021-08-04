@@ -1,0 +1,40 @@
+.search-menu-component {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  .search-menu-restaurant {
+    display: flex;
+
+    background-image: url(../../assets/image/lupa.png);
+    background-size: 20px;
+    background-repeat: no-repeat;
+
+    background-position: 15px center;
+    border-radius: 10px;
+    font-size: 20px;
+    width: 200px;
+    height: 80px;
+    padding-left: 40px;
+    .search-menu-restaurant-input {
+      border: none;
+      align-self: center;
+      background-color: #fbfbfb28;
+    }
+    :focus {
+      box-shadow: 0 0 0 0;
+      border: 0 none;
+      outline: 0;
+    }
+  }
+}
+
+//@media (min-width: 700px) {
+//  .search-component {
+//    .search-restaurant {
+//      display: none;
+//      .search-restaurant-input {
+//        display: none;
+//      }
+//    }
+//  }
+//}
