@@ -17,6 +17,7 @@ const ReadOnlyRow = ({item, handleEditClick, handleDeleteClick}) => {
           Editar
         </button>
         <button
+          type="button"
           className="table-button-side"
           onClick={() => handleDeleteClick(item.id)}
         >

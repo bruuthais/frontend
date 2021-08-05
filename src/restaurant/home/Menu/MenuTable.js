@@ -10,7 +10,7 @@ import api from "../../../api/api";
 export function MenuTable() {
   const [items, setItems] = useState([]);
   const [category, setCategory] = useState([]);
-  const [search, setSearch] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
 
   //trazer itens do cardápio do restaurante
   useEffect(() => {
@@ -21,19 +21,19 @@ export function MenuTable() {
     });
 
     //trazer categorias;
-    api.get("/api/Home/food-categories").then((response) => {
+    /* api.get("/api/Home/food-categories").then((response) => {
       const data = response.data;
 
       setCategory(data);
-    });
+    }); */
   }, []);
   //refresh
   useEffect(() => {
-    api.get("/api/Restaurant/foods").then((response) => {
+    /* api.get("/api/Restaurant/foods").then((response) => {
       const data = response.data;
 
       setItems(data);
-    });
+    }); */
 
     //trazer categorias;
     api.get("/api/Home/food-categories").then((response) => {
@@ -75,6 +75,7 @@ export function MenuTable() {
 
     setAddFormData(newFormData);
   };
+
   //Edita linha com os dados dos itens
   const handleEditFormChange = (event) => {
     event.preventDefault();
@@ -89,7 +90,7 @@ export function MenuTable() {
   };
   //Adiciona novos itens ao cardápio
   const handleAddFormSubmit = (event) => {
-    event.preventDefault();
+    //event.preventDefault();
     const newItem = [
       {
         name: addFormData.name,
@@ -103,7 +104,7 @@ export function MenuTable() {
 
     api.post("/api/Restaurant/foods", newItem).then((response) => {});
 
-    const newItems = [...items, newItem];
+    const newItems = [...items, newItem[0]];
     setItems(newItems);
   };
   //Edita os itens do cardápio
@@ -151,14 +152,30 @@ export function MenuTable() {
   };
   //Botão de deletar
   const handleDeleteClick = (itemId) => {
-    const newItems = [...items, itemId];
+    const newItems = [...items];
     api.delete(`/api/Restaurant/foods/${itemId}`, items).then((response) => {
       const index = items.findIndex((item) => item.id === itemId);
       newItems.splice(index, 1);
-    });
 
-    setItems(newItems);
+      console.log(newItems);
+      setItems(newItems);
+    });
   };
+
+  //Input de busca
+  //const handleFilter = (event) => {
+  //  const searchWord = event.target.value;
+  //  setItems(searchWord);
+  //  const newFilter = data.filter((value) => {
+  //    return value.title.toLowerCase().includes(searchWord.toLowerCase());
+  //  });
+  //
+  //  if (searchWord === "") {
+  //    setFilteredData([]);
+  //  } else {
+  //    setFilteredData(newFilter);
+  //  }
+  //};
 
   return (
     <>
