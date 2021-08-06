@@ -10,7 +10,7 @@ import api from "../../../api/api";
 export function MenuTable() {
   const [items, setItems] = useState([]);
   const [category, setCategory] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
+  const [search, setSearch] = useState("");
 
   //trazer itens do cardápio do restaurante
   useEffect(() => {
@@ -260,29 +260,39 @@ export function MenuTable() {
                 <th className="th-category">Categoria</th>
                 <th>
                   {/*Botão de busca de itens */}
-                  <SearchRestaurantMenu />
+                  <SearchRestaurantMenu setSearch={setSearch} />
                 </th>
               </tr>
             </thead>
             <tbody>
-              {items.map((item) => (
-                <Fragment>
-                  {/*Partes das Rows que editam e para "leitura" */}
-                  {editItemId === item.id ? (
-                    <EditableRow
-                      editFormData={editFormData}
-                      handleEditFormChange={handleEditFormChange}
-                      handleCancelClick={handleCancelClick}
-                    />
-                  ) : (
-                    <ReadOnlyRow
-                      item={item}
-                      handleEditClick={handleEditClick}
-                      handleDeleteClick={handleDeleteClick}
-                    />
-                  )}
-                </Fragment>
-              ))}
+              {/*filtragem da barra de busca :) */}
+              {items
+                .filter((item) => {
+                  return (
+                    item.name.toLowerCase().includes(search.toLowerCase()) ||
+                    item.description
+                      .toLowerCase()
+                      .includes(search.toLowerCase())
+                  );
+                })
+                .map((item) => (
+                  <Fragment>
+                    {/*Partes das Rows que editam e para "leitura" */}
+                    {editItemId === item.id ? (
+                      <EditableRow
+                        editFormData={editFormData}
+                        handleEditFormChange={handleEditFormChange}
+                        handleCancelClick={handleCancelClick}
+                      />
+                    ) : (
+                      <ReadOnlyRow
+                        item={item}
+                        handleEditClick={handleEditClick}
+                        handleDeleteClick={handleDeleteClick}
+                      />
+                    )}
+                  </Fragment>
+                ))}
             </tbody>
           </table>
         </form>

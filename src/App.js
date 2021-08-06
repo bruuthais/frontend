@@ -11,7 +11,7 @@ import AuthHOC from "./services/AuthHOC";
 import {HomeClient} from "./client/home/Home";
 import {HomeRestaurant} from "./restaurant/home/Home";
 import {ProfilePictureRestaurant} from "./restaurant/home/profileRestaurant/picture/ProfilePictureRestaurant";
-import {ProfileAdressRestaurant} from "./restaurant/home/profileRestaurant/adress/ProfileAdressRestaurant";
+import {ProfileAdressRestaurant} from "./restaurant/home/profileRestaurant/address/ProfileAdressRestaurant";
 import {MenuRestaurant} from "./restaurant/home/Menu/MenuRestaurant";
 import {OrderedTable} from "./restaurant/home/manager/ordered/OrderedTable";
 
