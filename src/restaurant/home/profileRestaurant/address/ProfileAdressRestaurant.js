@@ -1,8 +1,10 @@
 import {useState} from "react";
-
+import {ToastContainer, toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
-import {Cep} from "../../../../utils/cep/Cep";
+import NumberFormat from "react-number-format";
 import "./form.scss";
+import MaskedInput from "react-text-mask";
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 
 export function ProfileAdressRestaurant() {
@@ -16,7 +18,9 @@ export function ProfileAdressRestaurant() {
 
   async function handleAddress(e: any) {
     e.preventDefault();
-
+    if (streetAddress === false) {
+      console.log("achei");
+    }
     await api
       .post(`/api/Restaurant/addresses`, {
         name: name,
@@ -27,11 +31,14 @@ export function ProfileAdressRestaurant() {
         state: state,
         refference: reference,
       })
+
       .then(function (resposta) {
         console.log(resposta);
       })
       .catch(function (error) {
-        console.log(error);
+        toast.error(
+          "Favor verificar, endereço deve conter virgula antes do numero Ex: rua, 123"
+        );
       });
   }
   return (
@@ -49,17 +56,21 @@ export function ProfileAdressRestaurant() {
                   className="form-input"
                   required
                   type="text"
+                  placeholder="casa"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="form-control-group">
                 <p className="p-form-address">Cep:</p>
-                <input
+                <NumberFormat
+                  format="#####-###"
+                  mask="_"
                   className="form-input"
                   required
                   type="text"
                   value={zipCode}
+                  placeholder="88000-123"
                   onChange={(e) => setZipCode(e.target.value)}
                 />
               </div>
@@ -70,6 +81,7 @@ export function ProfileAdressRestaurant() {
                   required
                   type="text"
                   value={streetAddress}
+                  placeholder="margaridas, 123"
                   onChange={(e) => setStreetAddress(e.target.value)}
                 />
               </div>
@@ -81,6 +93,7 @@ export function ProfileAdressRestaurant() {
                   required
                   type="text"
                   value={reference}
+                  placeholder="ao lado da roseira"
                   onChange={(e) => setReference(e.target.value)}
                 />
               </div>
@@ -90,6 +103,7 @@ export function ProfileAdressRestaurant() {
                   className="form-input"
                   required
                   type="text"
+                  placeholder="jardim"
                   value={zone}
                   onChange={(e) => setZone(e.target.value)}
                 />
@@ -101,6 +115,7 @@ export function ProfileAdressRestaurant() {
                   required
                   type="text"
                   value={city}
+                  placeholder="floricultura"
                   onChange={(e) => setCity(e.target.value)}
                 />
               </div>
@@ -111,6 +126,7 @@ export function ProfileAdressRestaurant() {
                   value={state}
                   onChange={(e) => setState(e.target.value)}
                 >
+                  <option value={null}>Selecione o estado</option>
                   <option value="AC">AC</option>
                   <option value="AL">AL</option>
                   <option value="AP">AP</option>
@@ -143,6 +159,7 @@ export function ProfileAdressRestaurant() {
               <button onClick={handleAddress}>enviar</button>
             </div>
           </form>
+          <ToastContainer />
         </div>
       </main>
     </div>

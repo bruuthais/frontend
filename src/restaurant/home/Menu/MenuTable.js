@@ -123,7 +123,6 @@ export function MenuTable() {
     api
       .put(`/api/Restaurant/foods/${editItemId}`, editedItem)
       .then((response) => {
-        console.log("response", response);
         const newState = items.filter((item) => item.id !== editItemId);
         setItems([...newState, editedItem]);
       });
@@ -157,7 +156,6 @@ export function MenuTable() {
       const index = items.findIndex((item) => item.id === itemId);
       newItems.splice(index, 1);
 
-      console.log(newItems);
       setItems(newItems);
     });
   };
