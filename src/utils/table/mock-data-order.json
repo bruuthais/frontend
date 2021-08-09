@@ -6,5 +6,6 @@
     "paymentType": "Cartão de credito",
     "items": "1 bananinha, 1 chiclete, 1 pastel de carne",
     "price": 25,
-    "preparationTime": 1
+    "streetAddress": "rua das palmeiras, 123"
+    
   } ]

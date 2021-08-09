@@ -13,7 +13,8 @@ import {HomeRestaurant} from "./restaurant/home/Home";
 import {ProfilePictureRestaurant} from "./restaurant/home/profileRestaurant/picture/ProfilePictureRestaurant";
 import {ProfileAdressRestaurant} from "./restaurant/home/profileRestaurant/address/ProfileAdressRestaurant";
 import {MenuRestaurant} from "./restaurant/home/Menu/MenuRestaurant";
-import {OrderedTable} from "./restaurant/home/manager/ordered/OrderedTable";
+
+import {Ordered} from "./restaurant/home/manager/Ordered";
 
 const NotFound = () => <Redirect to="/" />;
 
@@ -52,7 +53,7 @@ function App() {
         <AuthHOC
           exact
           path="/home-restaurant/manager/orders"
-          component={OrderedTable}
+          component={Ordered}
         />
         <Route component={NotFound} />
       </Switch>

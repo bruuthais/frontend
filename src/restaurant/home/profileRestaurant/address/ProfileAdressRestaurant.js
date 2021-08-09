@@ -18,9 +18,7 @@ export function ProfileAdressRestaurant() {
 
   async function handleAddress(e: any) {
     e.preventDefault();
-    if (streetAddress === false) {
-      console.log("achei");
-    }
+
     await api
       .post(`/api/Restaurant/addresses`, {
         name: name,

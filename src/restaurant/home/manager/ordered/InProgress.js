@@ -6,21 +6,23 @@ import ReadOnlyOrders from "../../../../utils/table/ReadOnlyOrders";
 import EditableRow from "../../../../utils/table/EditableRow";
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 
-export function OrderedTable() {
+export function InProgress() {
   const [items, setItems] = useState(data);
   const [addFormData, setAddFormData] = useState({
-    id: "",
-    status: "",
-    customerName: " ",
-    paymentType: " ",
-    items: "",
-    price: "",
+    id: "id",
+    status: "status",
+    streetAddress: "streetAddres  ",
+    customerName: "customerName",
+    paymentType: "paymentType",
+    items: "items",
+    price: "price",
   });
 
   const [editFormData, setEditFormData] = useState({
     id: "",
     status: "",
     customerName: "",
+    streetAddress: "",
     paymentType: "",
     items: "",
     price: "",
@@ -101,6 +103,7 @@ export function OrderedTable() {
       price: item.price,
       preparationTime: item.preparationTime,
       foodCategoryName: item.foodCategoryName,
+      streetAddress: item.streetAddress,
     };
 
     setEditFormData(formValues);
@@ -127,10 +130,8 @@ export function OrderedTable() {
 
   return (
     <>
-      <NavBarRestaurant />
-
       <div className="table-container">
-        <h2>Novos Pedidos</h2>
+        <h2>Em andamento</h2>
 
         <form className="form-table" onSubmit={handleEditFormSubmit}>
           <table className="menu-table">
@@ -138,10 +139,11 @@ export function OrderedTable() {
               <tr>
                 <th className="td-Num-Order">Nº Pedido</th>
                 <th className="td-client-name">Cliente</th>
+                <th className="td-client-address">Endereço</th>
                 <th className="td-itens">Itens do pedido</th>
                 <th className="td-price">Valor Total</th>
                 <th className="td-payment">Pagamento</th>
-                <th className="td-status">Pedido Aceito</th>
+                <th className="td-status">Status do pedido</th>
               </tr>
             </thead>
             <tbody>
