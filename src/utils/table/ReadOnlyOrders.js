@@ -1,24 +1,23 @@
-import React from "react";
-
 const ReadOnlyRow = ({item, handleEditClick, handleDeleteClick}) => {
+  console.log(item);
   return (
     <tr>
       <td className="th-item">{item.id}</td>
       <td>{item.customerName}</td>
 
-      <td className="tdNumber">{item.streetAddress}</td>
-      <td className="tdNumber">{item.items}</td>
-      <td className="tdNumber">{item.price}</td>
-      <td className="tdNumber">{item.paymentType}</td>
+      <td className="td-center">{item.bagDeliveryAddress.streetAddress}</td>
+      <td className="td-center">{item.items}</td>
+      <td className="td-center">{item.totalPrice}</td>
+      <td className="td-center">{item.paymentTypeName}</td>
       <td>
         <button
-          className="table-button-side"
+          className="table-button-YN"
           onClick={(event) => handleEditClick(event, item)}
         >
           Sim
         </button>
         <button
-          className="table-button-side"
+          className="table-button-YN"
           onClick={() => handleDeleteClick(item.id)}
         >
           Não

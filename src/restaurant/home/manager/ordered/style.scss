@@ -1,0 +1,43 @@
+.table-button-YN {
+  color: #4054b2;
+  background-color: #ebebeba4;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  justify-content: center;
+  width: 45%;
+  margin-left: 5px;
+  margin-right: 2px;
+  height: 70px;
+  cursor: pointer;
+  font-size: 15px;
+
+  &:hover {
+    background-color: #f3e836;
+    color: #4054b2;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+}
+
+.table-button-end {
+  color: #4054b2;
+  background-color: #ebebeba4;
+  border-radius: 8px;
+  font-weight: 600;
+  border: none;
+  justify-content: center;
+  width: 95%;
+  margin-left: 5px;
+  margin-right: 2px;
+  height: 70px;
+  cursor: pointer;
+  font-size: 15px;
+
+  &:hover {
+    background-color: #f3e836;
+    color: #4054b2;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+}
