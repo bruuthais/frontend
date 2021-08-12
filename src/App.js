@@ -11,10 +11,11 @@ import AuthHOC from "./services/AuthHOC";
 import {HomeClient} from "./client/home/Home";
 import {HomeRestaurant} from "./restaurant/home/Home";
 import {ProfilePictureRestaurant} from "./restaurant/home/profileRestaurant/picture/ProfilePictureRestaurant";
-import {ProfileAdressRestaurant} from "./restaurant/home/profileRestaurant/address/ProfileAdressRestaurant";
+import {ProfileAddressRestaurant} from "./restaurant/home/profileRestaurant/address/ProfileAddressRestaurant";
 import {MenuRestaurant} from "./restaurant/home/Menu/MenuRestaurant";
 
 import {Ordered} from "./restaurant/home/manager/Ordered";
+import {ProfileMeRestaurant} from "./restaurant/home/profileRestaurant/me/ProfileMeRestaurant";
 
 const NotFound = () => <Redirect to="/" />;
 
@@ -36,13 +37,18 @@ function App() {
         <AuthHOC exact path="/home-restaurant" component={HomeRestaurant} />
         <AuthHOC
           exact
+          path="/home-restaurant/profile/me"
+          component={ProfileMeRestaurant}
+        />
+        <AuthHOC
+          exact
           path="/home-restaurant/profile/picture"
           component={ProfilePictureRestaurant}
         />
         <AuthHOC
           exact
           path="/home-restaurant/profile/adress"
-          component={ProfileAdressRestaurant}
+          component={ProfileAddressRestaurant}
         />
         <AuthHOC
           exact

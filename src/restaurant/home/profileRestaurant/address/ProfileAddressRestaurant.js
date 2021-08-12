@@ -4,10 +4,9 @@ import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
 import NumberFormat from "react-number-format";
 import "./form.scss";
-import MaskedInput from "react-text-mask";
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 
-export function ProfileAdressRestaurant() {
+export function ProfileAddressRestaurant() {
   const [name, setName] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [streetAddress, setStreetAddress] = useState("");

@@ -1,11 +1,8 @@
 import React, {useState, Fragment} from "react";
-import {nanoid} from "nanoid";
+
 import "./style.scss";
 import data from "../../../../utils/table/mock-data-order.json";
 import ReadOnlyOrdersDelivering from "../../../../utils/table/ReadOnlyOrdersDelivering";
-import EditableRow from "../../../../utils/table/EditableRow";
-import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
-import ReadOnlyOrdersInProgress from "../../../../utils/table/ReadOnlyOrdersInProgress";
 import api from "../../../../api/api";
 
 export function Delivering() {

@@ -1,4 +1,3 @@
-import React, {useState} from "react";
 import "./styleRestaurant.scss";
 export function SearchRestaurantMenu(props) {
   return (

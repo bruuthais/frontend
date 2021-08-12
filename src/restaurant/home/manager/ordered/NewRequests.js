@@ -1,10 +1,9 @@
 import React, {useState, Fragment, useEffect} from "react";
-import {nanoid} from "nanoid";
+
 import "./style.scss";
-import data from "../../../../utils/table/mock-data-order.json";
+
 import ReadOnlyOrders from "../../../../utils/table/ReadOnlyOrders";
-import EditableRow from "../../../../utils/table/EditableRow";
-import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
+
 import api from "../../../../api/api";
 
 export function NewRequests() {
@@ -18,7 +17,20 @@ export function NewRequests() {
     streetAddress: "",
     paymentTypeName: "",
     bagDeliveryAddress: "",
+    bagItems: [
+      {
+        foodName: "",
+        quantity: "",
+        id: "",
 
+        foodPrice: "",
+
+        totalPrice: "",
+        preparationTime: "",
+        bagId: "",
+        foodId: "",
+      },
+    ],
     totalPrice: "",
   });
   //Dados para editar
@@ -35,7 +47,7 @@ export function NewRequests() {
   const [editItemId, setEditItemId] = useState(null);
 
   useEffect(() => {
-    api.get("/api/Restaurant/bags").then((response) => {
+    api.get("/api/Restaurant/bags/").then((response) => {
       const idList = response.data.map((bag) => bag.id);
 
       Promise.all(

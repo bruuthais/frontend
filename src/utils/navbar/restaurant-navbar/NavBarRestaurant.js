@@ -6,7 +6,7 @@ import {FiHelpCircle, FiLogOut} from "react-icons/fi";
 
 import {Link} from "react-router-dom";
 import {MenuProfile} from "./menus/MenuProfile";
-import {MenuCli} from "./menus/MenuCli";
+
 export function NavBarRestaurant() {
   const history = useHistory();
 
@@ -17,6 +17,9 @@ export function NavBarRestaurant() {
   //Redireciona ao cardápio
   function handleMenu() {
     history.push("/home-restaurant/menu");
+  }
+  function handleOrdered() {
+    history.push("/home-restaurant/manager/orders");
   }
 
   return (
@@ -35,7 +38,12 @@ export function NavBarRestaurant() {
           {/*Menu do perfil*/}
           <MenuProfile />
           {/*Menu de pagamentos/pedidos*/}
-          <MenuCli />
+          <button
+            className="button-menu-restaurant button-home-restaurant"
+            onClick={handleOrdered}
+          >
+            pedidos
+          </button>
           <button
             className="button-menu-restaurant button-home-restaurant"
             onClick={handleMenu}

@@ -12,17 +12,21 @@ export function MenuProfile() {
   function handleAdress() {
     history.push("/home-restaurant/profile/adress");
   }
+
+  function handleMeRestaurant() {
+    history.push("/home-restaurant/profile/me");
+  }
   return (
     <Menu
       menuButton={
         <button className="button-menu-restaurant button-home-restaurant">
-          perfil
+          restaurante
         </button>
       }
     >
-      <MenuItem onClick={handlePicture}>logo/banner</MenuItem>
+      <MenuItem onClick={handleMeRestaurant}>informações</MenuItem>
+      <MenuItem onClick={handlePicture}>imagem</MenuItem>
       <MenuItem onClick={handleAdress}>endereço</MenuItem>
-      <MenuItem>fechar</MenuItem>
     </Menu>
   );
 }

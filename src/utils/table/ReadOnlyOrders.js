@@ -5,8 +5,11 @@ const ReadOnlyRow = ({item, handleEditClick, handleDeleteClick}) => {
       <td className="th-item">{item.id}</td>
       <td>{item.customerName}</td>
 
-      <td className="td-center">{item.bagDeliveryAddress.streetAddress}</td>
-      <td className="td-center">{item.items}</td>
+      <td className="td-center">
+        {item.bagDeliveryAddress.streetAddress}.{" "}
+        {item.bagDeliveryAddress.refference}
+      </td>
+      <td className="td-center">{item.bagItems.foodName}</td>
       <td className="td-center">{item.totalPrice}</td>
       <td className="td-center">{item.paymentTypeName}</td>
       <td>
