@@ -41,7 +41,7 @@ export function ProfileMeRestaurant() {
           <form className="form-profile-restaurant">
             <img
               src={profile.logoUrl}
-              width="200px"
+              className="me-logo-restaurant"
               alt="logo do restaurante"
             />
             <h3 className="h3-profile-restaurant">Editar Informações</h3>

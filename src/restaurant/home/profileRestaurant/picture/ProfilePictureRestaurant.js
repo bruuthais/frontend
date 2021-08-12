@@ -9,8 +9,6 @@ export function ProfilePictureRestaurant() {
   const [banner, setBanner] = useState("");
 
   async function uploadImage(e: any) {
-    e.preventDefault();
-
     await api
       .post(`/api/Restaurant/images`, {
         logoUrl: logo,
