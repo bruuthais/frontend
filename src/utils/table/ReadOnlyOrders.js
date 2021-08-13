@@ -1,35 +1,39 @@
-const ReadOnlyRow = ({item, handleEditClick, handleDeleteClick}) => {
-  //Concatena os itens do pedido
+const ReadOnlyRow = ({item, handleBagCancel, handleBagNext}) => {
+  //Pega os itens das sacolas
   const bagItems = item.bagItems;
-  console.log(bagItems);
 
-  const concatenar = bagItems.reduce(
-    (acumulador, item) =>
-      (acumulador += " Qtd: " + item.quantity + " - " + item.foodName + "\n"),
-    ""
-  );
-  console.log(concatenar);
+  //concatena os itens
+  const teste = bagItems.map((item) => {
+    return (
+      <span>
+        {`Qtd: ${item.quantity} - ${item.foodName}`} <br />
+      </span>
+    );
+  });
   return (
     <tr>
       <td className="td-center">{item.id}</td>
       <td className="td-tr-address ">{item.customerName}</td>
       <td className="td-tr-address">
-        {item.bagDeliveryAddress.streetAddress}.{" "}
-        <tr>{item.bagDeliveryAddress.refference}</tr>
+        {item.bagDeliveryAddress.streetAddress}
+        <br />
+        {item.bagDeliveryAddress.refference}
       </td>
-      <td className="td-center">{concatenar}</td>
+      <td className="td-tr-address">
+        <div>{teste}</div>
+      </td>
       <td className="td-center">R$ {item.totalPrice}</td>
       <td className="td-center">{item.paymentTypeName}</td>
       <td>
         <button
           className="table-button-YN"
-          onClick={(event) => handleEditClick(event, item)}
+          onClick={() => handleBagNext(item.id)}
         >
           Sim
         </button>
         <button
           className="table-button-YN"
-          onClick={() => handleDeleteClick(item.id)}
+          onClick={() => handleBagCancel(item.id)}
         >
           Não
         </button>

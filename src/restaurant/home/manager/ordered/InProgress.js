@@ -24,16 +24,19 @@ export function InProgress() {
     });
   }, []);
 
-  //Botão de não aceitar
-  const handleDeleteClick = (itemId) => {
-    const newItems = [...items];
-    api.delete(`/api/Restaurant/foods/${itemId}`, items).then((response) => {
-      const index = items.findIndex((item) => item.id === itemId);
-      newItems.splice(index, 1);
-
-      setItems(newItems);
-    });
-  };
+  //envia para o próximo status da bag
+  async function handleBagNext(id) {
+    await api
+      .post(`/api/Restaurant/bags/${id}/next`, {
+        status: "",
+      })
+      .then(function (resposta) {
+        alert("NEXT DEU CERTO");
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
 
   return (
     <>
@@ -58,7 +61,7 @@ export function InProgress() {
                 <Fragment>
                   <ReadOnlyOrdersInProgress
                     item={item}
-                    handleDeleteClick={handleDeleteClick}
+                    handleBagNext={handleBagNext}
                   />
                 </Fragment>
               ))}

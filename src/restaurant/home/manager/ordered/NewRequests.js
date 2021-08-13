@@ -12,7 +12,7 @@ export function NewRequests() {
   //Dados
 
   useEffect(() => {
-    api.get("/api/Restaurant/bags/status/open").then((response) => {
+    api.get("/api/Restaurant/bags/status/ordered").then((response) => {
       const idList = response.data.map((bag) => bag.id);
 
       Promise.all(
@@ -24,18 +24,32 @@ export function NewRequests() {
       });
     });
   }, []);
-
-  //Botão de deletar
-  const handleDeleteClick = (Id) => {
-    api.post(`/api/Restaurant/bags/${Id}/cancel`, items).then((response) => {
-      //const index = items.findIndex((item) => item.id === itemId);
-      //newItems.splice(index, 1);
-      //
-      //setItems(newItems);
-      alert("CANCELADA");
-    });
-  };
-
+  //envia para o próximo status da bag
+  async function handleBagNext(id) {
+    await api
+      .post(`/api/Restaurant/bags/${id}/next`, {
+        status: "",
+      })
+      .then(function (resposta) {
+        alert("NEXT DEU CERTO");
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+  //Não aceita a bag
+  async function handleBagCancel(id) {
+    await api
+      .post(`/api/Restaurant/bags/${id}/cancel`, {
+        status: "",
+      })
+      .then(function (resposta) {
+        alert("NEXT DEU CERTO");
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
   return (
     <>
       <div className="table-container">
@@ -59,7 +73,8 @@ export function NewRequests() {
                 <Fragment>
                   <ReadOnlyOrders
                     item={item}
-                    handleDeleteClick={handleDeleteClick}
+                    handleBagNext={handleBagNext}
+                    handleBagCancel={handleBagCancel}
                   />
                 </Fragment>
               ))}
