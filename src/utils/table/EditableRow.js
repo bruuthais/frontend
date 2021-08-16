@@ -1,6 +1,5 @@
-{
-  /*Row editavel com os inputs para editar dentro dos tds*/
-}
+//Row editavel com os inputs para editar dentro dos tds
+
 const EditableRow = ({
   editFormData,
   handleEditFormChange,

@@ -3,6 +3,7 @@ import {ToastContainer, toast} from "react-toastify";
 import {useHistory} from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
+import "../picture/style.scss";
 
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 
@@ -35,6 +36,20 @@ export function ProfileMeRestaurant() {
       console.log(response);
     });
   }, []);
+
+  async function handleDeleteRestaurant() {
+    await api
+      .delete("/api/Restaurant/me")
+      .then(function (resposta) {
+        alert("Restaurante Deletado");
+        localStorage.removeItem("jwtToken");
+        history.push("/");
+      })
+      .catch(function (error) {
+        console.error(error);
+      });
+  }
+
   return (
     <div className="page-profile-restaurant">
       <NavBarRestaurant />
@@ -85,6 +100,14 @@ export function ProfileMeRestaurant() {
             >
               salvar perfil
             </button>
+            <>
+              <button
+                className="button-profile-delete"
+                onClick={handleDeleteRestaurant}
+              >
+                excluir conta
+              </button>
+            </>
             <ToastContainer />
           </form>
         </div>

@@ -1,34 +1,45 @@
 import "./style.scss";
 import api from "../../api/api";
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import {Link, useHistory} from "react-router-dom";
 import logoImgGrande from "../../assets/image/logo.svg";
+import {doLogin} from "../../authentication";
 
-export function LoginClient() {
+export function LoginClient(props) {
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  const history = useHistory();
-  async function handleLogin(e: any) {
-    e.preventDefault();
+  const [password, setPassword] = useState("");
+  useEffect(() => {
+    const jwtToken = localStorage.getItem("jwtToken");
 
-    await api
-      .post(`/api/Auth`, {
-        email: email,
-        password: senha,
+    if (jwtToken) {
+      props.history.push("/home");
+    }
+  }, [props]);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    doLogin({email, password})
+      .then((response) => {
+        const {token} = response.data;
+
+        localStorage.setItem("jwtToken", token);
+        props.history.push("/home");
+        console.log(response.data);
       })
-      .then(function (resposta) {
-        history.push("/home-login");
-      })
-      .catch(function (error) {
+
+      .catch((err) => {
         toast.error("email ou senha inválidos");
+        localStorage.removeItem("jwtToken");
       });
+    console.log(doLogin);
+  };
 
-    // verificar o que volta do objeto resposta e ver se tem erro
-    // se não ter erro, redirecionar para a outra pagina (usar o useHistory)
-    // se tiver erro, informar erro no toast
-  }
+  // verificar o que volta do objeto resposta e ver se tem erro
+  // se não ter erro, redirecionar para a outra pagina (usar o useHistory)
+  // se tiver erro, informar erro no toast
+
   return (
     <div id="page-auth">
       <aside className="aside-login"></aside>
@@ -36,22 +47,26 @@ export function LoginClient() {
         <div className="login-content">
           <img src={logoImgGrande} alt="logo" className="img-logo-login" />
           <h2>Você está pronto para matar a sua fome?</h2>
-          <form className="form-login">
+          <form className="form-login" onSubmit={handleSubmit}>
             <input
               className="input-login"
               type="text"
               placeholder="insira o seu e-mail"
               value={email}
+              error="wrong"
+              success="right"
               onChange={(e) => setEmail(e.target.value)}
             />
             <input
               className="input-login"
               type="password"
               placeholder="insira a sua senha"
-              value={senha}
-              onChange={(e) => setSenha(e.target.value)}
+              value={password}
+              minLength={4}
+              maxLength={12}
+              onChange={(e) => setPassword(e.target.value)}
             />
-            <button className="login-to-account" onClick={handleLogin}>
+            <button className="login-to-account" type="submit">
               Fazer Login
             </button>
           </form>

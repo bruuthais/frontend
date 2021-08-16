@@ -1,6 +1,4 @@
 //Carrossel de categorias!!
-
-
 import "./style.scss";
 import React from "react";
 import AliceCarousel from "react-alice-carousel";
@@ -13,10 +11,13 @@ import img05 from "../../assets/image/Mexicana.svg";
 import img06 from "../../assets/image/Cafeterias.svg";
 import img07 from "../../assets/image/chinesa.svg";
 import img08 from "../../assets/image/Lanches.svg";
+import {useState} from "react";
+import api from "../../api/api";
+import {useEffect} from "react";
 const responsive = {
-  450: { items: 1 },
-  600: { items: 3 },
-  1024: { items: 5 },
+  450: {items: 1},
+  600: {items: 3},
+  1024: {items: 5},
 };
 const items = [
   <div className="item" data-value="1">
@@ -56,6 +57,8 @@ const Carousel = () => (
   />
 );
 export function Category() {
+  const [category, setCategory] = useState([]);
+
   return (
     <section className="types-of-food">
       <h2>Eai, você tem fome de que?</h2>

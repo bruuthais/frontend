@@ -1,11 +1,28 @@
 import "./style.scss";
-import { FiLogOut, FiShoppingBag } from "react-icons/fi";
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import {FiLogOut, FiShoppingBag} from "react-icons/fi";
+import {useHistory} from "react-router-dom";
+import {useState, useEffect} from "react";
+import {Link} from "react-router-dom";
 import ImgLogo from "../../../assets/image/logo.svg";
+import api from "../../../api/api";
 
 export function NavBarClient() {
   const [busca, setBusca] = useState("");
+  const [profile, setProfile] = useState([]);
+  const history = useHistory();
+  useEffect(() => {
+    api.get("/api/Customer/me").then((response) => {
+      const data = response.data;
+      setProfile(data);
+      console.log(response);
+    });
+  }, []);
+
+  function handleLogout() {
+    localStorage.removeItem("jwtToken");
+    history.push("/");
+  }
+
   return (
     <header className="navbar-home-login">
       <div className="api-name">
@@ -21,14 +38,17 @@ export function NavBarClient() {
           />
         </form>
         <div className="types">
-          <p className="username">nomeusuario</p>
+          <p className="username">{profile.name}</p>
 
           <Link to="/" className="nav-react-icon nav-react-icon-cart">
             <FiShoppingBag size="1.2em" />
           </Link>
-          <Link to="/" className="nav-react-icon nav-react-icon-logout">
+          <div
+            onClick={handleLogout}
+            className="nav-react-icon nav-react-icon-logout"
+          >
             <FiLogOut size="1.2em" />
-          </Link>
+          </div>
         </div>
       </div>
     </header>

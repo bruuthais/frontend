@@ -23,17 +23,23 @@ function App() {
   return (
     <BrowserRouter>
       <Switch>
+        {/* Rotas comuns sem login */}
         <Route path="/" exact component={Home} />
         <Route exact path="/login" component={LoginClient} />
         <Route exact path="/create-account" component={CreateAccountClient} />
+        <Route exact path="/restaurant-login" component={LoginRestaurant} />
         <Route
           exact
           path="/restaurant-create-account"
           component={CreateAccountRestaurant}
         />
         <Route exact path="/create-successful" component={CadastroConcluido} />
-        <Route exact path="/restaurant-login" component={LoginRestaurant} />
-        <Route exact path="/home-login" component={HomeClient} />
+
+        {/* Parte do cliente/usuário que irá fazer compras */}
+
+        <AuthHOC exact path="/home" component={HomeClient} />
+
+        {/* Parte do restaurante */}
         <AuthHOC exact path="/home-restaurant" component={HomeRestaurant} />
         <AuthHOC
           exact
