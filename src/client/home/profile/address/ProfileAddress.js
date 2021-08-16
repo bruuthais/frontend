@@ -5,8 +5,9 @@ import api from "../../../../api/api";
 import NumberFormat from "react-number-format";
 import "./form.scss";
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
+import {NavBarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
 
-export function ProfileAddressRestaurant() {
+export function ProfileAddress() {
   const [name, setName] = useState("");
   const [zipCode, setZipCode] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
@@ -17,7 +18,7 @@ export function ProfileAddressRestaurant() {
 
   async function handleAddress(e: any) {
     await api
-      .post(`/api/Restaurant/addresses`, {
+      .post(`/api/Customer/addresses`, {
         name: name,
         zipCode: zipCode,
         streetAddress: streetAddress,
@@ -38,7 +39,7 @@ export function ProfileAddressRestaurant() {
   }
   return (
     <div className="page-profile-restaurant">
-      <NavBarRestaurant />
+      <NavBarClient />
       <main className="main-address">
         <div className="profile-restaurant-content">
           <form className="form-profile-restaurant">

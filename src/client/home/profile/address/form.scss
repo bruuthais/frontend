@@ -1,0 +1,40 @@
+.App form {
+  max-width: 900px;
+  padding: 30px;
+  align-items: center;
+}
+
+.form-control-group {
+}
+
+.form-input {
+  height: 40px;
+  border-radius: 10px;
+  background: #fff;
+  text-align: left;
+  border: 1px solid #a8a8b3;
+  width: 100%;
+  padding-left: 10px;
+}
+.form-input + .form-input {
+  margin-top: 2em;
+}
+
+.form-input-select {
+  height: 45px;
+  border-radius: 10px;
+  background: #fff;
+  text-align: left;
+  align-items: left;
+  border: 1px solid #a8a8b3;
+  width: 510px;
+  padding-left: 10px;
+}
+.p-form-address {
+  text-align: left !important;
+  color: #3b375d;
+}
+
+.p-form-address-center {
+  text-align: center;
+}

@@ -16,9 +16,12 @@ export function NavBarRestaurant() {
   function handleMenu() {
     history.push("/home-restaurant/menu");
   }
+
+  //Redireciona aos pedidos
   function handleOrdered() {
     history.push("/home-restaurant/manager/orders");
   }
+  //Logout
   function handleLogout() {
     localStorage.removeItem("jwtToken");
     history.push("/");
