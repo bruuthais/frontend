@@ -18,6 +18,7 @@ import {Ordered} from "./restaurant/home/manager/Ordered";
 import {ProfileMeRestaurant} from "./restaurant/home/profileRestaurant/me/ProfileMeRestaurant";
 import {Profile} from "./client/home/profile/me/Profile";
 import {ProfileAddress} from "./client/home/profile/address/ProfileAddress";
+import {RestaurantClientPag} from "./client/home/restaurants/RestaurantClientPag";
 
 const NotFound = () => <Redirect to="/" />;
 
@@ -47,6 +48,11 @@ function App() {
           component={ProfileAddress}
         />
 
+        <AuthHOC
+          exact
+          path="/home/restaurant"
+          component={RestaurantClientPag}
+        />
         {/* Parte do restaurante */}
         <AuthHOC exact path="/home-restaurant" component={HomeRestaurant} />
         <AuthHOC
