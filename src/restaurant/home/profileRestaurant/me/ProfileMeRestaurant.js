@@ -1,7 +1,9 @@
 import {useEffect, useState} from "react";
 import {ToastContainer, toast} from "react-toastify";
+import {useHistory} from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
+
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 
 export function ProfileMeRestaurant() {
@@ -9,7 +11,7 @@ export function ProfileMeRestaurant() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [profile, setProfile] = useState([]);
-
+  const history = useHistory();
   async function handleEditProfile(e: any) {
     await api
       .put(`/api/Restaurant/me`, {
@@ -17,12 +19,12 @@ export function ProfileMeRestaurant() {
         password: password,
         email: email,
       })
-
       .then(function (resposta) {
-        console.log(resposta);
+        localStorage.removeItem("jwtToken");
+        history.push("/");
       })
       .catch(function (error) {
-        toast.error("É necessário preencher todos os campos");
+        toast.error("Preencha os dados corretamente");
       });
   }
 
@@ -49,6 +51,7 @@ export function ProfileMeRestaurant() {
               <p className="p-form-profile">Nome do Restaurante:</p>
               <input
                 type="text"
+                required
                 className="input-img-restaurant"
                 placeholder="insira um nome"
                 value={name}
@@ -57,6 +60,7 @@ export function ProfileMeRestaurant() {
               <p className="p-form-profile">Email:</p>
               <input
                 type="email"
+                required
                 className="input-img-restaurant"
                 placeholder="insira um email"
                 value={email}
@@ -66,6 +70,7 @@ export function ProfileMeRestaurant() {
               <p className="p-form-profile">Senha:</p>
               <input
                 type="password"
+                required
                 className="input-img-restaurant"
                 placeholder="insira ima senha"
                 value={password}

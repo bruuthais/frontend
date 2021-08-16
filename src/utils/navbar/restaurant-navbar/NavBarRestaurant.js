@@ -2,9 +2,7 @@ import "./style.scss";
 
 import ImgLogo from "../../../assets/image/logo.svg";
 import {useHistory} from "react-router-dom";
-import {FiHelpCircle, FiLogOut} from "react-icons/fi";
-
-import {Link} from "react-router-dom";
+import {FiLogOut} from "react-icons/fi";
 import {MenuProfile} from "./menus/MenuProfile";
 
 export function NavBarRestaurant() {
@@ -21,7 +19,11 @@ export function NavBarRestaurant() {
   function handleOrdered() {
     history.push("/home-restaurant/manager/orders");
   }
-
+  function handleLogout() {
+    localStorage.removeItem("jwtToken");
+    history.push("/");
+    console.log(handleLogout);
+  }
   return (
     <header className="navbar-restaurant">
       <div className="api-logo-restaurant">
@@ -51,12 +53,12 @@ export function NavBarRestaurant() {
             cardápio
           </button>
           <>
-            <Link to="/help" className="nav-react-icon nav-react-icon-help">
-              <FiHelpCircle size="1.2em" />
-            </Link>
-            <Link to="/" className="nav-react-icon nav-react-icon-logout">
+            <div
+              onClick={handleLogout}
+              className="nav-react-icon nav-react-icon-logout"
+            >
               <FiLogOut size="1.2em" />
-            </Link>
+            </div>
           </>
         </div>
       </div>
