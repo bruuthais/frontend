@@ -1,7 +1,7 @@
 import React from "react";
 import "../assets/styles/home.scss";
 import foodsImg from "../assets/image/3683230.jpg";
-import { NavBar } from "../utils/navbar/navbar/NavBar";
+import {NavBar} from "../utils/navbar/navbar/NavBar";
 
 export function Home() {
   return (

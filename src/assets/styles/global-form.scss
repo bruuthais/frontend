@@ -1,6 +1,6 @@
-.page-profile-restaurant {
-  height: 100vh;
-  background-image: url(../../../../assets/image/36022.jpg);
+.page-global-form {
+  height: 104vh;
+  background-image: url(../image/36022.jpg);
   background-repeat: repeat;
   background-size: cover;
   main {
@@ -8,21 +8,21 @@
     align-items: center;
     justify-content: center;
 
-    .profile-restaurant-content {
+    .global-form-container {
+      background: #fefefe !important;
       border-radius: 8px;
       margin-top: 2em;
       width: 100%;
       max-width: 700px;
       text-align: center;
-      background: #fefefe;
       box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
       margin-bottom: 2em;
 
-      .form-profile-restaurant {
+      .global-form-box {
         max-width: 900px;
         padding: 30px;
         align-items: center;
-        .h3-profile-restaurant {
+        .h3-global-form {
           font-family: "Poppins", sans-serif;
           font-weight: 500;
           color: #3b375d;
@@ -70,7 +70,7 @@
             transition: 0.2s;
           }
         }
-        .profile-address-restaurant {
+        .global-form-div {
           max-width: 500px;
           padding: 0 60px;
 

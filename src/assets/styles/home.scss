@@ -1,6 +1,7 @@
 .home {
-  height: 100vh;
   background-color: #fefefe;
+  background-repeat: repeat;
+  height: 100vh !important;
   .home-main {
     text-align: center;
     align-items: center;
@@ -38,9 +39,6 @@
 
 @media (max-width: 768px) {
   .home {
-    .home-main {
-    }
-
     .img-home {
       margin-top: 3em;
       width: 100%;

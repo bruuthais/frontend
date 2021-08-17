@@ -10,7 +10,7 @@ export function MenuProfile() {
     history.push("/home-restaurant/profile/picture");
   }
   function handleAdress() {
-    history.push("/home-restaurant/profile/adress");
+    history.push("/home-restaurant/profile/address");
   }
 
   function handleMeRestaurant() {

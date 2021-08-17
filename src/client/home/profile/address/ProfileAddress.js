@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
 import NumberFormat from "react-number-format";
 import "./form.scss";
+import "../../../../assets/styles/global-form.scss";
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 import {NavBarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
 
@@ -16,7 +17,7 @@ export function ProfileAddress() {
   const [zone, setZone] = useState("");
   const [reference, setReference] = useState("");
 
-  async function handleAddress(e: any) {
+  async function handleAddress() {
     await api
       .post(`/api/Customer/addresses`, {
         name: name,
@@ -38,15 +39,15 @@ export function ProfileAddress() {
       });
   }
   return (
-    <div className="page-profile-restaurant">
+    <div className="page-global-form">
       <NavBarClient />
       <main className="main-address">
-        <div className="profile-restaurant-content">
-          <form className="form-profile-restaurant">
-            <div className="profile-address-restaurant">
-              <h3 className="h3-profile-restaurant">Endereço:</h3>
+        <div className="global-form-container">
+          <form className="global-form-box">
+            <div className="global-form-div">
+              <h3 className="h3-global-form">Endereço:</h3>
 
-              <div className="form-control-group">
+              <div className="global-control-group">
                 <p className="p-form-address">Nome para o endereço:</p>
                 <input
                   className="form-input"

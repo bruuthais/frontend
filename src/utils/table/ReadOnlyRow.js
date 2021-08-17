@@ -6,7 +6,7 @@ const ReadOnlyRow = ({item, handleEditClick, handleDeleteClick}) => {
       <td className="td-item">{item.name}</td>
       <td>{item.description}</td>
       <td>{item.photoUrl}</td>
-      <td className="td-center th-price">{item.price}</td>
+      <td className="td-center">R$ {item.price}</td>
       <td className="td-center">{item.preparationTime}</td>
       <td className="td-center">{item.foodCategoryName}</td>
       <td>

@@ -5,6 +5,8 @@ const EditableRow = ({
   handleEditFormChange,
   handleCancelClick,
   handleEditClick,
+  category,
+  handleAddFormChange,
 }) => {
   return (
     <tr>
@@ -54,12 +56,21 @@ const EditableRow = ({
         ></input>
       </td>
       <td>
-        <input
-          disabled={editFormData.foodCategoryName}
-          type="text"
+        <select
+          className="input-item-category"
           name="foodCategoryName"
-          value={editFormData.foodCategoryName}
-        ></input>
+          required="required"
+          onChange={handleAddFormChange}
+        >
+          {/* Select de categoria*/}
+
+          <option className="option-select" value={null}>
+            Categoria
+          </option>
+          {category.map((category) => (
+            <option value={category.value}>{category.name}</option>
+          ))}
+        </select>
       </td>
       <td>
         <button

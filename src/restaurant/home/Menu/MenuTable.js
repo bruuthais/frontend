@@ -19,22 +19,9 @@ export function MenuTable() {
 
       setItems(data);
     });
-
-    //trazer categorias;
-    /* api.get("/api/Home/food-categories").then((response) => {
-      const data = response.data;
-
-      setCategory(data);
-    }); */
   }, []);
   //refresh
   useEffect(() => {
-    /* api.get("/api/Restaurant/foods").then((response) => {
-      const data = response.data;
-
-      setItems(data);
-    }); */
-
     //trazer categorias;
     api.get("/api/Home/food-categories").then((response) => {
       const data = response.data;
@@ -160,21 +147,6 @@ export function MenuTable() {
     });
   };
 
-  //Input de busca
-  //const handleFilter = (event) => {
-  //  const searchWord = event.target.value;
-  //  setItems(searchWord);
-  //  const newFilter = data.filter((value) => {
-  //    return value.title.toLowerCase().includes(searchWord.toLowerCase());
-  //  });
-  //
-  //  if (searchWord === "") {
-  //    setFilteredData([]);
-  //  } else {
-  //    setFilteredData(newFilter);
-  //  }
-  //};
-
   return (
     <>
       <div className="table-container">
@@ -281,6 +253,7 @@ export function MenuTable() {
                         editFormData={editFormData}
                         handleEditFormChange={handleEditFormChange}
                         handleCancelClick={handleCancelClick}
+                        handle
                       />
                     ) : (
                       <ReadOnlyRow

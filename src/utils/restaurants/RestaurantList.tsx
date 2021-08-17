@@ -5,6 +5,7 @@ import api from "../../api/api";
 
 export function RestaurantList() {
   const [dados, setDados] = useState<RestaurantResponse | []>([]);
+
   //Pesquisa os restaurantes para a lista de restaurantes
   useEffect(() => {
     async function fetchRestaurants() {

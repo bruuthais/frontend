@@ -67,7 +67,7 @@ function App() {
         />
         <AuthHOC
           exact
-          path="/home-restaurant/profile/adress"
+          path="/home-restaurant/profile/address"
           component={ProfileAddressRestaurant}
         />
         <AuthHOC
