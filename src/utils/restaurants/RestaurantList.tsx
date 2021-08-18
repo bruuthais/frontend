@@ -3,10 +3,11 @@ import {Restaurant} from "./Restaurant";
 import {RestaurantResponse} from "./interface/RestaurantResponse";
 import api from "../../api/api";
 
-export function RestaurantList() {
+export function RestaurantList(props) {
   const [dados, setDados] = useState<RestaurantResponse | []>([]);
 
-  //Pesquisa os restaurantes para a lista de restaurantes
+  console.log(props);
+  //Retorna os restaurantes para a lista de restaurantes
   useEffect(() => {
     async function fetchRestaurants() {
       const resposta = await api.get("/api/Customer/restaurants");
@@ -20,6 +21,9 @@ export function RestaurantList() {
     <>
       <section className="container">
         {dados
+          .filter(({name}) =>
+            name.toLowerCase().includes(props.busca.toLowerCase())
+          )
           .sort((aberto) => (aberto.isOpen ? -1 : 1))
           .map((restaurant) => (
             <Restaurant

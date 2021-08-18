@@ -8,15 +8,13 @@ import ImgLogo from "../../../assets/image/logo.svg";
 import api from "../../../api/api";
 import {MenuProfileUser} from "../restaurant-navbar/menus/MenuProfileUser";
 
-export function NavBarClient() {
-  const [busca, setBusca] = useState("");
+export function NavBarClient(props) {
   const [profile, setProfile] = useState([]);
   const history = useHistory();
   useEffect(() => {
     api.get("/api/Customer/me").then((response) => {
       const data = response.data;
       setProfile(data);
-      console.log(response);
     });
   }, []);
 
@@ -46,8 +44,8 @@ export function NavBarClient() {
           <input
             type="text"
             placeholder="buscar restaurantes"
-            value={busca}
-            onChange={(e) => setBusca(e.target.value)}
+            value={props.busca}
+            onChange={(e) => props.setBusca(e.target.value)}
           />
         </form>
         <div className="types">

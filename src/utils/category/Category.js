@@ -14,6 +14,7 @@ import img08 from "../../assets/image/Lanches.svg";
 import {useState} from "react";
 import api from "../../api/api";
 import {useEffect} from "react";
+
 const responsive = {
   450: {items: 1},
   600: {items: 3},
@@ -46,11 +47,11 @@ const items = [
   </div>,
 ];
 
-const Carousel = () => (
+const Carousel = (props) => (
   <AliceCarousel
     disableButtonsControls
     mouseTracking
-    items={items}
+    items={props.items}
     paddingLeft={5}
     paddingRight={5}
     responsive={responsive}
@@ -58,11 +59,23 @@ const Carousel = () => (
 );
 export function Category() {
   const [category, setCategory] = useState([]);
-
+  useEffect(() => {
+    api.get("/api/Home/food-categories").then((response) => {
+      const data = response.data;
+      setCategory(
+        data.map((category) => (
+          <div className="item" data-value={category.id}>
+            <h1>{category.name}</h1>
+            <img width="100%" height="100%" src={img08} alt="Lanches" />
+          </div>
+        ))
+      );
+    });
+  });
   return (
     <section className="types-of-food">
       <h2>Eai, você tem fome de que?</h2>
-      <Carousel />
+      <Carousel items={category} />
     </section>
   );
 }

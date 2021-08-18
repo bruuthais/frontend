@@ -1,4 +1,4 @@
-import {Link, useHistory} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 import api from "../../api/api";
 import "./style.scss";
 
@@ -8,10 +8,10 @@ export function Restaurant(props) {
     api
       .get(`/api/Customer/restaurants/${props.id}`)
       .then(function (resposta) {
-        history.push("/home/restaurant");
+        history.push(`/home/restaurant/${props.id}`);
       })
       .catch(function (error) {
-        console.log("insira os dados corretamente");
+        console.log(error);
       });
 
     console.log(handleRestaurantId);
