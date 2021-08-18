@@ -152,7 +152,12 @@ export function ProfileAddressRestaurant() {
                   <option value="TO">TO</option>
                 </select>
               </div>
-              <button onClick={handleAddress}>enviar</button>
+              <button
+                className="button-profile-restaurant"
+                onClick={handleAddress}
+              >
+                enviar
+              </button>
             </div>
           </form>
           <ToastContainer />

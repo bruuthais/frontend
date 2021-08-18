@@ -5,13 +5,10 @@ import api from "../../api/api";
 
 export function RestaurantList(props) {
   const [dados, setDados] = useState<RestaurantResponse | []>([]);
-
-  console.log(props);
   //Retorna os restaurantes para a lista de restaurantes
   useEffect(() => {
     async function fetchRestaurants() {
       const resposta = await api.get("/api/Customer/restaurants");
-      console.log(resposta);
       setDados(resposta.data);
     }
     fetchRestaurants();

@@ -1,10 +1,10 @@
-import { Link, useHistory } from "react-router-dom";
-import { NavBarCreate } from "../../utils/navbar/navbar-create-account/NavBarCreate";
-import { ToastContainer, toast } from "react-toastify";
+import {Link, useHistory} from "react-router-dom";
+import {NavBarCreate} from "../../utils/navbar/navbar-create-account/NavBarCreate";
+import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
-import { useState } from "react";
-import  api  from "../../api/api";
+import {useState} from "react";
+import api from "../../api/api";
 
 export function CreateAccountClient() {
   //Verificar se os dados exigidos estão preenchidos e válidos.
@@ -20,14 +20,15 @@ export function CreateAccountClient() {
     if (senha.length < 4 || senha.length > 12) {
       toast.error("a senha deve ter de 4 a 12 caracteres");
     }
-    await api.post(`/api/Home/customer`, {
-      name: nome,
-      surname: sobrenome,
-      user: {
-        email: email,
-        password: senha,
-      },
-    })
+    await api
+      .post(`/api/Home/customer`, {
+        name: nome,
+        surname: sobrenome,
+        user: {
+          email: email,
+          password: senha,
+        },
+      })
       .then(function (resposta) {
         history.push("/create-successful");
       })
@@ -76,7 +77,7 @@ export function CreateAccountClient() {
             <p className="p-form">Senha:</p>
             <input
               className="input-create-account"
-              type="text"
+              type="password"
               placeholder="insira uma senha"
               value={senha}
               onChange={(e) => setSenha(e.target.value)}

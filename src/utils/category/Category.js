@@ -51,13 +51,24 @@ const Carousel = (props) => (
   <AliceCarousel
     disableButtonsControls
     mouseTracking
-    items={props.items}
+    items={items}
     paddingLeft={5}
     paddingRight={5}
     responsive={responsive}
   />
 );
-export function Category() {
+
+//function handleCategoryName(id) {
+//  api
+//    .get(`/api/Customer/restaurants/category/Lanches`)
+//    .then(function (resposta) {
+//      console.log(resposta);
+//    })
+//    .catch(function (error) {
+//      console.log(error);
+//    });
+//}
+export function Category(props) {
   const [category, setCategory] = useState([]);
   useEffect(() => {
     api.get("/api/Home/food-categories").then((response) => {
@@ -71,7 +82,8 @@ export function Category() {
         ))
       );
     });
-  });
+  }, [category]);
+
   return (
     <section className="types-of-food">
       <h2>Eai, você tem fome de que?</h2>

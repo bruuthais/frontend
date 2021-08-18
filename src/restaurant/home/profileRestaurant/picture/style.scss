@@ -97,25 +97,6 @@
         .img-logo-home {
           align-self: center;
         }
-        button {
-          color: #fefefe;
-          background-color: #4054b2;
-          border-radius: 10px;
-          margin-top: 1.3em;
-          margin-bottom: 1.3em;
-          font-weight: 600;
-          border: none;
-          width: 12em;
-          height: 3.5em;
-          cursor: pointer;
-
-          &:hover {
-            background-color: #f3e836;
-            color: #4054b2;
-            font-weight: 600;
-            transition: 0.2s;
-          }
-        }
       }
     }
   }
@@ -141,7 +122,7 @@
   }
   .button-profile-delete {
     color: #fefefe;
-    background-color: red !important;
+    background-color: red;
     border-radius: 10px;
     margin-top: 1.3em;
     margin-bottom: 1.3em;
@@ -154,7 +135,7 @@
 
     &:hover {
       filter: brightness(0.8);
-      color: #fefefe !important;
+      color: #fefefe;
       font-weight: 600;
       transition: 0.2s;
     }
@@ -211,26 +192,6 @@
           color: #3b375d;
           a {
             color: #5964f9;
-          }
-        }
-
-        button {
-          color: #fefefe;
-          background-color: #4054b2;
-          border-radius: 10px;
-          margin-top: 1.3em;
-          margin-bottom: 1.3em;
-          font-weight: 600;
-          border: none;
-          width: 12em;
-          height: 3.5em;
-          cursor: pointer;
-
-          &:hover {
-            background-color: #f3e836;
-            color: #4054b2;
-            font-weight: 600;
-            transition: 0.2s;
           }
         }
       }

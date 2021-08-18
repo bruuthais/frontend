@@ -1,6 +1,6 @@
 import "./style.scss";
 import ImgLogo from "../../../assets/image/logo.svg";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 export function NavBar() {
   const history = useHistory();
@@ -15,10 +15,8 @@ export function NavBar() {
     history.push("/create-account");
   }
 
-
-  // Redireciona a página de login restaurante 
+  // Redireciona a página de login restaurante
   //(ali você poderá ir para p/agina de criar a conta restaurante também!)
-
 
   function handleRestaurantLogin() {
     history.push("/restaurant-login");
@@ -31,16 +29,19 @@ export function NavBar() {
         </div>
         <div className="types">
           <button
-            className="create-account-button button-home"
+            className="create-account-button button-navbar button-home"
             onClick={handleCreateAccount}
           >
             criar conta
           </button>
-          <button className="login-button  button-home" onClick={handleLogin}>
+          <button
+            className="login-button button-navbar  button-home"
+            onClick={handleLogin}
+          >
             entrar
           </button>
           <button
-            className="restaurant-button  button-home"
+            className="restaurant-button button-navbar  button-home"
             onClick={handleRestaurantLogin}
           >
             sou restaurante

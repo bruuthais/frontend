@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 import api from "../../../api/api";
 import "./style.scss";
 import {NavBarClient} from "../../../utils/navbar/client-navbar/NavBarClient";
+import {ListMenu} from "../../../utils/list-menu/ListMenu";
 
 export function RestaurantClientPag(props) {
   const [restaurant, setRestaurant] = useState([]);
@@ -25,12 +26,14 @@ export function RestaurantClientPag(props) {
             alt="Banner do restaurante"
           />
           <div className="top-box-about">
-            <img
-              className="logo-restaurant-box"
-              src={restaurant.logoUrl}
-              alt="Logo do restaurante"
-            />
-            <h1 className="name-restaurant-box">{restaurant.name}</h1>
+            <h1 className="name-restaurant-box">
+              <img
+                className="logo-restaurant-box"
+                src={restaurant.logoUrl}
+                alt="Logo do restaurante"
+              />
+              {restaurant.name}
+            </h1>
 
             <div className="top-text-box">
               <h2
@@ -45,7 +48,11 @@ export function RestaurantClientPag(props) {
             </div>
           </div>
         </div>
-        <div className="items-box"></div>
+      </div>
+      <div className="items-box">
+        <div className="items-box-container">
+          <h2 className="title-box">Cardápio</h2>
+        </div>
       </div>
     </div>
   );

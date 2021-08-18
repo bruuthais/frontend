@@ -13,7 +13,7 @@ export function ProfileMeRestaurant() {
   const [email, setEmail] = useState("");
   const [profile, setProfile] = useState([]);
   const history = useHistory();
-  async function handleEditProfile(e: any) {
+  async function handleEditProfile() {
     await api
       .put(`/api/Restaurant/me`, {
         name: name,
@@ -92,7 +92,6 @@ export function ProfileMeRestaurant() {
                 onChange={(e) => setPassword(e.target.value)}
               />
             </div>
-            <div className="profile-adress-restaurant"></div>
 
             <button
               className="button-profile-restaurant"

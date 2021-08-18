@@ -13,8 +13,6 @@ export function Restaurant(props) {
       .catch(function (error) {
         console.log(error);
       });
-
-    console.log(handleRestaurantId);
   }
   return (
     <>
