@@ -46,28 +46,20 @@ const items = [
     <img width="100%" height="100%" src={img08} alt="Lanches" />
   </div>,
 ];
+const handleDragStart = (e) => e.preventDefault();
 
 const Carousel = (props) => (
   <AliceCarousel
     disableButtonsControls
     mouseTracking
-    items={items}
+    activeIndex
+    items={props.items}
     paddingLeft={5}
     paddingRight={5}
     responsive={responsive}
   />
 );
 
-//function handleCategoryName(id) {
-//  api
-//    .get(`/api/Customer/restaurants/category/Lanches`)
-//    .then(function (resposta) {
-//      console.log(resposta);
-//    })
-//    .catch(function (error) {
-//      console.log(error);
-//    });
-//}
 export function Category(props) {
   const [category, setCategory] = useState([]);
   useEffect(() => {
@@ -75,14 +67,34 @@ export function Category(props) {
       const data = response.data;
       setCategory(
         data.map((category) => (
-          <div className="item" data-value={category.id}>
+          <div
+            className="item"
+            onClick={handleCategoryName}
+            data-value={category.id}
+          >
             <h1>{category.name}</h1>
-            <img width="100%" height="100%" src={img08} alt="Lanches" />
+            <img
+              width="100%"
+              height="100%"
+              src={category.imageUrl}
+              alt="imagens das categorias"
+            />
           </div>
         ))
       );
     });
-  }, [category]);
+  }, [items]);
+
+  function handleCategoryName(name) {
+    api
+      .get(`/api/Customer/restaurants/category/${name}`)
+      .then(function (resposta) {
+        console.log(resposta);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
 
   return (
     <section className="types-of-food">
