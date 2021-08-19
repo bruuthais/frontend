@@ -24,8 +24,8 @@ export function Restaurant(props) {
           <div className="restaurant-img">
             <img src={props.logoUrl} alt="imagem do restaurante"></img>
           </div>
-          <div className="restaurant-box">
-            <div className="restaurant-name">
+          <div className="restaurants-box">
+            <div className="restaurants-name">
               <h3> {props.name}</h3>
             </div>
             <div

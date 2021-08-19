@@ -4,6 +4,7 @@ import {useHistory} from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
 import "../picture/style.scss";
+import Swal from "sweetalert2";
 
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 
@@ -21,6 +22,14 @@ export function ProfileMeRestaurant() {
         email: email,
       })
       .then(function (resposta) {
+        Swal.fire({
+          title: "Dados alterados",
+          text: "Por favor faça novamente o login! :)",
+          icon: "success",
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "OK",
+        });
         localStorage.removeItem("jwtToken");
         history.push("/");
       })
@@ -41,7 +50,14 @@ export function ProfileMeRestaurant() {
     await api
       .delete("/api/Restaurant/me")
       .then(function (resposta) {
-        alert("Restaurante Deletado");
+        Swal.fire({
+          title: "Conta deletada",
+          text: "Sentiremos sua falta...",
+          icon: "success",
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "OK",
+        });
         localStorage.removeItem("jwtToken");
         history.push("/");
       })
