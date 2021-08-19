@@ -2,9 +2,9 @@ import {useHistory} from "react-router-dom";
 import api from "../../api/api";
 import "./style.scss";
 
-export function Restaurant(props) {
+export function Restaurant(props: any) {
   const history = useHistory();
-  function handleRestaurantId(id) {
+  function handleRestaurantId(id: any) {
     api
       .get(`/api/Customer/restaurants/${props.id}`)
       .then(function (resposta) {

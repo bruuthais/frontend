@@ -3,7 +3,7 @@ import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
 import NumberFormat from "react-number-format";
-
+import Swal from "sweetalert2";
 import "../../../../assets/styles/global-form.scss";
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 
@@ -14,9 +14,10 @@ export function ProfileAddressRestaurant() {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [zone, setZone] = useState("");
-  const [reference, setReference] = useState("");
+  const [refference, setRefference] = useState("");
 
-  async function handleAddress() {
+  async function handleAddress(e: any) {
+    e.preventDefault();
     await api
       .post(`/api/Restaurant/addresses`, {
         name: name,
@@ -25,11 +26,15 @@ export function ProfileAddressRestaurant() {
         zone: zone,
         city: city,
         state: state,
-        refference: reference,
+        refference: refference,
       })
 
       .then(function (resposta) {
-        console.log(resposta);
+        Swal.fire({
+          timer: 3100,
+          icon: "success",
+          text: "Endereço adicionado",
+        });
       })
       .catch(function (error) {
         toast.error(
@@ -88,9 +93,9 @@ export function ProfileAddressRestaurant() {
                   className="form-input"
                   required
                   type="text"
-                  value={reference}
+                  value={refference}
                   placeholder="ao lado da roseira"
-                  onChange={(e) => setReference(e.target.value)}
+                  onChange={(e) => setRefference(e.target.value)}
                 />
               </div>
               <div className="form-control-group">

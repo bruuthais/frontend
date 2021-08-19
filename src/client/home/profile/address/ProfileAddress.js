@@ -4,8 +4,8 @@ import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
 import NumberFormat from "react-number-format";
 import "./form.scss";
+import Swal from "sweetalert2";
 import "../../../../assets/styles/global-form.scss";
-import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 import {NavBarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
 
 export function ProfileAddress() {
@@ -15,9 +15,10 @@ export function ProfileAddress() {
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [zone, setZone] = useState("");
-  const [reference, setReference] = useState("");
+  const [refference, setRefference] = useState("");
 
-  async function handleAddress() {
+  async function handleAddress(e: any) {
+    e.preventDefault();
     await api
       .post(`/api/Customer/addresses`, {
         name: name,
@@ -26,15 +27,20 @@ export function ProfileAddress() {
         zone: zone,
         city: city,
         state: state,
-        refference: reference,
+        refference: refference,
       })
 
       .then(function (resposta) {
-        console.log(resposta);
+        Swal.fire({
+          timer: 2800,
+          showConfirmButton: false,
+          icon: "success",
+          text: "Endereço adicionado",
+        });
       })
       .catch(function (error) {
         toast.error(
-          "Favor verificar, endereço deve conter virgula antes do numero Ex: rua, 123"
+          `Favor verificar os dados, ex: endereço deve conter virgula antes do numero "rua, 123"`
         );
       });
   }
@@ -87,11 +93,10 @@ export function ProfileAddress() {
                 <p className="p-form-address">Complemento:</p>
                 <input
                   className="form-input"
-                  required
                   type="text"
-                  value={reference}
+                  value={refference}
                   placeholder="ao lado da roseira"
-                  onChange={(e) => setReference(e.target.value)}
+                  onChange={(e) => setRefference(e.target.value)}
                 />
               </div>
               <div className="form-control-group">

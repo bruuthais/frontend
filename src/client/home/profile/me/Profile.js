@@ -1,9 +1,10 @@
-import {useEffect, useState} from "react";
+import {useState} from "react";
 import {ToastContainer, toast} from "react-toastify";
 import {useHistory} from "react-router-dom";
 import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
 import "../address/form.scss";
+import Swal from "sweetalert2";
 import {NavBarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
 
 export function Profile() {
@@ -13,6 +14,7 @@ export function Profile() {
   const [email, setEmail] = useState("");
   const history = useHistory();
   async function handleEditProfile(e: any) {
+    e.preventDefault();
     await api
       .put(`/api/Customer/me`, {
         name: name,
@@ -21,6 +23,13 @@ export function Profile() {
         email: email,
       })
       .then(function (resposta) {
+        Swal.fire({
+          title: "Dados alterados",
+          text: "Por favor faça novamente o login! :)",
+          icon: "success",
+          confirmButtonColor: "#4054b2",
+          confirmButtonText: "OK",
+        });
         localStorage.removeItem("jwtToken");
         history.push("/");
       })
@@ -33,7 +42,13 @@ export function Profile() {
     await api
       .delete("/api/Customer/me")
       .then(function (resposta) {
-        alert("Restaurante Deletado");
+        Swal.fire({
+          title: "Conta deletada",
+          text: "Sentiremos sua falta...",
+          icon: "success",
+          timer: 2500,
+          showConfirmButton: false,
+        });
         localStorage.removeItem("jwtToken");
         history.push("/");
       })

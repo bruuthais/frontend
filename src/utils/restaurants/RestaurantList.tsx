@@ -3,7 +3,7 @@ import {Restaurant} from "./Restaurant";
 import {RestaurantResponse} from "./interface/RestaurantResponse";
 import api from "../../api/api";
 
-export function RestaurantList(props) {
+export function RestaurantList(props: any) {
   const [dados, setDados] = useState<RestaurantResponse | []>([]);
   //Retorna os restaurantes para a lista de restaurantes
   useEffect(() => {

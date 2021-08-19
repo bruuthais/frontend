@@ -4,6 +4,7 @@ import {NavBarCreate} from "../../utils/navbar/navbar-create-account/NavBarCreat
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
+import Swal from "sweetalert2";
 import api from "../../api/api";
 
 export function CreateAccountRestaurant() {
@@ -28,7 +29,13 @@ export function CreateAccountRestaurant() {
         },
       })
       .then(function (resposta) {
-        history.push("/create-successful");
+        Swal.fire({
+          title: "Conta criada",
+          text: "Faça o login!",
+          icon: "success",
+          confirmButtonColor: "#4054b2",
+        });
+        history.push("/");
       })
       .catch(function (error) {
         toast.error("insira os dados corretamente");

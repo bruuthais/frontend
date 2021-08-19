@@ -1,5 +1,6 @@
 import {useState} from "react";
-
+import Swal from "sweetalert2";
+import {ToastContainer, toast} from "react-toastify";
 import api from "../../../../api/api";
 import {NavBarRestaurant} from "../../../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 import "./style.scss";
@@ -9,16 +10,22 @@ export function ProfilePictureRestaurant() {
   const [banner, setBanner] = useState("");
 
   async function uploadImage(e: any) {
+    e.preventDefault();
     await api
       .post(`/api/Restaurant/images`, {
         logoUrl: logo,
         bannerUrl: banner,
       })
       .then(function (resposta) {
-        console.log(resposta);
+        Swal.fire({
+          timer: 2800,
+          showConfirmButton: false,
+          icon: "success",
+          text: "As imagens foram alteradas",
+        });
       })
       .catch(function (error) {
-        console.log(error);
+        toast.error("Ocorreu um problema, tente novamente.");
       });
   }
 
@@ -35,6 +42,7 @@ export function ProfilePictureRestaurant() {
                 type="text"
                 className="input-img-restaurant"
                 placeholder="insira a url da logo"
+                required
                 value={logo}
                 onChange={(e) => setLogo(e.target.value)}
               />
@@ -42,6 +50,7 @@ export function ProfilePictureRestaurant() {
               <p className="p-form-profile">Banner:</p>
               <input
                 type="text"
+                required
                 className="input-img-restaurant"
                 placeholder="insira a url do banner"
                 value={banner}
@@ -56,6 +65,7 @@ export function ProfilePictureRestaurant() {
           </form>
         </div>
       </main>
+      <ToastContainer />
     </div>
   );
 }

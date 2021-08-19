@@ -24,29 +24,7 @@ const items = [
   <div className="item" data-value="1">
     <img width="100%" height="100%" src={img01} alt="Comida saudável" />
   </div>,
-  <div className="item" data-value="2">
-    <img width="100%" height="100%" src={img02} alt="Doces" />
-  </div>,
-  <div className="item" data-value="3">
-    <img width="100%" height="100%" src={img03} alt="Comida italiana" />
-  </div>,
-  <div className="item" data-value="4">
-    <img width="100%" height="100%" src={img04} alt="Comida japonesa" />
-  </div>,
-  <div className="item" data-value="5">
-    <img width="100%" height="100%" src={img05} alt="Comida mexicana" />
-  </div>,
-  <div className="item" data-value="6">
-    <img width="100%" height="100%" src={img06} alt="Cafeterias" />
-  </div>,
-  <div className="item" data-value="7">
-    <img width="100%" height="100%" src={img07} alt="Comida Chinesa" />
-  </div>,
-  <div className="item" data-value="8">
-    <img width="100%" height="100%" src={img08} alt="Lanches" />
-  </div>,
 ];
-const handleDragStart = (e) => e.preventDefault();
 
 const Carousel = (props) => (
   <AliceCarousel
@@ -65,6 +43,7 @@ export function Category(props) {
   useEffect(() => {
     api.get("/api/Home/food-categories").then((response) => {
       const data = response.data;
+
       setCategory(
         data.map((category) => (
           <div
@@ -73,6 +52,7 @@ export function Category(props) {
             data-value={category.id}
           >
             <h1>{category.name}</h1>
+
             <img
               width="100%"
               height="100%"

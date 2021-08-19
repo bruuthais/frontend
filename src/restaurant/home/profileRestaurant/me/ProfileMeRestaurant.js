@@ -14,7 +14,8 @@ export function ProfileMeRestaurant() {
   const [email, setEmail] = useState("");
   const [profile, setProfile] = useState([]);
   const history = useHistory();
-  async function handleEditProfile() {
+  async function handleEditProfile(e) {
+    e.preventDefault();
     await api
       .put(`/api/Restaurant/me`, {
         name: name,
@@ -26,8 +27,7 @@ export function ProfileMeRestaurant() {
           title: "Dados alterados",
           text: "Por favor faça novamente o login! :)",
           icon: "success",
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
+          confirmButtonColor: "#4054b2",
           confirmButtonText: "OK",
         });
         localStorage.removeItem("jwtToken");
@@ -46,7 +46,8 @@ export function ProfileMeRestaurant() {
     });
   }, []);
 
-  async function handleDeleteRestaurant() {
+  async function handleDeleteRestaurant(e) {
+    e.preventDefault();
     await api
       .delete("/api/Restaurant/me")
       .then(function (resposta) {
@@ -54,9 +55,8 @@ export function ProfileMeRestaurant() {
           title: "Conta deletada",
           text: "Sentiremos sua falta...",
           icon: "success",
-          confirmButtonColor: "#3085d6",
-          cancelButtonColor: "#d33",
-          confirmButtonText: "OK",
+          timer: 2500,
+          showConfirmButton: false,
         });
         localStorage.removeItem("jwtToken");
         history.push("/");

@@ -25,7 +25,6 @@ export function LoginClient(props) {
 
         localStorage.setItem("jwtToken", token);
         props.history.push("/home");
-        console.log(response.data);
       })
 
       .catch((err) => {
