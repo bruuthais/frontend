@@ -54,6 +54,7 @@ export function RestaurantClientPag(props) {
           <h2 className="title-box">Cardápio</h2>
         </div>
       </div>
+      <ListMenu />
     </div>
   );
 }

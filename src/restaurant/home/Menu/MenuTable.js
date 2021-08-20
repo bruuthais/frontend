@@ -253,7 +253,6 @@ export function MenuTable() {
                         editFormData={editFormData}
                         handleEditFormChange={handleEditFormChange}
                         handleCancelClick={handleCancelClick}
-                        handle
                       />
                     ) : (
                       <ReadOnlyRow

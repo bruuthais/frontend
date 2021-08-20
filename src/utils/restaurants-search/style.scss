@@ -13,7 +13,7 @@
     padding: 0 auto;
     background: #fefefe;
     width: 430px;
-    height: 10rem;
+    height: 150px;
     border-radius: 10px;
     cursor: pointer;
     border: 1px solid #ebebeb;
@@ -23,23 +23,25 @@
 
     .restaurant-img {
       position: absolute;
-      margin-top: 30px;
-      margin-left: 20px;
+      padding-right: 5px;
       img {
         width: 60px;
         height: 60px;
+        margin-top: -8px;
+        margin-left: -5px;
         border-radius: 50%;
       }
     }
-    .restaurant-box {
+    .restaurants-box {
       position: relative;
       justify-content: center;
       display: inline-block;
+      margin-left: 40px;
     }
-    .restaurant-name {
+    .restaurants-name {
       color: #3b375d;
       h3 {
-        font-size: 1.8em;
+        font-size: 18px;
       }
     }
     .restaurant-category {
@@ -49,7 +51,7 @@
 
     .restaurant-is-open {
       color: #a3d321;
-      font-size: 1.5em;
+      font-size: 18px;
     }
   }
 
@@ -66,26 +68,27 @@
     }
     .restaurant-img {
       position: absolute;
-      margin-top: 30px;
-      margin-left: 20px;
+      padding-right: 5px;
+
       img {
         width: 60px;
         height: 60px;
         border-radius: 50%;
+        margin-top: -8px;
+        margin-left: -5px;
         filter: brightness(0.6);
       }
     }
-    .restaurant-box {
+    .restaurants-box {
       position: relative;
       justify-content: center;
       display: inline-block;
-      margin-left: 40px;
     }
 
-    .restaurant-name {
+    .restaurants-name {
       color: gray;
       h3 {
-        font-size: 1.8em;
+        font-size: 18px;
       }
     }
     .restaurant-category {
@@ -94,7 +97,7 @@
     }
 
     .restaurant-is-closed {
-      font-size: 1.5em;
+      font-size: 19px;
       color: gray;
     }
   }

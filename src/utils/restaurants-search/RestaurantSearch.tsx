@@ -2,13 +2,13 @@ import {useHistory} from "react-router-dom";
 import api from "../../api/api";
 import "./style.scss";
 
-export function Restaurant(props: any) {
+export function RestaurantSearch(props: any) {
   const history = useHistory();
   function handleRestaurantId(id: any) {
     api
       .get(`/api/Customer/restaurants/${props.id}`)
       .then(function (resposta) {
-        history.push(`/home/restaurant/${props.id}`);
+        history.push(`/home/category/${props.id}`);
       })
       .catch(function (error) {
         console.log(error);
@@ -22,15 +22,11 @@ export function Restaurant(props: any) {
           className={props.isOpen ? "restaurant" : "restaurant-closed"}
         >
           <div className="restaurant-img">
-            <img
-              className="restaurant-img-logo"
-              src={props.logoUrl}
-              alt="imagem do restaurante"
-            ></img>
+            <img src={props.logoUrl} alt="imagem do restaurante"></img>
           </div>
           <div className="restaurants-box">
             <div className="restaurants-name">
-              <h3 className="h3-restaurants-name"> {props.name}</h3>
+              <h3> {props.name}</h3>
             </div>
             <div
               className={

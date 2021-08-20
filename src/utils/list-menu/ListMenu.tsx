@@ -8,10 +8,10 @@ export function ListMenu(props) {
   const [dados, setDados] = useState<MenuResponse | []>([]);
 
   console.log(props);
-  //Retorna os restaurantes para a lista de restaurantes
+  //Retorna o cardapio do  restaurante
   const {id} = useParams();
   useEffect(() => {
-    api.get(`/api/Customer/restaurants/${id}`).then((response) => {
+    api.get(`/api/Customer/restaurants/${id}/foods`).then((response) => {
       const data = response.data;
       setDados(data);
     });
@@ -19,7 +19,7 @@ export function ListMenu(props) {
 
   return (
     <>
-      <section className="container">
+      <section className="list-menu-content">
         {dados.map((menu) => (
           <Menu
             key={menu.id}
@@ -28,6 +28,7 @@ export function ListMenu(props) {
             discription={menu.description}
             photoUrl={menu.photoUrl}
             foodCategoryName={menu.foodCategoryName}
+            price={menu.price}
           />
         ))}
       </section>

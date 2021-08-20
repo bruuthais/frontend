@@ -18,20 +18,27 @@ export function Menu(props) {
   }
   return (
     <>
-      <div className="content">
+      <div className="list-menu-content">
         <button className="list-menu">
           <div className="list-menu-img">
-            <img src={props.photoUrl} alt="imagem do item"></img>
+            <img
+              className="list-menu-img-food"
+              src={props.photoUrl}
+              alt="imagem do item"
+            ></img>
           </div>
           <div className="list-menu-box">
             <div className="list-menu-name">
-              <h3> {props.name}</h3>
+              <h3 className="list-menu-name"> {props.name}</h3>
+            </div>
+            <div className="list-menu-category">
+              <p>Categoria: {props.foodCategoryName}</p>
             </div>
             <div className="list-menu-description">
-              <p>{props.discription}</p>
+              <p className="list-menu-description">{props.discription}</p>
             </div>
             <div className="list-menu-price">
-              <p>{props.price}</p>
+              <p>R${props.price}</p>
             </div>
             <button className="button-buy">Comprar</button>
           </div>

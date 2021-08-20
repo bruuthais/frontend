@@ -1,4 +1,4 @@
-export type MenuResponse = [
+export type MenuResponseSearch = [
   {
     id: number;
     name: string;

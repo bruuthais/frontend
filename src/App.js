@@ -54,7 +54,7 @@ function App() {
           path="/home/restaurant/:id"
           component={RestaurantClientPag}
         />
-        <AuthHOC exact path="/home/category" component={HomeCategory} />
+        <AuthHOC exact path="/home/category/:name" component={HomeCategory} />
 
         {/* Parte do restaurante */}
         <AuthHOC exact path="/home-restaurant" component={HomeRestaurant} />

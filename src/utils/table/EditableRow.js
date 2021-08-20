@@ -1,5 +1,20 @@
 //Row editavel com os inputs para editar dentro dos tds
 
+//<select
+//          className="input-item-category"
+//          name="foodCategoryName"
+//          required="required"
+//          onChange={handleAddFormChange}
+//        >
+//          {/* Select de categoria*/}
+//
+//          <option className="option-select" value={null}>
+//            Categoria
+//          </option>
+//          {category.map((category) => (
+//            <option value={category.value}>{category.name}</option>
+//          ))}
+//        </select>
 const EditableRow = ({
   editFormData,
   handleEditFormChange,
@@ -56,21 +71,13 @@ const EditableRow = ({
         ></input>
       </td>
       <td>
-        <select
-          className="input-item-category"
+        <input
+          type="text"
+          placeholder="tempo"
           name="foodCategoryName"
-          required="required"
-          onChange={handleAddFormChange}
-        >
-          {/* Select de categoria*/}
-
-          <option className="option-select" value={null}>
-            Categoria
-          </option>
-          {category.map((category) => (
-            <option value={category.value}>{category.name}</option>
-          ))}
-        </select>
+          value={editFormData.foodCategoryName}
+          onChange={handleEditFormChange}
+        ></input>
       </td>
       <td>
         <button

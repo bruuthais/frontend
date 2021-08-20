@@ -1,6 +1,6 @@
-.container {
-  margin-top: 3em;
+.list-menu-content {
   margin-left: 1em;
+  margin-bottom: 2em;
   margin-right: 1em;
   display: flex;
   flex-wrap: wrap;
@@ -9,11 +9,12 @@
   padding: 40px auto;
   box-sizing: border-box;
 
-  .restaurant {
+  .list-menu {
     padding: 0 auto;
     background: #fefefe;
-    width: 430px;
-    height: 10rem;
+    width: 580px;
+    height: 300px;
+    max-height: 300px;
     border-radius: 10px;
     cursor: pointer;
     border: 1px solid #ebebeb;
@@ -21,94 +22,70 @@
       border: 1px solid #a8a8b3;
     }
 
-    .restaurant-img {
+    .list-menu-img {
       position: absolute;
-      margin-top: 30px;
+      margin-top: 4em;
       margin-left: 20px;
-      img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
+      margin-right: 20px;
+      margin-bottom: 2em;
+      .list-menu-img-food {
+        width: 150px;
+        height: 150px;
+        border-radius: 10px;
       }
     }
-    .restaurants-box {
+    .list-menu-box {
       position: relative;
-      justify-content: center;
+      justify-content: space-between;
       display: inline-block;
-      margin-left: 40px;
+      padding-left: 150px;
+      padding-right: 10px;
     }
-    .restaurant-name {
+    .list-menu-name {
       color: #3b375d;
-      h3 {
-        font-size: 1.8em;
-      }
+      height: 45px;
+      font-size: 20px;
     }
-    .restaurant-category {
+    .list-menu-category {
       color: #3b375d;
-      font-size: 1.5em;
+      font-size: 15px;
+    }
+    .list-menu-price {
+      color: #3b375d;
+      font-size: 18px;
     }
 
-    .restaurant-is-open {
-      color: #a3d321;
-      font-size: 1.5em;
+    .list-menu-description {
+      color: #3b375d;
+      height: 50px;
+      font-size: 15px;
+      word-wrap: normal;
     }
   }
-
-  .restaurant-closed {
-    padding: 0 auto;
-    background: #fefefe;
-    width: 430px;
-    height: 10rem;
-    border-radius: 10px;
+  .button-buy {
+    color: #fefefe;
+    background-color: #4054b2;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    width: 100px;
+    height: 35px;
     cursor: pointer;
-    border: 1px solid #ebebeb;
+
     &:hover {
-      border: 1px solid #a8a8b3;
-    }
-    .restaurant-img {
-      position: absolute;
-      margin-top: 30px;
-      margin-left: 20px;
-      img {
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        filter: brightness(0.6);
-      }
-    }
-    .restaurants-box {
-      position: relative;
-      justify-content: center;
-      display: inline-block;
-      margin-left: 40px;
-    }
-
-    .restaurant-name {
-      color: gray;
-      h3 {
-        font-size: 1.8em;
-      }
-    }
-    .restaurant-category {
-      color: gray;
-      font-size: 1.5em;
-    }
-
-    .restaurant-is-closed {
-      font-size: 1.5em;
-      color: gray;
+      background-color: #f3e836;
+      color: #4054b2;
+      font-weight: 600;
+      transition: 0.2s;
     }
   }
 }
 
 @media (max-width: 450px) {
-  .container {
-    .restaurant {
-      width: 380px;
-      height: 10rem;
-    }
-
-    .restaurant-closed {
+  .list-menu-content {
+    .list-menu-restaurant {
       width: 380px;
       height: 10rem;
     }
