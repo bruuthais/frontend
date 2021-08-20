@@ -20,6 +20,7 @@ import {Profile} from "./client/home/profile/me/Profile";
 import {ProfileAddress} from "./client/home/profile/address/ProfileAddress";
 import {RestaurantClientPag} from "./client/home/restaurants/RestaurantClientPag";
 import {HomeCategory} from "./client/home/category/HomeCategory";
+import {Bag} from "./utils/bag/Bag";
 
 const NotFound = () => <Redirect to="/" />;
 
@@ -55,6 +56,7 @@ function App() {
           component={RestaurantClientPag}
         />
         <AuthHOC exact path="/home/category/:name" component={HomeCategory} />
+        <AuthHOC exact path="/finish" component={Bag} />
 
         {/* Parte do restaurante */}
         <AuthHOC exact path="/home-restaurant" component={HomeRestaurant} />

@@ -8,7 +8,7 @@ import ImgLogo from "../../../assets/image/logo.svg";
 import api from "../../../api/api";
 import {MenuProfileUser} from "../restaurant-navbar/menus/MenuProfileUser";
 
-export function NavBarClient(props) {
+export function NavBarClient2(props) {
   const [profile, setProfile] = useState([]);
   const history = useHistory();
   useEffect(() => {
@@ -40,14 +40,7 @@ export function NavBarClient(props) {
             onClick={handleHome}
           />
         </div>
-        <form className="header-search-restaurant">
-          <input
-            type="text"
-            placeholder="buscar restaurantes"
-            value={props.busca}
-            onChange={(e) => props.setBusca(e.target.value)}
-          />
-        </form>
+
         <div className="types">
           <p className="username">{profile.name}</p>
 

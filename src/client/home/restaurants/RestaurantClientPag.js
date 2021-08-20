@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import {useParams} from "react-router-dom";
 import api from "../../../api/api";
 import "./style.scss";
-import {NavBarClient} from "../../../utils/navbar/client-navbar/NavBarClient";
 import {ListMenu} from "../../../utils/list-menu/ListMenu";
+import {NavBarClient2} from "../../../utils/navbar/client-navbar/NavBarClient2";
 
 export function RestaurantClientPag(props) {
   const [restaurant, setRestaurant] = useState([]);
@@ -17,7 +17,7 @@ export function RestaurantClientPag(props) {
 
   return (
     <div className="home">
-      <NavBarClient />
+      <NavBarClient2 />
       <div className="restaurant-box-container">
         <div className="top-box">
           <img

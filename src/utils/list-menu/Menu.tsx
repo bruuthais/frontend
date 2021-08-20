@@ -1,20 +1,21 @@
+import {useState} from "react";
 import {useHistory} from "react-router-dom";
 import api from "../../api/api";
 import "./style.scss";
 
 export function Menu(props) {
+  const [quantity, setQuantity] = useState();
+  const [id, setId] = useState();
   const history = useHistory();
-  function handleRestaurantId(id) {
+  function handleBuyId() {
     api
-      .get(`/api/Customer/restaurants/category/${props.id}`)
+      .post(`/api/Customer/bags/open`, {foodId: id, quantity: quantity})
       .then(function (resposta) {
         console.log(resposta);
       })
       .catch(function (error) {
         console.log(error);
       });
-
-    console.log(handleRestaurantId);
   }
   return (
     <>
@@ -31,16 +32,25 @@ export function Menu(props) {
             <div className="list-menu-name">
               <h3 className="list-menu-name"> {props.name}</h3>
             </div>
-            <div className="list-menu-category">
-              <p>Categoria: {props.foodCategoryName}</p>
-            </div>
             <div className="list-menu-description">
               <p className="list-menu-description">{props.discription}</p>
             </div>
             <div className="list-menu-price">
-              <p>R${props.price}</p>
+              <p className="p-list-menu-price">Preço: R$ {props.price}</p>
+              <p className="p-list-menu-quantity">
+                Qtd:{" "}
+                <input
+                  type="number"
+                  className="list-menu-quantity"
+                  min="1"
+                  value={quantity}
+                  onChange={(e) => setQuantity(e.target.value)}
+                />
+              </p>
             </div>
-            <button className="button-buy">Comprar</button>
+            <button onClick={handleBuyId} className="button-buy">
+              Comprar
+            </button>
           </div>
         </button>
       </div>

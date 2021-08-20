@@ -16,7 +16,7 @@
     height: 300px;
     max-height: 300px;
     border-radius: 10px;
-    cursor: pointer;
+    cursor: default;
     border: 1px solid #ebebeb;
     &:hover {
       border: 1px solid #a8a8b3;
@@ -24,7 +24,7 @@
 
     .list-menu-img {
       position: absolute;
-      margin-top: 4em;
+      margin-top: 3em;
       margin-left: 20px;
       margin-right: 20px;
       margin-bottom: 2em;
@@ -51,8 +51,26 @@
       font-size: 15px;
     }
     .list-menu-price {
+      justify-content: center;
+      display: flex;
+      align-items: center;
       color: #3b375d;
       font-size: 18px;
+    }
+    .p-list-menu-price {
+      margin-right: 20px;
+    }
+    .p-list-menu-quantity {
+      .list-menu-quantity {
+        border-radius: 3px;
+        width: 45px;
+        height: 20px;
+        padding-left: 10px;
+        border: none;
+        margin-right: 5px;
+        background-color: #fff;
+        border: 1px solid #c1c1ca7c;
+      }
     }
 
     .list-menu-description {

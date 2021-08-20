@@ -29,6 +29,8 @@ export function ListMenu(props) {
             photoUrl={menu.photoUrl}
             foodCategoryName={menu.foodCategoryName}
             price={menu.price}
+            quantity={menu.quantity}
+            foodId={menu.id}
           />
         ))}
       </section>
