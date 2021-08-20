@@ -8,10 +8,29 @@ import api from "../../api/api";
 
 export function Bag() {
   const [items, setItems] = useState([]);
-  const [paymentType, setPaymentType] = useState({});
+  const [address, setAddress] = useState([]);
+  const [paymentType, setPaymentType] = useState([]);
+
+  useEffect(() => {
+    //trazer endereços do usuario;
+    api.get("/api/Customer/addresses").then((response) => {
+      const data = response.data;
+
+      setAddress(data);
+    });
+  }, [items]);
   useEffect(() => {
     //trazer formas de pagamentos;
     api.get("/api/Home/payment-types").then((response) => {
+      const data = response.data;
+
+      setPaymentType(data);
+    });
+  }, [items]);
+
+  useEffect(() => {
+    //trazer formas de pagamentos;
+    api.get("/api/Customer/bags").then((response) => {
       const data = response.data;
 
       setPaymentType(data);
@@ -27,19 +46,25 @@ export function Bag() {
         <p>Preço: R$10</p>
       </div>
       <p> Preço total: 10</p>
-
+      <h2>
+        Endereço:
+        <select required="required">
+          <option className="option-select" value={null}>
+            Selecionar Endereço
+          </option>
+          {address.map((address) => (
+            <option value={address.value}>{address.name}</option>
+          ))}
+        </select>
+      </h2>
       <h2>
         Forma de pagamento:
-        <select
-          className="input-item-category"
-          name="paymentType"
-          required="required"
-        >
+        <select required="required">
           <option className="option-select" value={null}>
             Forma de pagamento
           </option>
           {paymentType.map((paymentType) => (
-            <option value={paymentType.id}>{paymentType.name}</option>
+            <option value={paymentType.value}>{paymentType.name}</option>
           ))}
         </select>
       </h2>
