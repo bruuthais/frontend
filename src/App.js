@@ -56,6 +56,7 @@ function App() {
           component={RestaurantClientPag}
         />
         <AuthHOC exact path="/home/category/:name" component={HomeCategory} />
+
         <AuthHOC exact path="/finish" component={Bag} />
 
         {/* Parte do restaurante */}

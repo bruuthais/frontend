@@ -1,0 +1,16 @@
+{
+  "customerId": 17,
+  "address": {
+    "streetAddress": "string,231",
+    "refference": "string",
+    "zone": "string",
+    "city": "string"
+  },
+  "items": [
+    {
+      "quantity": 50,
+      "foodId": 1
+    }
+  ],
+  "paymentTypeName": "Pix"
+}

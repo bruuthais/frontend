@@ -1,5 +1,8 @@
 //Row editavel com os inputs para editar dentro dos tds
 
+import {useEffect, useState} from "react";
+import api from "../../api/api";
+
 //<select
 //          className="input-item-category"
 //          name="foodCategoryName"
@@ -20,9 +23,17 @@ const EditableRow = ({
   handleEditFormChange,
   handleCancelClick,
   handleEditClick,
-  category,
   handleAddFormChange,
 }) => {
+  const [category, setCategory] = useState([]);
+  useEffect(() => {
+    //trazer categorias;
+    api.get("/api/Home/food-categories").then((response) => {
+      const data = response.data;
+
+      setCategory(data);
+    });
+  }, []);
   return (
     <tr>
       <td>
@@ -71,13 +82,21 @@ const EditableRow = ({
         ></input>
       </td>
       <td>
-        <input
-          type="text"
-          placeholder="tempo"
+        <select
+          className="input-item-category"
           name="foodCategoryName"
-          value={editFormData.foodCategoryName}
+          required="required"
           onChange={handleEditFormChange}
-        ></input>
+        >
+          {/* Select de categoria*/}
+
+          <option className="option-select" value={null}>
+            Categoria
+          </option>
+          {category.map((category) => (
+            <option value={category.value}>{category.name}</option>
+          ))}
+        </select>
       </td>
       <td>
         <button

@@ -7,7 +7,6 @@ import api from "../../api/api";
 export function ListMenu(props) {
   const [dados, setDados] = useState<MenuResponse | []>([]);
 
-  console.log(props);
   //Retorna o cardapio do  restaurante
   const {id} = useParams();
   useEffect(() => {
@@ -31,6 +30,7 @@ export function ListMenu(props) {
             price={menu.price}
             quantity={menu.quantity}
             foodId={menu.id}
+            setBagItems={props.setBagItems}
           />
         ))}
       </section>

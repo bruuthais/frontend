@@ -7,7 +7,13 @@ import {NavBarClient2} from "../../../utils/navbar/client-navbar/NavBarClient2";
 
 export function RestaurantClientPag(props) {
   const [restaurant, setRestaurant] = useState([]);
+  const [items, setItems] = useState([]);
   const {id} = useParams();
+
+  const setBagItems = (food) => {
+    setItems([...items, food]);
+  };
+
   useEffect(() => {
     api.get(`/api/Customer/restaurants/${id}`).then((response) => {
       const data = response.data;
@@ -17,7 +23,7 @@ export function RestaurantClientPag(props) {
 
   return (
     <div className="home">
-      <NavBarClient2 />
+      <NavBarClient2 bagItems={items} />
       <div className="restaurant-box-container">
         <div className="top-box">
           <img
@@ -54,7 +60,7 @@ export function RestaurantClientPag(props) {
           <h2 className="title-box">Cardápio</h2>
         </div>
       </div>
-      <ListMenu />
+      <ListMenu setBagItems={setBagItems} />
     </div>
   );
 }

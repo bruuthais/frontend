@@ -29,6 +29,9 @@ export function NavBarClient2(props) {
     history.push("/");
   }
 
+  function handleBag() {
+    history.push("/finish");
+  }
   return (
     <header className="navbar-home-login">
       <div className="api-name">
@@ -46,7 +49,10 @@ export function NavBarClient2(props) {
 
           <MenuProfileUser size="1.2em" />
 
-          <Link to="/finish" className="nav-react-icon nav-react-icon-cart">
+          <Link
+            to={{pathname: "/finish", state: props.bagItems}}
+            className="nav-react-icon nav-react-icon-cart"
+          >
             <FiShoppingBag size="1.2em" />
           </Link>
 

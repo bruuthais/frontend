@@ -4,18 +4,14 @@ import api from "../../api/api";
 import "./style.scss";
 
 export function Menu(props) {
-  const [quantity, setQuantity] = useState();
+  const [quantity, setQuantity] = useState(1);
   const [id, setId] = useState();
   const history = useHistory();
   function handleBuyId() {
-    api
-      .post(`/api/Customer/bags/open`, {foodId: id, quantity: quantity})
-      .then(function (resposta) {
-        console.log(resposta);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    props.setBagItems({
+      quantity: Number(quantity),
+      foodId: props.id,
+    });
   }
   return (
     <>
@@ -49,7 +45,7 @@ export function Menu(props) {
               </p>
             </div>
             <button onClick={handleBuyId} className="button-buy">
-              Comprar
+              Adicionar
             </button>
           </div>
         </button>

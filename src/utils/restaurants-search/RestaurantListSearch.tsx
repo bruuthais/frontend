@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {useParams} from "react-router-dom";
 import {RestaurantSearch} from "./RestaurantSearch";
 import {RestaurantResponseSearch} from "./interface/RestaurantResponseSearch";
 import api from "../../api/api";
@@ -6,11 +7,13 @@ import api from "../../api/api";
 export function RestaurantListSearch(props: any) {
   const [dados, setDados] = useState<RestaurantResponseSearch | []>([]);
   //Retorna os restaurantes para a lista de restaurantes
+  const {name} = useParams();
   useEffect(() => {
     async function fetchRestaurants() {
       const resposta = await api.get(
-        `/api/Customer/restaurants/category/${dados.name}`
+        `/api/Customer/restaurants/category/${name}`
       );
+      console.log(dados);
       setDados(resposta.data);
     }
     fetchRestaurants();
