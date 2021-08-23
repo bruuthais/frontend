@@ -1,6 +1,6 @@
 import React from "react";
 import {Menu, MenuItem} from "@szhsin/react-menu";
-import {FiUser} from "react-icons/fi";
+import {FiUser, FiLogOut} from "react-icons/fi";
 import "@szhsin/react-menu/dist/index.css";
 import {useHistory} from "react-router-dom";
 import "./style.scss";
@@ -14,9 +14,13 @@ export function MenuProfileUser() {
     history.push("/home/profile/address");
   }
   function handleOrders() {
-    history.push("/home/orders");
+    history.push("/home/profile/orders");
   }
-
+  //Logout
+  function handleLogout() {
+    localStorage.removeItem("jwtToken");
+    history.push("/");
+  }
   return (
     <Menu
       menuButton={
@@ -28,6 +32,7 @@ export function MenuProfileUser() {
       <MenuItem onClick={handleMe}>alterar perfil</MenuItem>
       <MenuItem onClick={handleAddress}>endereço</MenuItem>
       <MenuItem onClick={handleOrders}>pedidos</MenuItem>
+      <MenuItem onClick={handleLogout}>sair</MenuItem>
     </Menu>
   );
 }

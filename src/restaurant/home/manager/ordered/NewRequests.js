@@ -31,7 +31,7 @@ export function NewRequests() {
         status: "",
       })
       .then(function (resposta) {
-        alert("NEXT DEU CERTO");
+        console.log(resposta);
       })
       .catch(function (error) {
         console.error(error);

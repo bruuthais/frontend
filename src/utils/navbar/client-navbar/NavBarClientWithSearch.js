@@ -1,5 +1,5 @@
 import "./style.scss";
-import {FiLogOut, FiShoppingCart} from "react-icons/fi";
+import {FiShoppingBag} from "react-icons/fi";
 
 import {useHistory} from "react-router-dom";
 import {useState, useEffect} from "react";
@@ -23,12 +23,6 @@ export function NavBarClientWithSearch(props) {
     history.push("/home");
   }
 
-  //Logout
-  function handleLogout() {
-    localStorage.removeItem("jwtToken");
-    history.push("/");
-  }
-
   return (
     <header className="navbar-home-login">
       <div className="api-name">
@@ -49,23 +43,16 @@ export function NavBarClientWithSearch(props) {
           />
         </form>
         <div className="types">
-          <p className="username">{profile.name}</p>
+          <p className="username">Olá, {profile.name}</p>
 
           <MenuProfileUser size="1.2em" />
 
           <Link
-            to={{pathname: "/finish", state: props.bagItems}}
+            to={{pathname: "/bag", state: props.bagItems}}
             className="nav-react-icon nav-react-icon-cart"
           >
-            <FiShoppingCart size="1.2em" />
+            <FiShoppingBag size="1.2em" />
           </Link>
-
-          <div
-            onClick={handleLogout}
-            className="nav-react-icon nav-react-icon-logout"
-          >
-            <FiLogOut size="1.2em" />
-          </div>
         </div>
       </div>
     </header>
