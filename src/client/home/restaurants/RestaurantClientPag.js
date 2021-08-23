@@ -3,7 +3,7 @@ import {useParams} from "react-router-dom";
 import api from "../../../api/api";
 import "./style.scss";
 import {ListMenu} from "../../../utils/list-menu/ListMenu";
-import {NavBarClient2} from "../../../utils/navbar/client-navbar/NavBarClient2";
+import {NavbarClient} from "../../../utils/navbar/client-navbar/NavBarClient";
 
 export function RestaurantClientPag(props) {
   const [restaurant, setRestaurant] = useState([]);
@@ -23,7 +23,7 @@ export function RestaurantClientPag(props) {
 
   return (
     <div className="home">
-      <NavBarClient2 bagItems={items} />
+      <NavbarClient bagItems={items} />
       <div className="restaurant-box-container">
         <div className="top-box">
           <img

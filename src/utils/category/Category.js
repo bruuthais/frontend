@@ -57,6 +57,7 @@ export function Category(props) {
       .get(`/api/Customer/restaurants/category/${name}`)
       .then(function (resposta) {
         history.push(`/home/category/${name}`);
+        window.location.reload();
       })
       .catch(function (error) {
         console.log(error);

@@ -10,8 +10,11 @@ export function MenuProfileUser() {
   function handleMe() {
     history.push("/home/profile");
   }
-  function handleAdress() {
+  function handleAddress() {
     history.push("/home/profile/address");
+  }
+  function handleOrders() {
+    history.push("/home/orders");
   }
 
   return (
@@ -23,7 +26,8 @@ export function MenuProfileUser() {
       }
     >
       <MenuItem onClick={handleMe}>alterar perfil</MenuItem>
-      <MenuItem onClick={handleAdress}>endereço</MenuItem>
+      <MenuItem onClick={handleAddress}>endereço</MenuItem>
+      <MenuItem onClick={handleOrders}>pedidos</MenuItem>
     </Menu>
   );
 }

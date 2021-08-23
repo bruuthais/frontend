@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {useHistory} from "react-router-dom";
-import api from "../../api/api";
+import {ToastContainer, toast} from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
 
 export function Menu(props) {
@@ -12,11 +13,12 @@ export function Menu(props) {
       quantity: Number(quantity),
       foodId: props.id,
     });
+    toast.success("O item foi adicionado ao carrinho");
   }
   return (
     <>
       <div className="list-menu-content">
-        <button className="list-menu">
+        <div className="list-menu">
           <div className="list-menu-img">
             <img
               className="list-menu-img-food"
@@ -48,7 +50,8 @@ export function Menu(props) {
               Adicionar
             </button>
           </div>
-        </button>
+        </div>
+        <ToastContainer />
       </div>
     </>
   );

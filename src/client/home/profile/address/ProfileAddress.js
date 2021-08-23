@@ -6,7 +6,7 @@ import NumberFormat from "react-number-format";
 import "./form.scss";
 import Swal from "sweetalert2";
 import "../../../../assets/styles/global-form.scss";
-import {NavBarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
+import {NavbarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
 
 export function ProfileAddress() {
   const [name, setName] = useState("");
@@ -46,7 +46,7 @@ export function ProfileAddress() {
   }
   return (
     <div className="page-global-form">
-      <NavBarClient />
+      <NavbarClient />
       <main className="main-address">
         <div className="global-form-container">
           <form className="global-form-box">

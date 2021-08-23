@@ -2,9 +2,10 @@ import {Menu, MenuItem} from "@szhsin/react-menu";
 import {FiShoppingBag} from "react-icons/fi";
 import "@szhsin/react-menu/dist/index.css";
 import {useHistory} from "react-router-dom";
-import {NavBarClient} from "../navbar/client-navbar/NavBarClient";
+
 import {useEffect, useState} from "react";
 import api from "../../api/api";
+import {NavbarClient} from "../navbar/client-navbar/NavBarClient";
 
 export function Bag(props) {
   const [items, setItems] = useState([]);
@@ -71,7 +72,7 @@ export function Bag(props) {
   };
   return (
     <div>
-      <NavBarClient />
+      <NavbarClient />
       <h2>Sacola</h2>
       <div className="bag-items"></div>
       <p> Preço total: 10</p>

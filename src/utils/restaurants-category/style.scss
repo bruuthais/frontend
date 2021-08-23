@@ -1,7 +1,8 @@
-.container {
+.container-category {
   margin-top: 3em;
   margin-left: 1em;
   margin-right: 1em;
+  margin-bottom: 1em;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -9,53 +10,7 @@
   padding: 40px auto;
   box-sizing: border-box;
 
-  .restaurant {
-    padding: 0 auto;
-    background: #fefefe;
-    width: 430px;
-    height: 150px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 1px solid #ebebeb;
-    &:hover {
-      border: 1px solid #a8a8b3;
-    }
-
-    .restaurant-img {
-      position: absolute;
-      padding-right: 5px;
-      img {
-        width: 60px;
-        height: 60px;
-        margin-top: -8px;
-        margin-left: -5px;
-        border-radius: 50%;
-      }
-    }
-    .restaurants-box {
-      position: relative;
-      justify-content: center;
-      display: inline-block;
-      margin-left: 40px;
-    }
-    .restaurants-name {
-      color: #3b375d;
-      h3 {
-        font-size: 18px;
-      }
-    }
-    .restaurant-category {
-      color: #3b375d;
-      font-size: 1.5em;
-    }
-
-    .restaurant-is-open {
-      color: #a3d321;
-      font-size: 18px;
-    }
-  }
-
-  .restaurant-closed {
+  .restaurant-category {
     padding: 0 auto;
     background: #fefefe;
     width: 430px;
@@ -66,37 +21,76 @@
     &:hover {
       border: 1px solid #a8a8b3;
     }
-    .restaurant-img {
+
+    .restaurant-category-img {
+      position: absolute;
+      padding-right: 5px;
+      .restaurant-logo-category {
+        width: 60px;
+        height: 60px;
+        margin-top: 45px;
+        margin-left: 15px;
+        border-radius: 50%;
+      }
+    }
+    .restaurants-category-box {
+      margin-top: 2em;
+      position: relative;
+      justify-content: center;
+      display: inline-block;
+    }
+    .restaurants-category-name {
+      color: #3b375d;
+      .restaurant-category-text {
+        font-size: 18px;
+      }
+    }
+
+    .restaurant-category-is-open {
+      color: #a3d321;
+      font-size: 18px;
+    }
+  }
+
+  .restaurant-category-closed {
+    padding: 0 auto;
+    background: #fefefe;
+    width: 430px;
+    height: 10rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    &:hover {
+      border: 1px solid #a8a8b3;
+    }
+    .restaurant-category-img {
       position: absolute;
       padding-right: 5px;
 
-      img {
+      .restaurant-logo-category {
         width: 60px;
         height: 60px;
+        margin-top: 45px;
+        margin-left: 15px;
         border-radius: 50%;
-        margin-top: -8px;
-        margin-left: -5px;
         filter: brightness(0.6);
       }
     }
-    .restaurants-box {
+    .restaurants-category-box {
+      margin-top: 2em;
       position: relative;
       justify-content: center;
       display: inline-block;
     }
 
-    .restaurants-name {
+    .restaurants-category-name {
       color: gray;
-      h3 {
+      .restaurant-category-text {
         font-size: 18px;
       }
     }
-    .restaurant-category {
-      color: gray;
-      font-size: 1.5em;
-    }
 
-    .restaurant-is-closed {
+    .restaurant-category-is-closed {
       font-size: 19px;
       color: gray;
     }
@@ -104,13 +98,13 @@
 }
 
 @media (max-width: 450px) {
-  .container {
-    .restaurant {
+  .container-category {
+    .restaurant-category {
       width: 380px;
       height: 10rem;
     }
 
-    .restaurant-closed {
+    .restaurant-category-closed {
       width: 380px;
       height: 10rem;
     }

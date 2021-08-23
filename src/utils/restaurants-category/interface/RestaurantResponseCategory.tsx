@@ -1,4 +1,4 @@
-export type RestaurantResponse = [
+export type RestaurantResponseCategory = [
   {
     id: number;
     name: string;

@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
 import {useParams} from "react-router-dom";
-import {RestaurantSearch} from "./RestaurantSearch";
-import {RestaurantResponseSearch} from "./interface/RestaurantResponseSearch";
+import {RestaurantCategory} from "./RestaurantCategory";
+import {RestaurantResponseCategory} from "./interface/RestaurantResponseCategory";
 import api from "../../api/api";
 
-export function RestaurantListSearch(props: any) {
-  const [dados, setDados] = useState<RestaurantResponseSearch | []>([]);
+export function RestaurantListCategory(props: any) {
+  const [dados, setDados] = useState<RestaurantResponseCategory | []>([]);
   //Retorna os restaurantes para a lista de restaurantes
   const {name} = useParams();
   useEffect(() => {
@@ -21,14 +21,14 @@ export function RestaurantListSearch(props: any) {
 
   return (
     <>
-      <section className="container">
+      <section className="container-category">
         {dados
           .filter(({name}) =>
             name.toLowerCase().includes(props.busca.toLowerCase())
           )
           .sort((aberto) => (aberto.isOpen ? -1 : 1))
           .map((restaurant) => (
-            <RestaurantSearch
+            <RestaurantCategory
               key={restaurant.id}
               id={restaurant.id}
               name={restaurant.name}

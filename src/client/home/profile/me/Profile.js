@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
 import "../address/form.scss";
 import Swal from "sweetalert2";
-import {NavBarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
+import {NavbarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
 
 export function Profile() {
   const [name, setName] = useState("");
@@ -59,7 +59,7 @@ export function Profile() {
 
   return (
     <div className="page-profile-restaurant">
-      <NavBarClient />
+      <NavbarClient />
       <main>
         <div className="profile-restaurant-content">
           <form className="form-profile-restaurant">

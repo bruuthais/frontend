@@ -1,17 +1,18 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import "../../../assets/styles/home.scss";
-import {NavBarClient2} from "../../../utils/navbar/client-navbar/NavBarClient2";
-import {RestaurantListSearch} from "../../../utils/restaurants-search/RestaurantListSearch";
-import {Search} from "../../../utils/search/Search";
+import {Category} from "../../../utils/category/Category";
+import {NavbarClient} from "../../../utils/navbar/client-navbar/NavBarClient";
+import {NavBarClientWithSearch} from "../../../utils/navbar/client-navbar/NavBarClientWithSearch";
+import {RestaurantListCategory} from "../../../utils/restaurants-category/RestaurantListCategory";
 
 export function HomeCategory() {
   const [busca, setBusca] = useState("");
   return (
     <div className="home">
-      <NavBarClient2 />
+      <NavBarClientWithSearch busca={busca} setBusca={setBusca} />
       <main className="home-main">
-        <Search />
-        <RestaurantListSearch busca={busca} />
+        <Category />
+        <RestaurantListCategory busca={busca} />
       </main>
     </div>
   );

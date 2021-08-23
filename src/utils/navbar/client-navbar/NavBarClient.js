@@ -1,5 +1,5 @@
 import "./style.scss";
-import {FiLogOut, FiShoppingBag} from "react-icons/fi";
+import {FiLogOut, FiShoppingCart} from "react-icons/fi";
 
 import {useHistory} from "react-router-dom";
 import {useState, useEffect} from "react";
@@ -8,7 +8,7 @@ import ImgLogo from "../../../assets/image/logo.svg";
 import api from "../../../api/api";
 import {MenuProfileUser} from "../restaurant-navbar/menus/MenuProfileUser";
 
-export function NavBarClient(props) {
+export function NavbarClient(props) {
   const [profile, setProfile] = useState([]);
   const history = useHistory();
   useEffect(() => {
@@ -40,21 +40,17 @@ export function NavBarClient(props) {
             onClick={handleHome}
           />
         </div>
-        <form className="header-search-restaurant">
-          <input
-            type="text"
-            placeholder="buscar restaurantes"
-            value={props.busca}
-            onChange={(e) => props.setBusca(e.target.value)}
-          />
-        </form>
+
         <div className="types">
           <p className="username">{profile.name}</p>
 
           <MenuProfileUser size="1.2em" />
 
-          <Link to="/finish" className="nav-react-icon nav-react-icon-cart">
-            <FiShoppingBag size="1.2em" />
+          <Link
+            to={{pathname: "/finish", state: props.bagItems}}
+            className="nav-react-icon nav-react-icon-cart"
+          >
+            <FiShoppingCart size="1.2em" />
           </Link>
 
           <div

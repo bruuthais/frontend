@@ -1,47 +1,15 @@
-.content {
-  .restaurant {
-    padding: 0 auto;
-    background: #fefefe;
-    width: 430px;
-    height: 2rem;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 1px solid #ebebeb;
-    &:hover {
-      border: 1px solid #a8a8b3;
-    }
-
-    .restaurant-img {
-      position: absolute;
-      padding-right: 5px;
-      .restaurant-img-logo {
-        width: 60px;
-        height: 60px;
-        margin-top: 18px;
-        margin-left: 10px;
-        border-radius: 50%;
-      }
-    }
-    .restaurants-box {
-      position: relative;
-      justify-content: center;
-      display: inline-block;
-      margin-left: 40px;
-    }
-    .restaurants-name {
-      color: #3b375d;
-      .h3-restaurants-name {
-        font-size: 18px;
-      }
-    }
-
-    .restaurant-is-open {
-      color: #a3d321;
-      font-size: 18px;
-    }
-  }
-
-  .restaurant-closed {
+.container {
+  margin-top: 3em;
+  margin-left: 2em;
+  margin-right: 2em;
+  margin-bottom: 4em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px auto;
+  box-sizing: border-box;
+  .restaurant-list {
     padding: 0 auto;
     background: #fefefe;
     width: 430px;
@@ -52,7 +20,49 @@
     &:hover {
       border: 1px solid #a8a8b3;
     }
-    .restaurant-img {
+
+    .restaurant-list-img {
+      position: absolute;
+      padding-right: 5px;
+      .restaurant-img-logo {
+        width: 60px;
+        height: 60px;
+        margin-top: 18px;
+        margin-left: 10px;
+        border-radius: 50%;
+      }
+    }
+    .restaurants-list-box {
+      position: relative;
+      justify-content: center;
+      display: inline-block;
+      margin-left: 40px;
+    }
+    .restaurants-list-name {
+      color: #3b375d;
+      .h3-restaurants-name {
+        font-size: 18px;
+      }
+    }
+
+    .restaurant-list-is-open {
+      color: #a3d321;
+      font-size: 18px;
+    }
+  }
+
+  .restaurant-list-closed {
+    padding: 0 auto;
+    background: #fefefe;
+    width: 430px;
+    height: 10rem;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #ebebeb;
+    &:hover {
+      border: 1px solid #a8a8b3;
+    }
+    .restaurant-list-img {
       position: absolute;
       padding-right: 5px;
 
@@ -65,24 +75,20 @@
         filter: brightness(0.6);
       }
     }
-    .restaurants-box {
+    .restaurants-list-box {
       position: relative;
       justify-content: center;
       display: inline-block;
     }
 
-    .restaurants-name {
+    .restaurants-list-name {
       color: gray;
       .h3-restaurants-name {
         font-size: 18px;
       }
     }
-    .restaurant-category {
-      color: gray;
-      font-size: 1.5em;
-    }
 
-    .restaurant-is-closed {
+    .restaurant-list-is-closed {
       font-size: 19px;
       color: gray;
     }

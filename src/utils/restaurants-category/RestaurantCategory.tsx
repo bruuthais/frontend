@@ -2,7 +2,7 @@ import {useHistory} from "react-router-dom";
 import api from "../../api/api";
 import "./style.scss";
 
-export function Restaurant(props: any) {
+export function RestaurantCategory(props: any) {
   const history = useHistory();
   function handleRestaurantId(id: any) {
     api
@@ -17,34 +17,34 @@ export function Restaurant(props: any) {
   return (
     <>
       <div className="content">
-        <button
+        <div
           onClick={handleRestaurantId}
           className={
-            props.isOpen ? "restaurant-list" : "restaurant-list-closed"
+            props.isOpen ? "restaurant-category" : "restaurant-category-closed"
           }
         >
-          <div className="restaurant-list-img">
+          <div className="restaurant-category-img">
             <img
-              className="restaurant-img-logo"
+              className="restaurant-logo-category"
               src={props.logoUrl}
               alt="imagem do restaurante"
             ></img>
           </div>
-          <div className="restaurants-list-box">
-            <div className="restaurants-list-name">
-              <h3 className="h3-restaurants-name"> {props.name}</h3>
+          <div className="restaurants-category-box">
+            <div className="restaurants-category-name">
+              <h3 className="restaurants-category-text"> {props.name}</h3>
             </div>
             <div
               className={
                 props.isOpen
-                  ? "restaurant-list-is-open"
-                  : "restaurant-list-is-closed"
+                  ? "restaurant-category-is-open"
+                  : "restaurant-category-is-closed"
               }
             >
               {props.isOpen ? <p>Aberto</p> : <p>Fechado</p>}
             </div>
           </div>
-        </button>
+        </div>
       </div>
     </>
   );
