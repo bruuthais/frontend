@@ -1,7 +1,6 @@
 import React, {useState} from "react";
 import "../../../assets/styles/home.scss";
 import {Category} from "../../../utils/category/Category";
-import {NavbarClient} from "../../../utils/navbar/client-navbar/NavBarClient";
 import {NavBarClientWithSearch} from "../../../utils/navbar/client-navbar/NavBarClientWithSearch";
 import {RestaurantListCategory} from "../../../utils/restaurants-category/RestaurantListCategory";
 

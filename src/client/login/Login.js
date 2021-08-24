@@ -31,7 +31,6 @@ export function LoginClient(props) {
         toast.error("email ou senha inválidos");
         localStorage.removeItem("jwtToken");
       });
-    console.log(doLogin);
   };
 
   // verificar o que volta do objeto resposta e ver se tem erro

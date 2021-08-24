@@ -34,7 +34,6 @@ const LoginRestaurant = (props) => {
         toast.error("email ou senha inválidos");
         localStorage.removeItem("jwtToken");
       });
-    console.log(doLogin);
   };
 
   return (

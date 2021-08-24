@@ -49,7 +49,7 @@ export function RestaurantClientPag(props) {
                     : "status-restaurant-closed"
                 }
               >
-                {restaurant.isOpen ? <p>Aberto</p> : <p>Fechado</p>}
+                {restaurant.isOpen ? <p> Aberto</p> : <p> Fechado</p>}
               </h2>
             </div>
           </div>

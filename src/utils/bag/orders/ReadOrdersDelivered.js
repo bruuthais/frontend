@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.scss";
-const ReadOrders = ({item}) => {
+const ReadOrdersDelivered = ({item}) => {
   return (
     <>
       <div className="orders-container">
@@ -29,7 +29,7 @@ const ReadOrders = ({item}) => {
             </p>
             <p className="orders-list-p">
               Pedido feito em:{" "}
-              <em className="orders-list-blue">{item.orderedAt}</em>
+              <em className="orders-list-blue">{item.deliveredAt}</em>
             </p>
           </div>
         </div>
@@ -38,4 +38,4 @@ const ReadOrders = ({item}) => {
   );
 };
 
-export default ReadOrders;
+export default ReadOrdersDelivered;
