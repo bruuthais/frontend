@@ -5,7 +5,7 @@
   margin-bottom: 2em;
   display: flex;
   flex-wrap: wrap;
-
+  color: #3b375d;
   gap: 20px;
 
   box-sizing: border-box;
@@ -61,10 +61,6 @@
 }
 .orders-list-p {
   padding-left: 70px;
-}
-
-.orders-list-green {
-  color: #00e100;
 }
 
 .orders-list-blue {

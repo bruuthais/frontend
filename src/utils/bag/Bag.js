@@ -7,30 +7,38 @@ import "./style.scss";
 import {NavbarClient} from "../navbar/client-navbar/NavBarClient";
 
 export function Bag(props) {
-  const [items, setItems] = useState(props.location.state);
+  const [items, setItems] = useState([]);
   const [address, setAddress] = useState([]);
   const [paymentType, setPaymentType] = useState([]);
   const [user, setUser] = useState({});
   const [selectedAddress, setSelectedAddress] = useState({});
   const [selectedPaymentType, setSelectedPaymentType] = useState({});
 
-  //"​/api​/Customer​/foods​/{id}"
+  //PEGA OS ITENS SELECIONADOS NO LOCATION STATE E UTILIZA O FOOD ID PARA MAPEAR
+  //OS NOMES DAS COMIDAS, UTILIZA O FOODID TBM PARA PEGAR A QUANTIDADE  ADICIONA-LA NOS FOODS
 
-  //useEffect(() => {
-  //    api.get("/api/Restaurant/bags/status/delivering").then((response) => {
-  //      const idList = response.data.map((bag) => bag.id);
-  //
-  //      Promise.all(
-  //        idList.map((id) => api.get(`/api/Restaurant/bags/${id}`))
-  //      ).then((bag) => {
-  //        const pedidos = bag.map((item) => item.data);
-  //
-  //        setItems(pedidos);
-  //      });
-  //    });
-  //  }, []);
+  useEffect(() => {
+    if (props.location.state !== undefined) {
+      const idList = props.location.state.map((food) => food.foodId);
 
-  console.log(items);
+      Promise.all(
+        idList.map((id) => api.get(`/api/Customer/foods/${id}`))
+      ).then((foods) => {
+        const pedidos = foods
+          .map((item) => item.data)
+          .map((food) => {
+            const {quantity} = props.location.state.find(
+              (p) => food.id === p.foodId
+            );
+            return {...food, quantity: quantity};
+          });
+
+        console.log(pedidos);
+        setItems(pedidos);
+      });
+    }
+  }, []);
+
   useEffect(() => {
     //trazer id do usuario;
     api.get("/api/Customer/me").then((response) => {
@@ -59,26 +67,34 @@ export function Bag(props) {
   //PEGA OS ITENS ADICIONADOS AO CARRINHO E CONFIRMA A SACOLA/CARRINHO
   const handleSubmit = (event) => {
     event.preventDefault();
-    const bagItems = props.location.state;
-    api
-      .post("/api/Customer/bags", {
-        customerId: user.id,
-        address: {
-          streetAddress: selectedAddress.streetAddress,
-          refference: selectedAddress.refference,
-          zone: selectedAddress.zone,
-          city: selectedAddress.city,
-        },
-        items: bagItems,
-        paymentTypeName: selectedPaymentType.name,
-      })
-      .then((response) => {
-        Swal.fire({
-          text: "Pedido realizado com sucesso!",
-          icon: "success",
-          confirmButtonColor: "#4054b2",
+    if (props.location.state !== undefined) {
+      const bagItems = props.location.state;
+      api
+        .post("/api/Customer/bags", {
+          customerId: user.id,
+          address: {
+            streetAddress: selectedAddress.streetAddress,
+            refference: selectedAddress.refference,
+            zone: selectedAddress.zone,
+            city: selectedAddress.city,
+          },
+          items: bagItems,
+          paymentTypeName: selectedPaymentType.name,
+        })
+        .then((response) => {
+          Swal.fire({
+            text: "Pedido realizado com sucesso!",
+            icon: "success",
+            confirmButtonColor: "#4054b2",
+          });
         });
+    } else {
+      Swal.fire({
+        text: "Você não pode realizar uma compra sem ter itens nela!",
+        icon: "error",
+        confirmButtonColor: "#4054b2",
       });
+    }
   };
 
   const handleSelectedAddressChange = (event) => {
@@ -91,6 +107,7 @@ export function Bag(props) {
     const pType = JSON.parse(event.target.value);
     setSelectedPaymentType(pType);
   };
+
   return (
     <>
       <NavbarClient />
@@ -98,8 +115,35 @@ export function Bag(props) {
         <main className="cart-main">
           <div className="cart-container">
             <form className="form-cart">
-              <h2>Carrinho de Pedidos</h2>
-              <div className="cart-items"></div>
+              <h2 className="form-cart-title">Sacola de Pedidos</h2>
+              <div className="cart-items">
+                {items.map((item) => (
+                  <div className="cart-items-list" key={item.id}>
+                    <p className="cart-item-name">{item.name} </p>
+                    <div className="cart-item-list-quantity">
+                      <p className="cart-item-quantity">
+                        Quantidade: {item.quantity}
+                      </p>
+                      <p className="cart-item-price">
+                        R$ {item.quantity * item.price}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <p className="separator"></p>
+              <div className="cart-items-total-price">
+                <p>
+                  Total:
+                  <em className="total-price">
+                    R$
+                    {items.reduce(
+                      (total, item) => (total += item.quantity * item.price),
+                      0
+                    )}
+                  </em>
+                </p>
+              </div>
               <div className="cart-inputs">
                 <h2 className="cart-input-title">
                   Endereço:
@@ -128,7 +172,7 @@ export function Bag(props) {
                     onChange={handleSelectedPaymentTypeChange}
                   >
                     <option className="option-select" value={null}>
-                      Forma de pagamento
+                      Selecionar Forma de Pgto
                     </option>
                     {paymentType.map((pt) => (
                       <option value={JSON.stringify(pt)} key={pt.id}>

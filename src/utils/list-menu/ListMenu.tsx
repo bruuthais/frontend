@@ -4,7 +4,7 @@ import {useParams} from "react-router-dom";
 import {MenuResponse} from "./interface/MenuResponse";
 import api from "../../api/api";
 
-export function ListMenu(props) {
+export function ListMenu(props: any) {
   const [dados, setDados] = useState<MenuResponse | []>([]);
 
   //Retorna o cardapio do  restaurante

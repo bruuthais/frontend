@@ -1,19 +1,19 @@
 import {useState} from "react";
-import {useHistory} from "react-router-dom";
 import {ToastContainer, toast} from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./style.scss";
 
-export function Menu(props) {
+export function Menu(props: any) {
   const [quantity, setQuantity] = useState(1);
-  const [id, setId] = useState();
-  const history = useHistory();
+
   function handleBuyId() {
     props.setBagItems({
       quantity: Number(quantity),
       foodId: props.id,
     });
-    toast.success("O item foi adicionado ao carrinho");
+    toast.success("O item foi adicionado ao carrinho", {
+      autoClose: 990,
+    });
   }
   return (
     <>

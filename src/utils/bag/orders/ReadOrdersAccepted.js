@@ -23,8 +23,7 @@ const ReadOrdersAccepted = ({item}) => {
               {" "}
               Valor total:{" "}
               <strong className="orders-list-green">
-                R$
-                {item.totalPrice}
+                R$ {item.totalPrice}
               </strong>
             </p>
             <p className="orders-list-p">
