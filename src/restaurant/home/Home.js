@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import api from "../../api/api";
+import Swal from "sweetalert2";
 import {NavBarRestaurant} from "../../utils/navbar/restaurant-navbar/NavBarRestaurant";
 import "./style.scss";
 export function HomeRestaurant() {
@@ -18,7 +19,11 @@ export function HomeRestaurant() {
         isOpen: "",
       })
       .then(function (resposta) {
-        alert("Você abriu o restaurante");
+        Swal.fire({
+          text: "Você abriu o restaurante!",
+          icon: "success",
+          confirmButtonColor: "#4054b2",
+        });
       })
       .catch(function (error) {
         console.error(error);
@@ -31,8 +36,13 @@ export function HomeRestaurant() {
         isOpen: "",
       })
       .then(function (resposta) {
-        alert("Você fechou o restaurante");
+        Swal.fire({
+          text: "Você fechou o restaurante!",
+          icon: "success",
+          confirmButtonColor: "#4054b2",
+        });
       })
+
       .catch(function (error) {
         console.error(error);
       });

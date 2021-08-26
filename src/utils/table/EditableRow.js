@@ -3,21 +3,6 @@
 import {useEffect, useState} from "react";
 import api from "../../api/api";
 
-//<select
-//          className="input-item-category"
-//          name="foodCategoryName"
-//          required="required"
-//          onChange={handleAddFormChange}
-//        >
-//          {/* Select de categoria*/}
-//
-//          <option className="option-select" value={null}>
-//            Categoria
-//          </option>
-//          {category.map((category) => (
-//            <option value={category.value}>{category.name}</option>
-//          ))}
-//        </select>
 const EditableRow = ({
   editFormData,
   handleEditFormChange,
@@ -66,6 +51,7 @@ const EditableRow = ({
       <td>
         <input
           type="number"
+          step="any"
           placeholder="preço"
           name="price"
           value={editFormData.price}
@@ -75,6 +61,7 @@ const EditableRow = ({
       <td>
         <input
           type="number"
+          step="any"
           placeholder="tempo"
           name="preparationTime"
           value={editFormData.preparationTime}
@@ -94,7 +81,9 @@ const EditableRow = ({
             Categoria
           </option>
           {category.map((category) => (
-            <option value={category.value}>{category.name}</option>
+            <option value={category.value} key={category.id}>
+              {category.name}
+            </option>
           ))}
         </select>
       </td>

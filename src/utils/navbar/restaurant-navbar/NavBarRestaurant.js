@@ -21,12 +21,7 @@ export function NavBarRestaurant() {
   function handleOrdered() {
     history.push("/home-restaurant/manager/orders");
   }
-  //Logout
-  function handleLogout() {
-    localStorage.removeItem("jwtToken");
-    history.push("/");
-    console.log(handleLogout);
-  }
+
   return (
     <header className="navbar-restaurant">
       <div className="api-logo-restaurant">
@@ -55,14 +50,6 @@ export function NavBarRestaurant() {
           >
             cardápio
           </button>
-          <>
-            <div
-              onClick={handleLogout}
-              className="nav-react-icon nav-react-icon-logout"
-            >
-              <FiLogOut size="1.2em" />
-            </div>
-          </>
         </div>
       </div>
     </header>

@@ -185,6 +185,7 @@ export function MenuTable() {
             className="input-item-price input-add-item"
             type="number"
             name="price"
+            step="any"
             required="required"
             placeholder="preço"
             onChange={handleAddFormChange}
@@ -194,6 +195,7 @@ export function MenuTable() {
             type="number"
             name="preparationTime"
             required="required"
+            step="any"
             placeholder="tempo"
             onChange={handleAddFormChange}
           />
@@ -246,16 +248,18 @@ export function MenuTable() {
                   );
                 })
                 .map((item) => (
-                  <Fragment>
+                  <Fragment key={item.id}>
                     {/*Partes das Rows que editam e para "leitura" */}
                     {editItemId === item.id ? (
                       <EditableRow
+                        key={item.id}
                         editFormData={editFormData}
                         handleEditFormChange={handleEditFormChange}
                         handleCancelClick={handleCancelClick}
                       />
                     ) : (
                       <ReadOnlyRow
+                        key={item.id}
                         item={item}
                         handleEditClick={handleEditClick}
                         handleDeleteClick={handleDeleteClick}

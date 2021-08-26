@@ -45,27 +45,53 @@ export function ProfileMeRestaurant() {
       console.log(response);
     });
   }, []);
-
-  async function handleDeleteRestaurant(e) {
+  function handleDelete(e) {
     e.preventDefault();
-    await api
-      .delete("/api/Restaurant/me")
-      .then(function (resposta) {
-        Swal.fire({
-          title: "Conta deletada",
-          text: "Sentiremos sua falta...",
-          icon: "success",
-          timer: 2500,
-          showConfirmButton: false,
-        });
-        localStorage.removeItem("jwtToken");
-        history.push("/");
+    const swalWithBootstrapButtons = Swal.mixin({
+      customClass: {
+        confirmButton: "#4054b2",
+        cancelButton: "#ff0000 ",
+      },
+    });
+
+    swalWithBootstrapButtons
+      .fire({
+        title: "Você tem certeza?",
+        text: "Não será possível recuperar a sua conta",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonText: "Sim, pode deletar!",
+        confirmButtonColor: "#ff0000",
+        cancelButtonText: "Não, cancele!",
+        cancelButtonColor: "#4054b2",
+        reverseButtons: true,
       })
-      .catch(function (error) {
-        console.error(error);
+      .then((result) => {
+        if (result.isConfirmed) {
+          api.delete("/api/Restaurant/me").then(function (resposta) {
+            Swal.fire({
+              title: "Conta deletada",
+              text: "Sentiremos sua falta...",
+              icon: "success",
+              timer: 2500,
+              showConfirmButton: false,
+            });
+            localStorage.removeItem("jwtToken");
+            history.push("/");
+          });
+        } else if (
+          /* Read more about handling dismissals below */
+          result.dismiss === Swal.DismissReason.cancel
+        ) {
+          Swal.fire({
+            title: "Cancelado",
+            text: "Sua conta foi salva! :)",
+            showConfirmButton: false,
+            icon: "success",
+          });
+        }
       });
   }
-
   return (
     <div className="page-profile-restaurant">
       <NavBarRestaurant />
@@ -116,10 +142,7 @@ export function ProfileMeRestaurant() {
               salvar perfil
             </button>
             <>
-              <button
-                className="button-profile-delete"
-                onClick={handleDeleteRestaurant}
-              >
+              <button className="button-profile-delete" onClick={handleDelete}>
                 excluir conta
               </button>
             </>

@@ -60,7 +60,7 @@ export function ProfilePictureRestaurant() {
             <div className="profile-adress-restaurant"></div>
 
             <button className="button-profile-restaurant" onClick={uploadImage}>
-              salvar perfil
+              adicionar
             </button>
           </form>
         </div>

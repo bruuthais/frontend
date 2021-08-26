@@ -141,6 +141,28 @@
     }
   }
 }
+.form-control-group-address {
+  justify-content: space-between !important;
+  display: inline-flex;
+  width: 100%;
+}
+.form-input-address-num {
+  width: 430px;
+  height: 40px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #a8a8b3;
+}
+.form-input-address-number {
+  margin-left: 5px;
+  width: 35px;
+  margin-right: -13px;
+  height: 40px;
+  border-radius: 8px;
+  background: #fff;
+
+  border: 1px solid #a8a8b3;
+}
 
 @media (max-width: 768px) {
   #page-create-account {

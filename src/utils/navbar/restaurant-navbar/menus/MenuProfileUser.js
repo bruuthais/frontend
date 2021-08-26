@@ -1,6 +1,6 @@
 import React from "react";
 import {Menu, MenuItem} from "@szhsin/react-menu";
-import {FiUser, FiLogOut} from "react-icons/fi";
+import {FiUser} from "react-icons/fi";
 import "@szhsin/react-menu/dist/index.css";
 import {useHistory} from "react-router-dom";
 import "./style.scss";

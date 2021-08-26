@@ -4,6 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import api from "../../../../api/api";
 import NumberFormat from "react-number-format";
 import "./form.scss";
+
 import Swal from "sweetalert2";
 import "../../../../assets/styles/global-form.scss";
 import {NavbarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
@@ -11,19 +12,24 @@ import {NavbarClient} from "../../../../utils/navbar/client-navbar/NavBarClient"
 export function ProfileAddress() {
   const [name, setName] = useState("");
   const [zipCode, setZipCode] = useState("");
+  const [number, setNumber] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
   const [state, setState] = useState("");
   const [city, setCity] = useState("");
   const [zone, setZone] = useState("");
   const [refference, setRefference] = useState("");
 
+  //concatena o endereço e o numero
+  const a = number;
+  const b = streetAddress;
+  const concatenar = ` ${b}, ${a}`;
   async function handleAddress(e: any) {
     e.preventDefault();
     await api
       .post(`/api/Customer/addresses`, {
         name: name,
         zipCode: zipCode,
-        streetAddress: streetAddress,
+        streetAddress: concatenar,
         zone: zone,
         city: city,
         state: state,
@@ -39,9 +45,7 @@ export function ProfileAddress() {
         });
       })
       .catch(function (error) {
-        toast.error(
-          `Favor verificar os dados, ex: endereço deve conter virgula antes do numero "rua, 123"`
-        );
+        toast.error(`Preencha os dados corretamente`);
       });
   }
   return (
@@ -51,7 +55,7 @@ export function ProfileAddress() {
         <div className="global-form-container">
           <form className="global-form-box">
             <div className="global-form-div">
-              <h3 className="h3-global-form">Endereço:</h3>
+              <h3 className="h3-global-form">Adicionar endereço:</h3>
 
               <div className="global-control-group">
                 <p className="p-form-address">Nome para o endereço:</p>
@@ -79,14 +83,25 @@ export function ProfileAddress() {
               </div>
               <div className="form-control-group">
                 <p className="p-form-address">Rua:</p>
-                <input
-                  className="form-input"
-                  required
-                  type="text"
-                  value={streetAddress}
-                  placeholder="margaridas, 123"
-                  onChange={(e) => setStreetAddress(e.target.value)}
-                />
+                <div className="form-control-group-address">
+                  <input
+                    className="form-input-address-num"
+                    required
+                    type="text"
+                    value={streetAddress}
+                    placeholder="margaridas"
+                    onChange={(e) => setStreetAddress(e.target.value)}
+                  />
+
+                  <input
+                    className="form-input-address-number"
+                    required
+                    type="text"
+                    value={number}
+                    placeholder="123"
+                    onChange={(e) => setNumber(e.target.value)}
+                  />
+                </div>
               </div>
 
               <div className="form-control-group">
@@ -162,7 +177,7 @@ export function ProfileAddress() {
                 className="button-profile-restaurant"
                 onClick={handleAddress}
               >
-                enviar
+                adicionar
               </button>
             </div>
           </form>
