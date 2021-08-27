@@ -4,11 +4,17 @@ import Swal from "sweetalert2";
 import {useEffect, useState} from "react";
 import api from "../../api/api";
 import "./style.scss";
+import Rodal from "rodal";
+
+// include styles
+import "rodal/lib/rodal.css";
+
 import {NavbarClient} from "../navbar/client-navbar/NavBarClient";
 
 export function Bag(props) {
   const [items, setItems] = useState([]);
   const [address, setAddress] = useState([]);
+  const [abrir, setAbrir] = useState(false);
   const [paymentType, setPaymentType] = useState([]);
   const [user, setUser] = useState({});
   const [selectedAddress, setSelectedAddress] = useState({});
@@ -67,7 +73,11 @@ export function Bag(props) {
   //PEGA OS ITENS ADICIONADOS AO CARRINHO E CONFIRMA A SACOLA/CARRINHO
   const handleSubmit = (event) => {
     event.preventDefault();
-    if (props.location.state !== undefined) {
+    if (
+      props.location.state !== undefined ||
+      address.value === null ||
+      paymentType.value === null
+    ) {
       const bagItems = props.location.state;
       api
         .post("/api/Customer/bags", {
@@ -85,6 +95,13 @@ export function Bag(props) {
           Swal.fire({
             text: "Pedido realizado com sucesso!",
             icon: "success",
+            confirmButtonColor: "#4054b2",
+          });
+        })
+        .catch((error) => {
+          Swal.fire({
+            text: "Ocorreu um erro, revise os dados novamente",
+            icon: "error",
             confirmButtonColor: "#4054b2",
           });
         });
@@ -108,9 +125,11 @@ export function Bag(props) {
     setSelectedPaymentType(pType);
   };
 
+  //Modal
+  console.log(abrir);
   return (
     <>
-      <NavbarClient />
+      <NavbarClient bagItems={items} />
       <div className="cart-content">
         <main className="cart-main">
           <div className="cart-container">
@@ -156,12 +175,17 @@ export function Bag(props) {
                       Selecionar Endereço
                     </option>
                     {address.map((ad) => (
-                      <option value={JSON.stringify(ad)} key={ad.id}>
+                      <option required value={JSON.stringify(ad)} key={ad.id}>
                         {ad.name}
                       </option>
                     ))}
                   </select>
                 </h2>
+                <button onClick={() => setAbrir(true)}>show</button>
+
+                <Rodal visible={abrir} onClose={() => setAbrir(false)}>
+                  <div>Content</div>
+                </Rodal>
               </div>
               <div className="cart-inputs">
                 <h2 className="cart-input-title">
@@ -175,7 +199,7 @@ export function Bag(props) {
                       Selecionar Forma de Pgto
                     </option>
                     {paymentType.map((pt) => (
-                      <option value={JSON.stringify(pt)} key={pt.id}>
+                      <option required value={JSON.stringify(pt)} key={pt.id}>
                         {pt.name}
                       </option>
                     ))}

@@ -10,6 +10,7 @@ import {MenuProfileUser} from "../restaurant-navbar/menus/MenuProfileUser";
 
 export function NavbarClient(props) {
   const [profile, setProfile] = useState([]);
+
   const history = useHistory();
   useEffect(() => {
     api.get("/api/Customer/me").then((response) => {
@@ -21,12 +22,6 @@ export function NavbarClient(props) {
   //Redireciona ao home
   function handleHome() {
     history.push("/home");
-  }
-
-  //Logout
-  function handleLogout() {
-    localStorage.removeItem("jwtToken");
-    history.push("/");
   }
 
   return (
@@ -45,7 +40,11 @@ export function NavbarClient(props) {
           <p className="username">Olá, {profile.name}</p>
 
           <MenuProfileUser size="1.2em" />
-
+          <p>
+            {props.bagItems !== undefined && props.bagItems.length > 0
+              ? props.bagItems.length
+              : ""}
+          </p>
           <Link
             to={{pathname: "/bag", state: props.bagItems}}
             className="nav-react-icon nav-react-icon-cart"

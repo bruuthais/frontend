@@ -8,6 +8,7 @@ import {NavbarClient} from "../../../utils/navbar/client-navbar/NavBarClient";
 export function RestaurantClientPag(props) {
   const [restaurant, setRestaurant] = useState([]);
   const [items, setItems] = useState([]);
+
   const {id} = useParams();
 
   const setBagItems = (food) => {

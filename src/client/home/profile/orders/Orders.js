@@ -5,7 +5,7 @@ import ReadOrdersAccepted from "../../../../utils/bag/orders/ReadOrdersAccepted"
 import ReadOrdersDelivered from "../../../../utils/bag/orders/ReadOrdersDelivered";
 import {NavbarClient} from "../../../../utils/navbar/client-navbar/NavBarClient";
 
-export function Orders() {
+export function Orders(props) {
   const [ordered, setOrdered] = useState([]);
   const [delivered, setDelivered] = useState([]);
   const [delivering, setDelivering] = useState([]);

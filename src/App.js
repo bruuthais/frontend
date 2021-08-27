@@ -21,6 +21,7 @@ import {RestaurantClientPag} from "./client/home/restaurants/RestaurantClientPag
 import {HomeCategory} from "./client/home/category/HomeCategory";
 import {Bag} from "./utils/bag/Bag";
 import {Orders} from "./client/home/profile/orders/Orders";
+import {ClickOrders} from "./client/home/profile/orders/ClickOrders";
 
 const NotFound = () => <Redirect to="/" />;
 
@@ -54,6 +55,8 @@ function App() {
         />
         {/* PARTE DO MENU DE PERFIL: PEDIDOS */}
         <AuthHOC exact path="/home/profile/orders" component={Orders} />
+        {/* PARTE QUE RETORNA PEDIDO */}
+        <AuthHOC exact path="/orders/:id" component={ClickOrders} />
         {/* PAGINA DO RESTAURANTE */}
         <AuthHOC
           exact

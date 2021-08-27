@@ -13,13 +13,13 @@
 
 .orders-list {
   padding: 0 auto;
-  background: #fffefe;
+  background: #ebebeb42;
   width: 480px;
   height: 220px;
   border-radius: 10px;
   cursor: pointer;
   justify-content: center;
-  border: 1px solid #ebebeb;
+
   &:hover {
     border: 1px solid #a8a8b3;
   }
@@ -66,4 +66,50 @@
 .orders-list-blue {
   color: #4054b2;
   font-style: normal;
+}
+
+// clickOrders
+.order-list-items {
+  text-align: center;
+  color: #3b375d;
+  margin-top: 1em;
+  font-weight: 500;
+}
+
+.menu-img-item {
+  width: 100px;
+  height: 100px;
+  background-color: #3b375d;
+  border-radius: 10%;
+}
+
+.order-list-title {
+  color: #3b375d;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 2em;
+}
+
+.order-list-img {
+  position: absolute;
+
+  margin-left: 20px;
+  margin-top: 2em;
+}
+
+.orders-list-title {
+  color: #3b375d;
+  margin-left: 5em;
+  font-weight: 500;
+  margin-top: 2em;
+  font-size: 30px;
+}
+
+.order-list {
+  padding: 0 auto;
+  background: #ebebeb42;
+  width: 410px;
+  height: 200px;
+  border-radius: 10px;
+  justify-content: center;
 }

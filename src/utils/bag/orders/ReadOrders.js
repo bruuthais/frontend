@@ -1,10 +1,23 @@
 import React from "react";
+import {useHistory} from "react-router";
+import api from "../../../api/api";
 import "./style.scss";
 const ReadOrders = ({item}) => {
+  const history = useHistory();
+  function handleOrdersId(id) {
+    api
+      .get(`/api/Customer/bags/${item.id}`)
+      .then(function (resposta) {
+        history.push(`/orders/${item.id}`);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  }
   return (
     <>
       <div className="orders-container">
-        <div className="orders-list">
+        <div className="orders-list" onClick={handleOrdersId}>
           <div className="orders-list-img">
             <p className="orders-img-logo" alt="imagem do restaurante"></p>
           </div>
