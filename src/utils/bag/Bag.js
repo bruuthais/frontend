@@ -1,20 +1,15 @@
 import "@szhsin/react-menu/dist/index.css";
-import {useHistory} from "react-router-dom";
 import Swal from "sweetalert2";
 import {useEffect, useState} from "react";
 import api from "../../api/api";
 import "./style.scss";
-import Rodal from "rodal";
-
-// include styles
-import "rodal/lib/rodal.css";
-
 import {NavbarClient} from "../navbar/client-navbar/NavBarClient";
+import ModalComponent from "../modal/ModalComponent";
 
 export function Bag(props) {
   const [items, setItems] = useState([]);
+  const [isModalVisible, setModalVisible] = useState(false);
   const [address, setAddress] = useState([]);
-  const [abrir, setAbrir] = useState(false);
   const [paymentType, setPaymentType] = useState([]);
   const [user, setUser] = useState({});
   const [selectedAddress, setSelectedAddress] = useState({});
@@ -125,8 +120,8 @@ export function Bag(props) {
     setSelectedPaymentType(pType);
   };
 
-  //Modal
-  console.log(abrir);
+  //modal
+
   return (
     <>
       <NavbarClient bagItems={items} />
@@ -181,35 +176,40 @@ export function Bag(props) {
                     ))}
                   </select>
                 </h2>
-                <button onClick={() => setAbrir(true)}>show</button>
 
-                <Rodal visible={abrir} onClose={() => setAbrir(false)}>
-                  <div>Content</div>
-                </Rodal>
-              </div>
-              <div className="cart-inputs">
-                <h2 className="cart-input-title">
-                  Forma de Pagamento:
-                  <select
-                    className="cart-select"
-                    required="required"
-                    onChange={handleSelectedPaymentTypeChange}
-                  >
-                    <option className="option-select" value={null}>
-                      Selecionar Forma de Pgto
-                    </option>
-                    {paymentType.map((pt) => (
-                      <option required value={JSON.stringify(pt)} key={pt.id}>
-                        {pt.name}
-                      </option>
-                    ))}
-                  </select>
-                </h2>
-              </div>
-              <div className="cart-button-div">
-                <button className="cart-button" onClick={handleSubmit}>
-                  Finalizar Pedido
+                <button
+                  className="add-address-button"
+                  type="button"
+                  onClick={() => setModalVisible(true)}
+                >
+                  Adicionar endereço
                 </button>
+                {isModalVisible ? <ModalComponent /> : null}
+
+                <div className="cart-inputs">
+                  <h2 className="cart-input-title">
+                    Forma de Pagamento:
+                    <select
+                      className="cart-select"
+                      required="required"
+                      onChange={handleSelectedPaymentTypeChange}
+                    >
+                      <option className="option-select" value={null}>
+                        Selecionar Forma de Pgto
+                      </option>
+                      {paymentType.map((pt) => (
+                        <option required value={JSON.stringify(pt)} key={pt.id}>
+                          {pt.name}
+                        </option>
+                      ))}
+                    </select>
+                  </h2>
+                </div>
+                <div className="cart-button-div">
+                  <button className="cart-button" onClick={handleSubmit}>
+                    Finalizar Pedido
+                  </button>
+                </div>
               </div>
             </form>
           </div>

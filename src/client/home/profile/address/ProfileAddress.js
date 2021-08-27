@@ -23,7 +23,7 @@ export function ProfileAddress() {
   const a = number;
   const b = streetAddress;
   const concatenar = ` ${b}, ${a}`;
-  async function handleAddress(e: any) {
+  async function handleAddress(e) {
     e.preventDefault();
     await api
       .post(`/api/Customer/addresses`, {

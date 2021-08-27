@@ -1,10 +1,7 @@
 import React from "react";
-import {useHistory} from "react-router";
-import api from "../../../api/api";
+
 import "./style.scss";
 const ReadOrder = ({item}) => {
-  const history = useHistory();
-
   return (
     <>
       <div className="orders-container">

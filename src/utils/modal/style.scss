@@ -1,0 +1,175 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 109vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.modal-container {
+  background-color: #fefefe;
+  color: #000;
+  width: 35%;
+  height: 80%;
+  border-radius: 10px;
+}
+.p-modal {
+  text-align: end;
+  margin-right: 1.5em;
+}
+.close-modal {
+  margin-top: -5em;
+  background-color: transparent;
+  outline: none;
+  width: 32px;
+  height: 32px;
+  border: none;
+  right: calc(-100% + 64px);
+  cursor: pointer;
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    width: 2.5px;
+    height: 24px;
+    background-color: #000;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+.page-modal-form {
+}
+
+.modal-form-container {
+  background: #fefefe !important;
+  border-radius: 8px;
+  margin-top: 2em;
+  width: 100%;
+  max-width: 700px;
+  text-align: center;
+  box-shadow: 0 0 1em rgba(0, 0, 0, 0.2);
+  margin-bottom: 2em;
+}
+.modal-form-box {
+  max-width: 900px;
+  padding: 30px;
+  align-items: center;
+}
+.h3-modal-form {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #3b375d;
+  font-size: 20px;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  text-align: center;
+}
+
+.modal-form-div {
+  max-width: 500px;
+  padding: 0 60px;
+}
+.p-modal-address {
+  text-align: left;
+  margin-bottom: 0.5em;
+  color: #3b375d;
+}
+.modal-input {
+  justify-content: center;
+  height: 30px;
+  border-radius: 8px;
+  background: #fff;
+  padding-left: 10px;
+  border: 1px solid #a8a8b3;
+  width: 100%;
+}
+.modal-input + .modal-input {
+  margin-top: 2em;
+  max-width: 500px;
+}
+.p-modal-form-button {
+  text-align: center;
+}
+
+.modal-button-profile-restaurant {
+  color: #fefefe;
+  background-color: #4054b2;
+  border-radius: 10px;
+  margin-top: 1.3em;
+  margin-bottom: 1.3em;
+  font-weight: 600;
+  border: none;
+  width: 15em;
+  height: 3.5em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f3e836;
+    color: #4054b2;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+}
+
+.modal-control-group-address {
+  justify-content: space-between !important;
+  display: inline-flex;
+  width: 100%;
+}
+.modal-input-address-num {
+  width: 430px;
+  height: 30px;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #a8a8b3;
+}
+.modal-input-address-number {
+  margin-left: 5px;
+  width: 35px;
+  margin-right: -13px;
+  height: 30px;
+  border-radius: 8px;
+  background: #fff;
+
+  border: 1px solid #a8a8b3;
+}
+
+.modal-input-select {
+  height: 35px;
+  border-radius: 10px;
+  background: #fff;
+  text-align: left;
+  align-items: left;
+  border: 1px solid #a8a8b3;
+  width: 510px;
+  padding-left: 10px;
+}
+
+.add-address-button {
+  color: #fefefe;
+  background-color: #4054b2;
+  border-radius: 10px;
+  margin-top: 1.3em;
+  margin-bottom: 1.3em;
+  font-weight: 600;
+  border: none;
+  width: 15em;
+  height: 3.5em;
+  cursor: pointer;
+
+  &:hover {
+    background-color: #f3e836;
+    color: #4054b2;
+    font-weight: 600;
+    transition: 0.2s;
+  }
+}

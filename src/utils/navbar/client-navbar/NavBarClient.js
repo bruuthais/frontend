@@ -40,17 +40,26 @@ export function NavbarClient(props) {
           <p className="username">Olá, {profile.name}</p>
 
           <MenuProfileUser size="1.2em" />
-          <p>
-            {props.bagItems !== undefined && props.bagItems.length > 0
-              ? props.bagItems.length
-              : ""}
-          </p>
           <Link
             to={{pathname: "/bag", state: props.bagItems}}
             className="nav-react-icon nav-react-icon-cart"
           >
             <FiShoppingBag size="1.2em" />
           </Link>
+          <div className="bolinha">
+            <p
+              className={
+                props.bagItems !== undefined && props.bagItems.length > 0
+                  ? "contador"
+                  : ""
+              }
+              contador
+            >
+              {props.bagItems !== undefined && props.bagItems.length > 0
+                ? props.bagItems.length
+                : ""}
+            </p>
+          </div>
         </div>
       </div>
     </header>

@@ -2,7 +2,6 @@ import "./style.scss";
 
 import ImgLogo from "../../../assets/image/logo.svg";
 import {useHistory} from "react-router-dom";
-import {FiLogOut} from "react-icons/fi";
 import {MenuProfile} from "./menus/MenuProfile";
 
 export function NavBarRestaurant() {
