@@ -17,7 +17,7 @@ export function Bag(props) {
 
   //PEGA OS ITENS SELECIONADOS NO LOCATION STATE E UTILIZA O FOOD ID PARA MAPEAR
   //OS NOMES DAS COMIDAS, UTILIZA O FOODID TBM PARA PEGAR A QUANTIDADE  ADICIONA-LA NOS FOODS
-
+  console.log(props);
   useEffect(() => {
     if (props.location.state !== undefined) {
       const idList = props.location.state.map((food) => food.foodId);
@@ -184,7 +184,9 @@ export function Bag(props) {
                 >
                   Adicionar endereço
                 </button>
-                {isModalVisible ? <ModalComponent /> : null}
+                {isModalVisible ? (
+                  <ModalComponent setModalVisible={setModalVisible} />
+                ) : null}
 
                 <div className="cart-inputs">
                   <h2 className="cart-input-title">

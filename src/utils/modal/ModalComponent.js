@@ -48,7 +48,10 @@ const ModalComponent = (props) => {
     <div className="modal">
       <div className="modal-container">
         <p className="p-modal">
-          <button className="close-modal" />
+          <button
+            className="close-modal"
+            onClick={() => props.setModalVisible(false)}
+          />
         </p>
         <div className="modal-content">
           <div className="modal-form-div">
