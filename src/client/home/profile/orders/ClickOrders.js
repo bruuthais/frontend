@@ -28,7 +28,7 @@ export function ClickOrders(props) {
       <div>
         <h2 className="order-list-title">Restaurante {order.restaurantName}</h2>
 
-        <h2 className="order-list-items">Items do pedido:</h2>
+        <h2 className="order-list-items">Itens do pedido:</h2>
         <div className="container">
           {items.map((item) => (
             <ReadOrder item={item} />

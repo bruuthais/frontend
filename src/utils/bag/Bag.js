@@ -162,7 +162,7 @@ export function Bag(props) {
                 <h2 className="cart-input-title">
                   Endereço:
                   <select
-                    className="cart-select"
+                    className="cart-select-address"
                     required="required"
                     onChange={handleSelectedAddressChange}
                   >
@@ -175,43 +175,42 @@ export function Bag(props) {
                       </option>
                     ))}
                   </select>
-                </h2>
-
-                <button
-                  className="add-address-button"
-                  type="button"
-                  onClick={() => setModalVisible(true)}
-                >
-                  Adicionar endereço
-                </button>
-                {isModalVisible ? (
-                  <ModalComponent setModalVisible={setModalVisible} />
-                ) : null}
-
-                <div className="cart-inputs">
-                  <h2 className="cart-input-title">
-                    Forma de Pagamento:
-                    <select
-                      className="cart-select"
-                      required="required"
-                      onChange={handleSelectedPaymentTypeChange}
-                    >
-                      <option className="option-select" value={null}>
-                        Selecionar Forma de Pgto
-                      </option>
-                      {paymentType.map((pt) => (
-                        <option required value={JSON.stringify(pt)} key={pt.id}>
-                          {pt.name}
-                        </option>
-                      ))}
-                    </select>
-                  </h2>
-                </div>
-                <div className="cart-button-div">
-                  <button className="cart-button" onClick={handleSubmit}>
-                    Finalizar Pedido
+                  <button
+                    className="add-address-button"
+                    type="button"
+                    onClick={() => setModalVisible(true)}
+                  >
+                    Adicionar endereço
                   </button>
-                </div>
+                  {isModalVisible ? (
+                    <ModalComponent setModalVisible={setModalVisible} />
+                  ) : null}
+                </h2>
+              </div>
+
+              <div className="cart-inputs">
+                <h2 className="cart-input-title">
+                  Forma de Pagamento:
+                  <select
+                    className="cart-select"
+                    required="required"
+                    onChange={handleSelectedPaymentTypeChange}
+                  >
+                    <option className="option-select" value={null}>
+                      Selecionar Forma de Pgto
+                    </option>
+                    {paymentType.map((pt) => (
+                      <option required value={JSON.stringify(pt)} key={pt.id}>
+                        {pt.name}
+                      </option>
+                    ))}
+                  </select>
+                </h2>
+              </div>
+              <div className="cart-button-div">
+                <button className="cart-button" onClick={handleSubmit}>
+                  Finalizar Pedido
+                </button>
               </div>
             </form>
           </div>
